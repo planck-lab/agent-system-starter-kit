@@ -1,0 +1,17 @@
+# Security
+.env
+*.key
+*.pem
+credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temp
+/tmp/
+*.tmp
