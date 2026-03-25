@@ -57,9 +57,12 @@ footer { text-align: center; padding: 2rem 0; font-size: .75rem; color: var(--mu
 .callout { background: rgba(88,166,255,.06); border: 1px solid rgba(88,166,255,.15); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; font-size: .88rem; }
 /* Doc pages */
 .doc-nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; max-width: 800px; margin: 0 auto; font-size: .85rem; }
-.doc-nav .nav-links { display: flex; gap: 1.25rem; }
-.doc-nav .nav-links a { color: var(--muted); }
+.doc-nav .nav-links { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.doc-nav .nav-links a { color: var(--muted); padding: .15rem .4rem; }
 .doc-nav .nav-links a.active { color: var(--accent); font-weight: 600; }
+.nav-group { display: inline-flex; align-items: center; gap: .35rem; }
+.nav-group + .nav-group { margin-left: .75rem; padding-left: .75rem; border-left: 1px solid var(--border); }
+.nav-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 600; }
 .doc-container h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: .75rem; }
 .doc-container h3 { font-size: 1rem; font-weight: 700; margin: 1.5rem 0 .75rem; }
 .doc-container section h2 { text-align: left; }

@@ -123,7 +123,7 @@ Agent A writes: signals/request.md → git push<br>
 Agent B pulls → reads → writes: responses/answer.md → git push<br>
 Agent A pulls → reads response → acts on it
   </div>
-  <p style="text-align:center;margin-top:.75rem"><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md">See a real exchange session →</a> · <a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/docs/AGENT_EXCHANGE.md">Deep dive →</a></p>
+  <p style="text-align:center;margin-top:.75rem"><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md">See a real exchange session →</a> · <a href="agent-exchange.html">Deep dive →</a></p>
   <div class="callout" style="text-align:center;margin-top:1rem">
     <strong>Part of a duo:</strong> This kit pairs with the <a href="https://github.com/janrummel/claude-orchestrator-starter">Orchestrator Kit</a> — the builder to this thinker. Connect them via the Exchange repo.
   </div>
@@ -131,52 +131,38 @@ Agent A pulls → reads response → acts on it
 
 <!-- ===== Deep Dives ===== -->
 <section>
-  <h2><span class="label">Go Deeper</span>Deep Dives</h2>
-  <p style="text-align:center;color:var(--muted);max-width:550px;margin:0 auto 1.25rem">The architecture is the starting point. These guides cover the operational questions — where it runs, what it costs, and how to decide what to delegate.</p>
-  <div class="grid grid-3">
+  <h2><span class="label">Go Deeper</span>Concepts & Guides</h2>
+  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto 1.5rem">The architecture is the starting point. These pages cover the questions that come next.</p>
+
+  <h3 style="text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.75rem">📘 Concepts — Understand</h3>
+  <div class="grid grid-2" style="margin-bottom:1.5rem">
     <div class="card" style="text-align:center">
-      <div class="icon">🖥️</div>
-      <h3>Runtime</h3>
-      <p>Where agents actually run. Hardware, platforms, costs, local vs cloud models, sovereign AI.</p>
-      <a href="runtime.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read the guide →</a>
-    </div>
-    <div class="card" style="text-align:center">
-      <div class="icon">🤝</div>
-      <h3>Agent Exchange</h3>
-      <p>Multi-agent collaboration via Git. 4 use cases, honest limitations, getting started in 5 min.</p>
-      <a href="agent-exchange.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read the guide →</a>
+      <div class="icon">⚡</div>
+      <h3>Agent ≠ CLI</h3>
+      <p>Claude Code is a tool. An agent system is a teammate. Persistence, hooks, skills, and why it matters.</p>
+      <a href="agent-vs-cli.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
     </div>
     <div class="card" style="text-align:center">
       <div class="icon">🎯</div>
       <h3>Delegation</h3>
       <p>When to delegate, when not to. The 2×2 matrix, five patterns, the trust ladder.</p>
-      <a href="delegation.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read the guide →</a>
+      <a href="delegation.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
     </div>
   </div>
-</section>
 
-<!-- ===== Deep Dives ===== -->
-<section>
-  <h2><span class="label">Go Deeper</span>Deep Dives</h2>
-  <p style="text-align:center;color:var(--muted);margin-bottom:1.25rem">The architecture is just the start. These guides cover the operational questions.</p>
-  <div class="grid grid-3">
+  <h3 style="text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.75rem">🔧 Guides — Build</h3>
+  <div class="grid grid-2">
     <div class="card" style="text-align:center">
       <div class="icon">🖥️</div>
       <h3>Runtime</h3>
-      <p>Where agents actually run. Hardware, platforms, costs, cloud vs local models, sovereign AI.</p>
-      <p style="margin-top:.75rem"><a href="runtime.html" class="btn btn-secondary" style="font-size:.8rem;padding:.45rem 1rem">Read the guide →</a></p>
+      <p>Where agents run. Hardware, platforms, costs, local vs cloud models, sovereign AI.</p>
+      <a href="runtime.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
     </div>
     <div class="card" style="text-align:center">
       <div class="icon">🤝</div>
       <h3>Agent Exchange</h3>
-      <p>Multi-agent collaboration via Git. 4 use cases, limitations, comparison to A2A and message queues.</p>
-      <p style="margin-top:.75rem"><a href="agent-exchange.html" class="btn btn-secondary" style="font-size:.8rem;padding:.45rem 1rem">Read the guide →</a></p>
-    </div>
-    <div class="card" style="text-align:center">
-      <div class="icon">🎯</div>
-      <h3>Delegation</h3>
-      <p>When to delegate, when not to. The 2×2 matrix, five delegation patterns, the trust ladder.</p>
-      <p style="margin-top:.75rem"><a href="delegation.html" class="btn btn-secondary" style="font-size:.8rem;padding:.45rem 1rem">Read the guide →</a></p>
+      <p>Multi-agent collaboration via Git. 4 use cases, limitations, 5-minute setup.</p>
+      <a href="agent-exchange.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
     </div>
   </div>
 </section>
