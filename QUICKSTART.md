@@ -1,6 +1,7 @@
 # ⚡ Quickstart
 
-**From clone to working agent in 15 minutes.**
+**From clone to working agent in 30 minutes.**
+**Just want to study the architecture? Skip to [Option D](#option-d-study-only-no-platform-needed).**
 
 ---
 
@@ -58,7 +59,30 @@ Point your OpenClaw workspace to this directory. The gateway reads SOUL.md, AGEN
 Concatenate `SOUL.md` + `AGENTS.md` + `TOOLS.md` into your system prompt. The agent will follow the behavior rules regardless of the underlying model.
 
 ### Option D: Study only (no platform needed)
-Just read the files. The architecture is the lesson.
+
+No API key, no platform, no setup. Just read the files — the architecture is the lesson.
+
+**Guided Tour — map of concepts to files:**
+
+| Concept | File | What you'll learn |
+|---------|------|-------------------|
+| Agent identity & personality | `SOUL.md` | How to define WHO an agent is |
+| Behavior rules & skill routing | `AGENTS.md` | How to define HOW an agent acts |
+| Tool permissions & restrictions | `TOOLS.md` | How to set boundaries |
+| Memory architecture | `memory/` + `MEMORY.md` | Short-term vs long-term memory |
+| Reusable capabilities | `skills/` | How to teach an agent new things |
+| Multi-agent communication | `exchange/` | How agents collaborate via Git |
+| Real failures & lessons | `docs/FAILURES.md` | What goes wrong in practice |
+| Architecture deep-dive | `docs/ARCHITECTURE.md` | The 4-layer model explained |
+
+**Reading order:** SOUL.md → AGENTS.md → docs/ARCHITECTURE.md → docs/FAILURES.md → exchange/ + [examples/exchange-session.md](examples/exchange-session.md)
+
+If you've taken the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/), you'll recognize the concepts:
+- **Module 1** (Agent Loop) → See it in `AGENTS.md` (skill routing, intent detection)
+- **Module 2** (Trust & Delegation) → See it in `docs/DELEGATION.md` (the 5 levels)
+- **Module 3** (Architecture) → See it in `docs/ARCHITECTURE.md` (4-layer model)
+- **Module 4** (Risk & Security) → See it in `TOOLS.md` (restricted paths) + `docs/FAILURES.md`
+- **Module 5** (Strategy) → See it in the [exchange example](examples/exchange-session.md) (real decision-making)
 
 ---
 
@@ -139,5 +163,5 @@ Start at 🟢 (everything needs approval). Earn trust. Then expand.
 
 ---
 
-*Estimated time: 15 minutes from clone to working agent.*
+*Estimated time: 30 minutes from clone to working agent. Or 30 minutes to study the architecture without building anything.*
 *No code required. No framework lock-in. Just markdown files and clear thinking.*

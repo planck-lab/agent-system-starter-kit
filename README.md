@@ -1,6 +1,6 @@
 # 🏗️ Agent System Starter Kit
 
-**Clone → Configure → Run. A personal AI agent in 15 minutes.**
+**Understand before you build.** A minimal, framework-agnostic starter kit for personal AI agent systems.
 
 > Based on a real agent system that's been running in production since early 2026. Anonymized, documented, and ready to use.
 
@@ -12,8 +12,8 @@
 
 | Path | Time | For whom |
 |------|------|----------|
-| **🚀 Build** | 15 min | Clone, personalize, connect to Claude Code / OpenClaw / any LLM |
-| **📖 Study** | 1 hour | Read the architecture docs, understand the patterns |
+| **📖 Study** | 30 min | Read the architecture docs, understand the patterns |
+| **🚀 Build** | 30 min | Clone, personalize, connect to Claude Code / OpenClaw / any LLM |
 | **🎓 Learn** | 2 hours | Follow the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) with this as companion |
 
 ---
@@ -167,6 +167,8 @@ agent-system-starter-kit/
 │   ├── signals/
 │   ├── questions/
 │   └── responses/
+├── examples/
+│   └── exchange-session.md   # Real multi-agent exchange (anonymized)
 └── docs/
     ├── ARCHITECTURE.md       # Detailed architecture explanation
     ├── DELEGATION.md         # When to delegate, when not to
@@ -200,9 +202,27 @@ See [`docs/FAILURES.md`](docs/FAILURES.md) for detailed stories. Highlights:
 - **Evaluating whether to build your own** — Understand the complexity before committing
 - **Teaching/learning** — Use as companion to the [Agent Literacy course](https://planck-lab.github.io/agent-systems/)
 
+## How This Compares
+
+There are other starter kits. They're good — for different things.
+
+|  | This Kit | [wshobson/agents](https://github.com/wshobson/agents) | [Decipherist](https://thedecipherist.github.io/claude-code-mastery-project-starter-kit/) |
+|---|---|---|---|
+| **Philosophy** | Understand first | Plugin catalog | Project scaffold |
+| **Files** | ~15 markdown | 300+ | 50+ |
+| **Dependencies** | None | None | None |
+| **Multi-Agent** | ✅ Exchange pattern | ❌ | ❌ |
+| **Provider lock-in** | None | Claude Code | Claude Code |
+| **Failure docs** | ✅ Real failures | ❌ | ❌ |
+| **Best for** | First agent system | Power users | New projects |
+
+**If you need 146 skills and 72 plugins →** [wshobson/agents](https://github.com/wshobson/agents)
+**If you need MDD workflow and hooks →** [Decipherist Starter Kit](https://thedecipherist.github.io/claude-code-mastery-project-starter-kit/)
+**If you want to understand how agent systems work →** You're here.
+
 ## Related
 
-- 📚 [Agent Literacy Course](https://planck-lab.github.io/agent-literacy/) — Understand agent systems (no code required)
+- 📚 [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) — Understand agent systems (no code required)
 - 🌐 [AI Learning Ecosystem](https://janrummel.github.io/ai-learning/) — More courses on AI, GitHub, Obsidian
 
 ## License
