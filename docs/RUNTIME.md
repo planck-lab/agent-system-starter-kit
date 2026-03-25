@@ -22,9 +22,9 @@ An agent needs a place to run. Your options:
 
 A laptop works for experimenting. But a real agent system — one with cron jobs, heartbeat checks, and messaging integrations — needs something that runs when your laptop is closed.
 
-A Mac mini M4 (from $599) or a used Intel NUC ($100-200) on your desk is the simplest 24/7 setup. No monthly fees beyond electricity (~$5-15/month depending on load and local rates). No vendor dependency. You own it.
+A [Mac mini M4](https://www.apple.com/shop/buy-mac/mac-mini) (from $499) or a used Intel NUC ($100-200) on your desk is the simplest 24/7 setup. No monthly fees beyond electricity. No vendor dependency. You own it.
 
-A VPS is the alternative if you don't want hardware at home. Hetzner (from €4.50/month), DigitalOcean ($6/month), or Hostinger ($5/month) give you a Linux server that's always on. As of early 2026, several providers offer one-click agent platform installs.
+A VPS is the alternative if you don't want hardware at home. [Hetzner](https://www.hetzner.com/cloud/) (from €4.50/month), [DigitalOcean](https://www.digitalocean.com/pricing) ($6/month), or [Hostinger](https://www.hostinger.com/vps-hosting) ($5/month) give you a Linux server that's always on. As of early 2026, several providers offer one-click agent platform installs.
 
 **Kubernetes and serverless are poor fits.** Agents are long-running and stateful, not ephemeral. A Kubernetes pod that gets rescheduled loses the agent's in-memory context. Serverless functions have timeout limits that conflict with agent tasks that take minutes.
 
@@ -109,7 +109,7 @@ This is one of the most important decisions. It's not just about cost — it's a
 
 ### What local models can actually do (March 2026)
 
-Local AI has matured dramatically. Ollama reached 52 million monthly downloads in Q1 2026. Key benchmarks:
+Local AI has matured dramatically. Ollama reached [52 million monthly downloads](https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0) in Q1 2026. Key benchmarks (source: same article, MMLU evaluation):
 
 | Model | Size | MMLU | Hardware needed | Tokens/sec |
 |-------|------|------|----------------|------------|
@@ -119,7 +119,7 @@ Local AI has matured dramatically. Ollama reached 52 million monthly downloads i
 | DeepSeek-R1 70B | 70B | 85.1% | M4 Max (128GB) | ~12 t/s |
 | Phi-4 14B | 14B | 79.3% | 16GB RAM | ~25 t/s |
 
-For comparison: GPT-4 scores ~86.4% MMLU, Claude Opus ~86% MMLU.
+For comparison: GPT-4 scores ~86.4% MMLU ([OpenAI](https://openai.com/index/gpt-4/)), Claude Opus ~86% MMLU ([Anthropic](https://docs.anthropic.com/en/docs/about-claude/models)).
 
 **The crossover point:** At ~1,000 requests/day, cloud APIs cost $30-45/month. A local setup on existing hardware costs effectively $0 in marginal terms. At 50,000+ daily requests, cloud API costs run $2,000+/month while local inference uses only electricity.
 
@@ -186,17 +186,17 @@ You don't need to master Docker to understand the principle: **the less your age
 
 | Option | Cost | Amortized/month (36mo) |
 |--------|------|----------------------|
-| Raspberry Pi 5 (8GB) | ~$80 | ~$2 |
+| [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) (8GB) | ~$80 | ~$2 |
 | Used Intel NUC (16GB) | ~$150-250 | ~$5-7 |
-| Mac mini M4 (16GB) | ~$599 | ~$17 |
-| Mac mini M4 Pro (48GB) | ~$1,599 | ~$44 |
+| [Mac mini M4](https://www.apple.com/shop/buy-mac/mac-mini) (16GB) | ~$499 | ~$14 |
+| [Mac mini M4 Pro](https://www.apple.com/shop/buy-mac/mac-mini) (48GB) | ~$1,599 | ~$44 |
 | VPS (no hardware) | $0 | $5-25/mo |
 
 ### Running costs (monthly)
 
 | Category | Range | Notes |
 |----------|-------|-------|
-| **Electricity** (home server) | $3-15 | Mac mini ~15W idle, ~60W load |
+| **Electricity** (home server) | $3-15 | Mac mini ~15W idle, ~60W load ([source](https://support.apple.com/en-us/111902)) |
 | **VPS** (if no home server) | $5-25 | Hetzner, DigitalOcean, Hostinger |
 | **Cloud API** (light use) | $5-20 | ~100-500 requests/day, mixed models |
 | **Cloud API** (heavy use) | $30-100+ | 1000+ requests/day, Opus-heavy |
@@ -239,4 +239,20 @@ This is not about replacing people. It's about giving people a reliable async te
 
 ---
 
-*Sources are linked inline. Prices and benchmarks as of March 2026 — verify before making purchasing decisions.*
+---
+
+## Sources
+
+All prices and benchmarks as of March 2026 — verify before making purchasing decisions.
+
+| # | Source | Type |
+|---|--------|------|
+| 1 | [DEV.to — Local AI in 2026: Ollama Benchmarks](https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0) | Benchmarks, hardware data |
+| 2 | [PremAI — Self-Hosted LLM Guide (2026)](https://blog.premai.io/self-hosted-llm-guide-setup-tools-cost-comparison-2026/) | Cost analysis, setup |
+| 3 | [Alchemic Technology — VPS Cost Breakdown](https://alchemictechnology.com/blog/posts/vps-cost-breakdown-self-hosted-ai.html) | VPS pricing, free tier |
+| 4 | [DEV.to — Agent Framework Decision Guide (2026)](https://dev.to/linou518/the-2026-ai-agent-framework-decision-guide-langgraph-vs-crewai-vs-pydantic-ai-b2h) | Framework comparison |
+| 5 | [Anthropic — Claude Pricing](https://docs.anthropic.com/en/docs/about-claude/models) | API costs |
+| 6 | [OpenAI — Pricing](https://openai.com/pricing) | API costs |
+| 7 | [Apple — Mac mini](https://www.apple.com/shop/buy-mac/mac-mini) | Hardware pricing |
+| 8 | [Apple — Mac mini Power Consumption](https://support.apple.com/en-us/111902) | Electricity estimates |
+| 9 | [Raspberry Pi — Products](https://www.raspberrypi.com/products/raspberry-pi-5/) | Hardware pricing |
