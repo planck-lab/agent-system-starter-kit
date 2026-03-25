@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Delegation Decision — When to Delegate to AI Agents | Agent System Starter Kit</title>
-  <meta name="description" content="A practical framework for deciding what to delegate to AI agents and what to keep human. The 2×2 matrix, risk levels, and trust ladder.">
-  <meta property="og:title" content="The Delegation Decision — When to Delegate to AI Agents">
-  <meta property="og:description" content="A practical framework for AI task delegation. The 2×2 matrix, risk levels, and trust ladder.">
+  <title>The Delegation Decision — When to Delegate, When Not To | Agent System Starter Kit</title>
+  <meta name="description" content="A practical framework for deciding which tasks to delegate to AI agents. The 2×2 matrix, delegation patterns, and the trust ladder.">
+  <meta property="og:title" content="The Delegation Decision — When to Delegate, When Not To">
+  <meta property="og:description" content="A practical framework for deciding which tasks to delegate to AI agents.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://planck-lab.github.io/agent-system-starter-kit/delegation.html">
   <meta property="og:image" content="https://planck-lab.github.io/agent-system-starter-kit/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="The Delegation Decision — When to Delegate to AI Agents">
-  <meta name="twitter:description" content="A practical framework for AI task delegation. The 2×2 matrix, risk levels, and trust ladder.">
+  <meta name="twitter:title" content="The Delegation Decision">
+  <meta name="twitter:description" content="A practical framework for deciding which tasks to delegate to AI agents.">
   <meta name="twitter:image" content="https://planck-lab.github.io/agent-system-starter-kit/og-image.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
   <link rel="stylesheet" href="style.css">
@@ -33,12 +33,12 @@
 <div class="container doc-container">
 
 <h1>🎯 The Delegation Decision</h1>
-<p class="doc-intro">Before delegating any task to an agent, run it through this framework. The goal: delegate what agents do well, keep what requires human judgment.</p>
+<p class="doc-intro">Before delegating any task to an agent, run it through this framework. The goal: delegate the right things, keep control of the rest.</p>
 
 <!-- The Matrix -->
 <section>
   <h2><span class="label">Core Framework</span>The 2×2 Matrix</h2>
-  <table class="compare-table">
+  <table class="compare-table" style="text-align:center">
     <thead>
       <tr><th></th><th>Agent CAN do it</th><th>Agent CANNOT do it</th></tr>
     </thead>
@@ -55,84 +55,92 @@
         Is the task well-defined?<br>
         Can the output be verified?<br>
         Does it need post-cutoff knowledge?<br>
-        Does it need YOUR specific context?
+        Does it require YOUR specific context?
       </p>
     </div>
     <div class="card">
-      <h3>What's the risk?</h3>
+      <h3>How risky is it?</h3>
       <p style="font-size:.85rem;line-height:1.8">
         <span style="color:var(--green)">Low:</span> Summarize, format, search<br>
         <span style="color:var(--orange)">Medium:</span> Write code, create content<br>
         <span style="color:var(--purple)">High:</span> Delete files, send emails<br>
-        <span style="color:#f85149">Critical:</span> Irreversible, personal data, public
+        <span style="color:var(--text)">Critical:</span> Irreversible, personal data, public
       </p>
     </div>
   </div>
 </section>
 
-<!-- Patterns -->
+<!-- Delegation Patterns -->
 <section>
-  <h2><span class="label">Delegation Patterns</span>Five levels of human involvement</h2>
+  <h2><span class="label">Patterns</span>Five Ways to Delegate</h2>
 
-  <div class="card" style="margin-bottom:.75rem;border-left: 3px solid var(--green)">
-    <h3>Pattern 1: Fire and Forget ✅</h3>
-    <p>Low risk, agent is competent. <strong>Example:</strong> "Summarize this article." Human involvement: none.</p>
+  <div class="card" style="margin-bottom:.75rem;border-color:var(--green)">
+    <h3>1. Fire and Forget ✅</h3>
+    <p>Low risk, agent is competent. Example: "Summarize this article." Human involvement: none.</p>
   </div>
 
-  <div class="card" style="margin-bottom:.75rem;border-left: 3px solid var(--accent)">
-    <h3>Pattern 2: Draft and Review ⚠️</h3>
-    <p>Medium risk or uncertain quality. <strong>Example:</strong> "Write a blog post." Human reviews before publishing.</p>
+  <div class="card" style="margin-bottom:.75rem;border-color:var(--orange)">
+    <h3>2. Draft and Review ⚠️</h3>
+    <p>Medium risk or uncertain quality. Example: "Write a blog post about X." Human reviews before publishing.</p>
   </div>
 
-  <div class="card" style="margin-bottom:.75rem;border-left: 3px solid var(--orange)">
-    <h3>Pattern 3: Plan and Approve</h3>
-    <p>High risk, but agent can plan. <strong>Example:</strong> "Reorganize the files." Agent proposes → human approves → agent executes.</p>
+  <div class="card" style="margin-bottom:.75rem">
+    <h3>3. Plan and Approve</h3>
+    <p>High risk, but agent can plan. Example: "Reorganize the file structure." Agent proposes → human approves → agent executes.</p>
   </div>
 
-  <div class="card" style="margin-bottom:.75rem;border-left: 3px solid var(--purple)">
-    <h3>Pattern 4: Supervised Execution</h3>
-    <p>High risk, step by step. <strong>Example:</strong> "Deploy the new version." Human approves each step individually.</p>
+  <div class="card" style="margin-bottom:.75rem">
+    <h3>4. Supervised Execution</h3>
+    <p>High risk, step by step. Example: "Deploy the new version." Human approves each step individually.</p>
   </div>
 
-  <div class="card" style="margin-bottom:.75rem;border-left: 3px solid #f85149">
-    <h3>Pattern 5: Human Only ❌</h3>
-    <p>Critical risk or requires judgment. <strong>Example:</strong> "Should we hire this person?" Agent gathers info, human decides.</p>
+  <div class="card" style="border-color:var(--purple)">
+    <h3>5. Human Only ❌</h3>
+    <p>Critical risk or requires human judgment. Example: "Should we hire this person?" Agent can gather info, but human decides.</p>
   </div>
 </section>
 
-<!-- Mistakes -->
+<!-- Common Mistakes -->
 <section>
-  <h2><span class="label">Common Mistakes</span>What goes wrong</h2>
+  <h2><span class="label">Pitfalls</span>Common Mistakes</h2>
+
   <div class="grid grid-3">
     <div class="card">
       <h3>🔴 Over-delegation</h3>
-      <p>"Let the agent handle everything." Invisible errors accumulate. <strong>Fix:</strong> Start with Pattern 2 for everything. Earn Pattern 1.</p>
+      <p>"Let the agent handle everything." Invisible errors accumulate.</p>
+      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong>Fix:</strong> Start with Draft+Review for everything. Promote to Fire+Forget after proving reliability.</p>
     </div>
     <div class="card">
       <h3>🔴 Under-delegation</h3>
-      <p>"I'll do everything myself." You're paying for an agent you don't use. <strong>Fix:</strong> Start with low-risk tasks. Build trust.</p>
+      <p>"I'll do it myself, the agent makes mistakes." You're paying for an agent you don't use.</p>
+      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong>Fix:</strong> Start with low-risk tasks. Build trust gradually.</p>
     </div>
     <div class="card">
       <h3>🔴 No Verification</h3>
-      <p>"The agent said it's done, so it's done." Biggest source of failures. <strong>Fix:</strong> Every high-risk task needs "is the result correct?" not "did it run?"</p>
+      <p>"The agent said it's done, so it's done." The biggest source of failures.</p>
+      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong>Fix:</strong> Every high-risk task needs a verification step. Not "did it run?" but "is the result correct?"</p>
     </div>
   </div>
 </section>
 
 <!-- Trust Ladder -->
 <section>
-  <h2><span class="label">Building Trust</span>The Trust Ladder</h2>
-  <div class="card" style="max-width:500px;margin:0 auto">
-    <p style="font-size:.88rem;line-height:2.2">
-      <strong style="color:var(--green)">Week 1:</strong> Everything needs approval <span class="muted">(driving instructor)</span><br>
-      <strong style="color:var(--green)">Week 2:</strong> Routine tasks auto-approved <span class="muted">(familiar roads)</span><br>
-      <strong style="color:var(--orange)">Week 4:</strong> Research runs autonomously <span class="muted">(highway driving)</span><br>
-      <strong style="color:var(--orange)">Week 8:</strong> Complex workflows delegated <span class="muted">(city driving)</span><br>
-      <strong style="color:var(--purple)">Month 3:</strong> Sub-agents run scheduled tasks <span class="muted">(solo driving)</span><br>
-      <strong style="color:var(--purple)">Month 6:</strong> System monitors itself <span class="muted">(dashcam review)</span>
+  <h2><span class="label">Progressive Trust</span>The Trust Ladder</h2>
+
+  <div class="card">
+    <p style="font-family:'SF Mono',monospace;font-size:.85rem;line-height:2.2">
+      <span style="color:var(--green)">Week 1&nbsp;&nbsp;</span> 🟢 Everything needs approval <span class="muted">(driving instructor)</span><br>
+      <span style="color:var(--green)">Week 2&nbsp;&nbsp;</span> 🟢 Routine tasks auto-approved <span class="muted">(familiar roads)</span><br>
+      <span style="color:var(--orange)">Week 4&nbsp;&nbsp;</span> 🟡 Research runs autonomously <span class="muted">(highway driving)</span><br>
+      <span style="color:var(--orange)">Week 8&nbsp;&nbsp;</span> 🟠 Complex workflows delegated <span class="muted">(city driving)</span><br>
+      <span style="color:var(--orange)">Month 3</span> 🟠 Sub-agents run scheduled tasks <span class="muted">(solo driving)</span><br>
+      <span style="color:var(--purple)">Month 6</span> 🔴 System monitors itself <span class="muted">(dashcam)</span>
     </p>
   </div>
-  <p style="text-align:center;margin-top:1rem;color:var(--muted)"><strong>Don't skip levels.</strong> Each builds on trust earned at the previous level.</p>
+
+  <div class="callout" style="text-align:center;margin-top:1rem">
+    <strong>Don't skip levels.</strong> Each level builds on trust earned at the previous level. Jumping from Week 1 to Month 3 is how agents break things.
+  </div>
 </section>
 
 <!-- Nav -->
