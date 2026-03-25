@@ -74,6 +74,7 @@ No API key, no platform, no setup. Just read the files — the architecture is t
 | Multi-agent communication | `exchange/` | How agents collaborate via Git |
 | Real failures & lessons | `docs/FAILURES.md` | What goes wrong in practice |
 | Architecture deep-dive | `docs/ARCHITECTURE.md` | The 4-layer model explained |
+| Runtime & operations | `docs/RUNTIME.md` | Hardware, platforms, costs, local vs. cloud |
 
 **Reading order:** SOUL.md → AGENTS.md → docs/ARCHITECTURE.md → docs/FAILURES.md → exchange/ + [examples/exchange-session.md](examples/exchange-session.md)
 
