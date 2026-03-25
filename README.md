@@ -1,23 +1,39 @@
 # 🏗️ Agent System Starter Kit
 
-**A reference architecture for personal AI agent systems.**
-Study it. Understand it. Then decide if you want to build your own.
+**Clone → Configure → Run. A personal AI agent in 15 minutes.**
 
-> This is not a product. It's an anatomy lesson — a real, working agent system, anonymized and documented so you can understand how the pieces fit together.
+> Based on a real agent system that's been running in production since early 2026. Anonymized, documented, and ready to use.
+
+### ⚡ [Quickstart Guide →](QUICKSTART.md)
+
+---
+
+## Three Ways to Use This
+
+| Path | Time | For whom |
+|------|------|----------|
+| **🚀 Build** | 15 min | Clone, personalize, connect to Claude Code / OpenClaw / any LLM |
+| **📖 Study** | 1 hour | Read the architecture docs, understand the patterns |
+| **🎓 Learn** | 2 hours | Follow the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) with this as companion |
 
 ---
 
 ## What This Is
 
-This repository shows the architecture of a **real personal AI agent system** that has been running in production for months. It handles daily workflows: research, note-taking, system monitoring, content creation, and multi-agent collaboration.
+A **scaffold template** for personal AI agent systems. It provides:
+- Identity layer (who is this agent?)
+- Behavior layer (how does it act?)
+- Memory layer (what does it remember?)
+- Skill layer (what can it do?)
+- Multi-agent communication (agent exchange pattern)
 
-The code and configurations here are **anonymized** — no API keys, no personal data, no secrets. What remains is the structure, the patterns, and the decisions behind them.
+Based on a real system that handles research, note-taking, system monitoring, and content creation daily. Anonymized — no API keys, no personal data.
 
 ## What This Is NOT
 
 - ❌ Not a framework (use LangChain, CrewAI, or OpenClaw for that)
-- ❌ Not a tutorial (the [Agent Literacy course](https://planck-lab.github.io/agent-literacy/) explains the concepts)
-- ❌ Not production-ready out of the box (you'll need your own API keys and infrastructure)
+- ❌ Not an app you can `npm start` (it's markdown-driven, not code-driven)
+- ❌ Not locked to any provider (works with Claude, GPT, Gemini, local models)
 
 ## Architecture Overview
 
@@ -126,17 +142,21 @@ Three levels of memory:
 
 ```
 agent-system-starter-kit/
+├── QUICKSTART.md             # ⚡ Start here — 15 min setup guide
+├── CLAUDE.md                 # Claude Code auto-reads this
 ├── README.md                 # You are here
-├── SOUL.md                   # Agent identity & personality
-├── IDENTITY.md               # Name, creature type, vibe
-├── AGENTS.md                 # Behavior rules, skill routing, delegation
-├── TOOLS.md                  # Tool permissions & restrictions
-├── MEMORY.md                 # Long-term memory (compact)
-├── USER.md                   # User preferences
-├── HEARTBEAT.md              # Periodic health check instructions
-├── memory/                   # Daily notes (append-only)
+│
+├── SOUL.md                   # Layer 1: Identity & personality
+├── IDENTITY.md               # Layer 1: Name, creature type, vibe
+├── AGENTS.md                 # Layer 2: Behavior rules, skill routing
+├── TOOLS.md                  # Layer 2: Tool permissions & restrictions
+├── MEMORY.md                 # Layer 3: Long-term memory (compact)
+├── USER.md                   # Context: User preferences
+├── HEARTBEAT.md              # Scheduled health check instructions
+│
+├── memory/                   # Layer 3: Daily notes (append-only)
 │   └── example-day.md
-├── skills/                   # Reusable skill definitions
+├── skills/                   # Layer 4: Reusable skill definitions
 │   ├── deep-research/
 │   │   └── SKILL.md
 │   ├── quality-gate/
@@ -175,9 +195,10 @@ See [`docs/FAILURES.md`](docs/FAILURES.md) for detailed stories. Highlights:
 
 ## Who This Is For
 
+- **Building your first agent system** — Clone, personalize, run ([Quickstart](QUICKSTART.md))
 - **Studying agent architecture** — See how a real system is structured
 - **Evaluating whether to build your own** — Understand the complexity before committing
-- **Teaching/learning** — Use as reference material for the [Agent Literacy course](https://planck-lab.github.io/agent-literacy/)
+- **Teaching/learning** — Use as companion to the [Agent Literacy course](https://planck-lab.github.io/agent-systems/)
 
 ## Related
 
