@@ -1,10 +1,14 @@
 # 🏗️ Agent System Starter Kit
 
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![Code License: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](LICENSE-CODE)
+[![GitHub stars](https://img.shields.io/github/stars/planck-lab/agent-system-starter-kit?style=social)](https://github.com/planck-lab/agent-system-starter-kit/stargazers)
+
 **Understand before you build.** A minimal, framework-agnostic starter kit for personal AI agent systems.
 
 > Based on a real agent system that's been running in production since early 2026. Anonymized, documented, and ready to use.
 
-📚 **New to agent systems?** Start with the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) — no code required.
+📚 **New to agent systems?** Start with the [Agent Literacy Course](https://planck-lab.github.io/agent-literacy/) — no code required.
 
 ### ⚡ [Quickstart Guide →](QUICKSTART.md)
 
@@ -29,7 +33,7 @@ Want both agents to collaborate?
 |------|------|----------|
 | **📖 Study** | 30 min | Read the architecture docs, understand the patterns |
 | **🚀 Build** | 30 min | Clone, personalize, connect to Claude Code / OpenClaw / any LLM |
-| **🎓 Learn** | 2 hours | Follow the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) with this as companion |
+| **🎓 Learn** | 2 hours | Follow the [Agent Literacy Course](https://planck-lab.github.io/agent-literacy/) with this as companion |
 
 ---
 
@@ -257,10 +261,19 @@ This kit is one half of a duo:
 
 **Connect them** via the [Agent Exchange](exchange/) pattern — a shared Git repo where agents on different machines communicate asynchronously.
 
-## Related
+## Learning Path & Ecosystem
 
-- 📚 [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) — Understand agent systems (no code required)
-- 🌐 [AI Learning Ecosystem](https://janrummel.github.io/ai-learning/) — More courses on AI, GitHub, Obsidian
+**Recommended learning journey:**
+
+1. **📚 [Agent Literacy](https://planck-lab.github.io/agent-literacy/)** — Start here if you're new to agent systems. No code required, pure concept work. Understand what agents are, how they think, and when (not) to use them.
+
+2. **🏗️ This Kit** — Once you understand the theory, use this starter kit to see how concepts translate into a real system. Study the architecture, clone it, personalize it.
+
+3. **🌐 [AI Learning Hub](https://janrummel.github.io/ai-learning/)** — Explore the broader ecosystem: GitHub workflows, Obsidian knowledge management, AI reasoning patterns.
+
+4. **🔬 [Agent Systems (Archive)](https://planck-lab.github.io/agent-systems/)** — Technical deep dive into production patterns, multi-agent orchestration, and system design. Advanced material.
+
+**Philosophy:** Understand before you build → Build with structure → Refine with experience.
 
 ## License
 
