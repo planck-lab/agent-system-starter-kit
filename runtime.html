@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runtime — Where and How Agents Live | Agent System Starter Kit</title>
+  <meta name="description" content="Hardware, platforms, costs, local vs cloud models. Everything you need to know before deploying an AI agent system.">
+  <meta property="og:title" content="Runtime — Where and How Agents Live">
+  <meta property="og:description" content="Hardware, platforms, costs, local vs cloud models. The operational guide for AI agent systems.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://planck-lab.github.io/agent-system-starter-kit/runtime.html">
+  <meta property="og:image" content="https://planck-lab.github.io/agent-system-starter-kit/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Runtime — Where and How Agents Live">
+  <meta name="twitter:description" content="Hardware, platforms, costs, local vs cloud models. The operational guide for AI agent systems.">
+  <meta name="twitter:image" content="https://planck-lab.github.io/agent-system-starter-kit/og-image.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="doc-nav" aria-label="Main navigation">
+  <a href="index.html">← Back to Kit</a>
+  <span class="nav-links">
+    <a href="runtime.html" class="active">Runtime</a>
+    <a href="agent-exchange.html">Exchange</a>
+    <a href="delegation.html">Delegation</a>
+  </span>
+</nav>
+
+<div class="container doc-container">
+
+<h1>🖥️ Runtime: Where and How Agents Live</h1>
+<p class="doc-intro">You've seen the architecture (SOUL.md, AGENTS.md, memory/, skills/). Now the question is: <strong>where does all this actually run?</strong></p>
+
+<!-- 1. Where Agents Live -->
+<section>
+  <h2><span class="label">Section 1</span>Where Agents Live</h2>
+  <p>An agent needs a place to run. Your options:</p>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Option</th><th>Cost/month</th><th>Uptime</th><th>Best for</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Your laptop</td><td>$0</td><td>Only when open</td><td>Experimenting</td></tr>
+      <tr><td>Home server <span class="muted">(Mac mini, NUC)</span></td><td>$5-15</td><td>24/7</td><td>Personal agent, full control</td></tr>
+      <tr><td>VPS <span class="muted">(<a href="https://www.hetzner.com/cloud/">Hetzner</a>, <a href="https://www.digitalocean.com/pricing">DO</a>, <a href="https://www.hostinger.com/vps-hosting">Hostinger</a>)</span></td><td>$5-25</td><td>24/7, managed</td><td>Always-on, no hardware</td></tr>
+      <tr><td>Raspberry Pi</td><td>$3-5</td><td>24/7</td><td>Ultra-low cost</td></tr>
+      <tr><td>Cloud VM <span class="muted">(AWS, GCP, Azure)</span></td><td>$15-100+</td><td>24/7, scalable</td><td>Teams, enterprise</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>The case for a dedicated server:</strong> A laptop works for experimenting. But a real agent system — one with cron jobs, heartbeat checks, and messaging integrations — needs something that runs when your laptop is closed. A <a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4</a> (from $499) on your desk is the simplest 24/7 setup.
+  </div>
+
+  <p><strong>Kubernetes and serverless are poor fits.</strong> Agents are long-running and stateful, not ephemeral. A Kubernetes pod that gets rescheduled loses the agent's in-memory context. Serverless functions have timeout limits that conflict with agent tasks that take minutes.</p>
+</section>
+
+<!-- 2. What Keeps Them Running -->
+<section>
+  <h2><span class="label">Section 2</span>What Keeps Them Running</h2>
+  <p>An agent isn't just a model — it's a system:</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <div class="icon">🚪</div>
+      <h3>Gateway</h3>
+      <p>Routes messages (Telegram, Signal, Discord) to the right session. Manages approvals and enforces policies.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⏰</div>
+      <h3>Cron & Scheduling</h3>
+      <p>Daily digest (07:00), heartbeat (every 2h), weekly review (Mon 09:00). macOS: LaunchAgents. Linux: crontab/systemd.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Monitoring</h3>
+      <p>Watchdog (is it alive?), cost tracking (API spend), error logs (what failed?). Unmonitored agents are liabilities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Platform Landscape -->
+<section>
+  <h2><span class="label">Section 3</span>Platform Landscape</h2>
+  <p>Software to orchestrate your agent — as of March 2026:</p>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Platform</th><th>Type</th><th>Best for</th><th>Complexity</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Claude Code</td><td>CLI</td><td>Developers, local</td><td style="color:var(--green)">Low</td></tr>
+      <tr><td>OpenClaw</td><td>Gateway</td><td>Always-on personal agents</td><td style="color:var(--orange)">Medium</td></tr>
+      <tr><td>LangGraph</td><td>Framework</td><td>Complex workflows, enterprise</td><td style="color:var(--purple)">High</td></tr>
+      <tr><td>CrewAI</td><td>Framework</td><td>Multi-agent teams</td><td style="color:var(--orange)">Medium</td></tr>
+      <tr><td>AutoGen</td><td>Framework</td><td>Research, conversational</td><td style="color:var(--orange)">Medium</td></tr>
+      <tr><td>Semantic Kernel</td><td>SDK</td><td>Enterprise .NET</td><td style="color:var(--purple)">High</td></tr>
+      <tr><td>No framework</td><td>DIY</td><td>Simple setups, full control</td><td>Varies</td></tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+Just experimenting?         → Claude Code (or any LLM CLI)<br>
+Personal agent, always on?  → OpenClaw or gateway + cron<br>
+Team or product?            → LangGraph or CrewAI<br>
+Enterprise compliance?      → LangGraph or Semantic Kernel
+  </div>
+
+  <p><strong>Key insight:</strong> You don't need a framework. This starter kit works with any platform — or none. The architecture is framework-agnostic by design.</p>
+  <p class="source-line">Sources: <a href="https://sparkco.ai/blog/ai-agent-frameworks-compared-langchain-autogen-crewai-and-openclaw-in-2026">SparkCo (2026)</a>, <a href="https://dev.to/linou518/the-2026-ai-agent-framework-decision-guide-langgraph-vs-crewai-vs-pydantic-ai-b2h">DEV.to Framework Guide (2026)</a></p>
+</section>
+
+<!-- 4. Cloud vs Local -->
+<section>
+  <h2><span class="label">Section 4</span>Cloud APIs vs. Local Models</h2>
+  <p>Not just cost — it's about <strong>sovereignty, privacy, and capability</strong>.</p>
+  <table class="compare-table">
+    <thead>
+      <tr><th></th><th>Cloud API</th><th>Local (Ollama)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Quality</td><td>Frontier (best)</td><td>70-85% of frontier</td></tr>
+      <tr><td>Cost/request</td><td>$0.01-0.80</td><td style="color:var(--green)">$0 (after hardware)</td></tr>
+      <tr><td>Privacy</td><td>Data leaves your network</td><td style="color:var(--green)">Data stays local</td></tr>
+      <tr><td>Context</td><td>128K-1M tokens</td><td>8K-128K</td></tr>
+      <tr><td>Strength</td><td>Complex reasoning</td><td>Routine tasks, chat</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What local models can do (March 2026)</h3>
+  <p>Ollama reached <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">52 million monthly downloads</a> in Q1 2026:</p>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Model</th><th>Size</th><th>MMLU</th><th>Hardware</th><th>Speed</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Qwen 2.5 32B</td><td>32B</td><td>83.2%</td><td>M4 Pro (36GB+)</td><td>~15 t/s</td></tr>
+      <tr><td>Qwen 3.5 7B</td><td>7B</td><td>76.8%</td><td>Any M-series (16GB)</td><td>~45 t/s</td></tr>
+      <tr><td>Llama 3.1 8B</td><td>8B</td><td>73.0%</td><td>16GB RAM</td><td>~40 t/s</td></tr>
+      <tr><td>DeepSeek-R1 70B</td><td>70B</td><td>85.1%</td><td>M4 Max (128GB)</td><td>~12 t/s</td></tr>
+      <tr><td>Phi-4 14B</td><td>14B</td><td>79.3%</td><td>16GB RAM</td><td>~25 t/s</td></tr>
+    </tbody>
+  </table>
+  <p class="source-line">For comparison: GPT-4 ~86.4% (<a href="https://openai.com/index/gpt-4/">OpenAI</a>), Claude Opus ~86% (<a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic</a>).</p>
+
+  <div class="callout">
+    <strong>🔒 Sovereign AI:</strong> Some use cases require that no data leaves your infrastructure — regulated industries, personal privacy, corporate policy. Local models solve this completely. The tradeoff: lower capability on complex reasoning.
+  </div>
+
+  <h3>The Hybrid Approach</h3>
+  <p>Most production systems use both: <strong>local</strong> for routine tasks (summarization, classification, embeddings) and <strong>cloud APIs</strong> for complex work (deep analysis, research, code generation). Route to the right model based on the task.</p>
+  <p class="source-line">Sources: <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">DEV.to Benchmarks (2026)</a>, <a href="https://blog.premai.io/self-hosted-llm-guide-setup-tools-cost-comparison-2026/">PremAI Guide (2026)</a></p>
+</section>
+
+<!-- 5. Security -->
+<section>
+  <h2><span class="label">Section 5</span>Security & Isolation</h2>
+  <h3>Why your agent should NOT run on your main machine</h3>
+  <p>An agent has access to your file system, shell, network, and potentially email and calendar. If compromised (via prompt injection, malicious input, or a bug), it has the same access as the user it runs under.</p>
+
+  <div class="grid grid-2">
+    <div class="card" style="border-color:var(--purple)">
+      <h3>🔴 Real risks</h3>
+      <p style="font-size:.85rem;line-height:1.8">
+        Agent reads <code>~/.ssh/</code> and leaks your keys<br>
+        Agent runs <code>rm -rf</code> on a directory<br>
+        Agent sends unauthorized emails<br>
+        Agent pushes secrets to a public repo
+      </p>
+    </div>
+    <div class="card" style="border-color:var(--green)">
+      <h3>🟢 Mitigation layers</h3>
+      <p style="font-size:.85rem;line-height:1.8">
+        <strong>Dedicated user</strong> — separate OS account<br>
+        <strong>Restricted paths</strong> — block sensitive dirs<br>
+        <strong>Approval gates</strong> — human confirms destructive ops<br>
+        <strong>Containers</strong> — full filesystem isolation<br>
+        <strong>Network rules</strong> — limit outbound connections
+      </p>
+    </div>
+  </div>
+
+  <p style="margin-top:1rem"><strong>Start simple:</strong> Dedicated user + restricted paths (see <code>TOOLS.md</code>). Add containers when you're ready. The less your agent can access, the less it can break.</p>
+</section>
+
+<!-- 6. Costs -->
+<section>
+  <h2><span class="label">Section 6</span>What It Costs</h2>
+
+  <h3>Hardware (one-time)</h3>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Option</th><th>Cost</th><th>Amortized/mo (36mo)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> (8GB)</td><td>~$80</td><td>~$2</td></tr>
+      <tr><td>Used Intel NUC (16GB)</td><td>~$150-250</td><td>~$5-7</td></tr>
+      <tr><td><a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4</a> (16GB)</td><td>~$499</td><td>~$14</td></tr>
+      <tr><td><a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4 Pro</a> (48GB)</td><td>~$1,599</td><td>~$44</td></tr>
+      <tr><td>VPS (no hardware)</td><td>$0</td><td>$5-25/mo</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Running costs (monthly)</h3>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Category</th><th>Range</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Electricity</td><td>$3-15</td><td>Mac mini ~15W idle, ~60W load (<a href="https://support.apple.com/en-us/111902">Apple</a>)</td></tr>
+      <tr><td>VPS</td><td>$5-25</td><td>Hetzner, DigitalOcean, Hostinger</td></tr>
+      <tr><td>Cloud API (light)</td><td>$5-20</td><td>~100-500 req/day, mixed models</td></tr>
+      <tr><td>Cloud API (heavy)</td><td>$30-100+</td><td>1000+ req/day, Opus-heavy</td></tr>
+      <tr><td>Automated cron</td><td>$15-60</td><td>Digests, reviews, heartbeats</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>⚠️ The invisible costs:</strong> Cron jobs run silently. A daily digest + weekly review + heartbeats can cost $15-45/month. Opus is 5-15× more expensive than Haiku. Context window usage scales cost linearly. <strong>Set spending alerts before you automate.</strong>
+  </div>
+
+  <p class="source-line">Sources: <a href="https://alchemictechnology.com/blog/posts/vps-cost-breakdown-self-hosted-ai.html">Alchemic Technology (2026)</a>, <a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic Pricing</a>, <a href="https://openai.com/pricing">OpenAI Pricing</a>. As of March 2026.</p>
+</section>
+
+<!-- 7. Making the Case -->
+<section>
+  <h2><span class="label">Section 7</span>Making the Case</h2>
+
+  <div class="card" style="border-color:var(--accent);margin-bottom:1rem">
+    <h3>The 30-second pitch</h3>
+    <p><em>"An AI agent that runs 24/7 costs $20-50/month (server + API). It handles research, monitoring, content drafting, and routine tasks while we sleep. The ROI is one employee-hour saved per day — at a fraction of the cost."</em></p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <h3>The risk argument</h3>
+    <p><em>"Running agents on employee laptops means they stop when the laptop closes, have access to personal files, and can't be audited. A dedicated server with proper isolation is safer, more reliable, and auditable."</em></p>
+  </div>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th></th><th>Employee</th><th>Agent (server)</th><th>Agent (laptop)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Availability</td><td>8h/day</td><td style="color:var(--green)">24/7</td><td>When open</td></tr>
+      <tr><td>Cost/month</td><td>$5,000+</td><td style="color:var(--green)">$20-50</td><td>$0 (unreliable)</td></tr>
+      <tr><td>Audit trail</td><td>Email, Slack</td><td style="color:var(--green)">Git, logs</td><td>None</td></tr>
+      <tr><td>Security</td><td>Trained</td><td style="color:var(--green)">Sandboxed</td><td>User-level access</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:1rem;text-align:center;color:var(--muted)">This is not about replacing people. It's about giving people a reliable async teammate.</p>
+</section>
+
+<!-- Nav -->
+<div class="doc-bottom-nav">
+  <a href="agent-exchange.html" class="btn btn-secondary">Next: Agent Exchange →</a>
+  <a href="index.html" class="btn btn-secondary">← Back to Kit</a>
+</div>
+
+</div><!-- /.container -->
+
+<footer>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
+  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
+  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
+  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span>
+</footer>
+
+</body>
+</html>
