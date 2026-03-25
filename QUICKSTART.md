@@ -11,6 +11,7 @@
 git clone https://github.com/planck-lab/agent-system-starter-kit.git my-agent
 cd my-agent
 rm -rf .git && git init
+mkdir -p memory    # Agent writes daily notes here
 ```
 
 Now customize these three files:
@@ -44,13 +45,12 @@ Change the name, language, and boundaries. Keep the structure — it works.
 This architecture works with any LLM platform that supports system prompts and file reading. Here's how to connect it:
 
 ### Option A: Claude Code (recommended for developers)
+The kit already includes a `CLAUDE.md` that tells Claude Code to read your configuration files at session start. No extra setup needed.
 ```bash
-# Claude Code reads CLAUDE.md automatically
-cp AGENTS.md CLAUDE.md
-# Or create a CLAUDE.md that references your files:
-echo "Read SOUL.md, USER.md, and AGENTS.md at session start." > CLAUDE.md
+# Just run Claude Code in the directory
+claude
 ```
-Then run `claude` in the directory. Done.
+Claude Code auto-reads `CLAUDE.md` → which loads `SOUL.md`, `USER.md`, `AGENTS.md`, and `TOOLS.md`. Done.
 
 ### Option B: OpenClaw (recommended for always-on agents)
 Point your OpenClaw workspace to this directory. The gateway reads SOUL.md, AGENTS.md, etc. automatically.

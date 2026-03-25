@@ -213,6 +213,7 @@ There are other starter kits. They're good — for different things.
 | **Dependencies** | None | None | None |
 | **Multi-Agent** | ✅ Exchange pattern | ❌ | ❌ |
 | **Provider lock-in** | None | Claude Code | Claude Code |
+| **Skills included** | 3 examples | 146+ | 10+ |
 | **Failure docs** | ✅ Real failures | ❌ | ❌ |
 | **Best for** | First agent system | Power users | New projects |
 
