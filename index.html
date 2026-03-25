@@ -27,6 +27,7 @@
 <div class="hero">
   <h1>🏗️ Agent System Starter Kit</h1>
   <p class="tagline">Understand before you build. A minimal, framework-agnostic architecture for personal AI agent systems.</p>
+  <p style="font-size:.85rem;color:var(--muted);margin-bottom:1.25rem">New to agent systems? Start with the <a href="https://planck-lab.github.io/agent-systems/">free Agent Literacy Course</a> — no code required.</p>
   <div class="cta">
     <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary">View on GitHub</a>
     <a href="https://planck-lab.github.io/agent-systems/" class="btn btn-secondary">Take the Course</a>
@@ -99,14 +100,22 @@
 <!-- ===== Agent Exchange ===== -->
 <section>
   <h2><span class="label">Better Together</span>Agent Exchange — multi-agent via Git</h2>
+  <div class="card" style="margin-bottom:1rem">
+    <h3>Why two agents?</h3>
+    <p style="color:var(--muted);font-size:.88rem">One agent can't do everything well. A research agent needs time and context. A coding agent needs speed and precision. An always-on agent handles cron jobs while you sleep. Splitting responsibilities makes each agent better — and the Exchange pattern lets them collaborate without a framework.</p>
+  </div>
   <div class="grid grid-2">
     <div class="card">
       <h3>How it works</h3>
       <p>Two agents share a Git repo. They communicate via markdown files — signals, questions, responses. Asynchronous, auditable, version-controlled.</p>
     </div>
     <div class="card">
-      <h3>No API needed</h3>
-      <p>Just <code>git push</code> and <code>git pull</code>. Works across machines, across providers, across time zones. The simplest multi-agent pattern that actually works.</p>
+      <h3>Real use cases</h3>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.8">
+        🔬 <strong>Research + Review:</strong> Agent A researches, Agent B reviews and challenges findings<br>
+        🌙 <strong>Day + Night:</strong> Cron agent works overnight, interactive agent picks up results in the morning<br>
+        🔍 <strong>Build + Audit:</strong> One agent writes code, another runs quality checks
+      </p>
     </div>
   </div>
   <div class="code-block">

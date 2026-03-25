@@ -4,9 +4,24 @@
 
 > Based on a real agent system that's been running in production since early 2026. Anonymized, documented, and ready to use.
 
+📚 **New to agent systems?** Start with the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) — no code required.
+
 ### ⚡ [Quickstart Guide →](QUICKSTART.md)
 
 ---
+
+## Which kit do you need?
+
+```
+Want to understand how agent systems work?
+  → You're here. This kit.
+
+Want to build a production system with Claude Code?
+  → Orchestrator Kit (github.com/janrummel/claude-orchestrator-starter)
+
+Want both agents to collaborate?
+  → Clone both + connect via Agent Exchange (see below)
+```
 
 ## Three Ways to Use This
 
@@ -222,6 +237,13 @@ There are other starter kits. They're good — for different things.
 **If you want to understand how agent systems work →** You're here.
 
 ## Better Together
+
+**Why two agents?** One agent can't do everything well. Splitting responsibilities — research vs. coding, day vs. night, build vs. audit — makes each agent better. The Exchange pattern connects them without a framework.
+
+**Real use cases:**
+- 🔬 **Research + Review:** Agent A researches, Agent B challenges findings
+- 🌙 **Day + Night:** Cron agent works overnight, interactive agent picks up in the morning
+- 🔍 **Build + Audit:** One agent writes code, another runs quality checks
 
 This kit is one half of a duo:
 
