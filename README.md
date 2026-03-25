@@ -187,6 +187,7 @@ agent-system-starter-kit/
 └── docs/
     ├── ARCHITECTURE.md       # Detailed architecture explanation
     ├── RUNTIME.md            # Where agents live: hardware, platforms, costs
+    ├── AGENT_EXCHANGE.md     # Multi-agent collaboration deep dive
     ├── DELEGATION.md         # When to delegate, when not to
     ├── PATTERNS.md           # Common patterns & anti-patterns
     └── FAILURES.md           # Real failures and what we learned

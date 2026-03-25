@@ -71,7 +71,7 @@ No API key, no platform, no setup. Just read the files — the architecture is t
 | Tool permissions & restrictions | `TOOLS.md` | How to set boundaries |
 | Memory architecture | `memory/` + `MEMORY.md` | Short-term vs long-term memory |
 | Reusable capabilities | `skills/` | How to teach an agent new things |
-| Multi-agent communication | `exchange/` | How agents collaborate via Git |
+| Multi-agent communication | `exchange/` + `docs/AGENT_EXCHANGE.md` | How agents collaborate via Git |
 | Real failures & lessons | `docs/FAILURES.md` | What goes wrong in practice |
 | Architecture deep-dive | `docs/ARCHITECTURE.md` | The 4-layer model explained |
 | Runtime & operations | `docs/RUNTIME.md` | Hardware, platforms, costs, local vs. cloud |
