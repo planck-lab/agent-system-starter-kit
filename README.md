@@ -221,6 +221,18 @@ There are other starter kits. They're good — for different things.
 **If you need MDD workflow and hooks →** [Decipherist Starter Kit](https://thedecipherist.github.io/claude-code-mastery-project-starter-kit/)
 **If you want to understand how agent systems work →** You're here.
 
+## Better Together
+
+This kit is one half of a duo:
+
+| | This Kit | [Orchestrator Kit](https://github.com/janrummel/claude-orchestrator-starter) |
+|---|---|---|
+| **Role** | The thinker — understand the architecture | The builder — set up the system |
+| **Approach** | Markdown-driven, any LLM | Shell + YAML, Claude Code |
+| **Strength** | Architecture, patterns, failures | Memory, skills, scheduling, Telegram |
+
+**Connect them** via the [Agent Exchange](exchange/) pattern — a shared Git repo where agents on different machines communicate asynchronously.
+
 ## Related
 
 - 📚 [Agent Literacy Course](https://planck-lab.github.io/agent-systems/) — Understand agent systems (no code required)
