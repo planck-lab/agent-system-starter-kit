@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent System Starter Kit — Understand before you build</title>
+  <meta name="description" content="A minimal, framework-agnostic starter kit for personal AI agent systems. 15 markdown files. No dependencies. No lock-in.">
+  <meta property="og:title" content="Agent System Starter Kit">
+  <meta property="og:description" content="Understand before you build. A minimal starter kit for personal AI agent systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://planck-lab.github.io/agent-system-starter-kit/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Agent System Starter Kit">
+  <meta name="twitter:description" content="Understand before you build. A minimal starter kit for personal AI agent systems.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <h1>🏗️ Agent System Starter Kit</h1>
+  <p class="tagline">Understand before you build. A minimal, framework-agnostic architecture for personal AI agent systems.</p>
+  <div class="cta">
+    <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary">View on GitHub</a>
+    <a href="https://planck-lab.github.io/agent-systems/" class="btn btn-secondary">Take the Course</a>
+  </div>
+</div>
+
+<!-- ===== The Problem ===== -->
+<section>
+  <h2><span class="label">The Problem</span>Everyone builds agents. Few understand them.</h2>
+  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto">146 skills. 72 plugins. 26 slash commands. Most starter kits give you tools. This one gives you <strong style="color:var(--text)">understanding</strong> — the architecture of a real agent system that's been running in production since early 2026.</p>
+</section>
+
+<!-- ===== Four Layers ===== -->
+<section>
+  <h2><span class="label">Architecture</span>Four layers, clear separation</h2>
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="icon">🧠</div>
+      <h3>Identity</h3>
+      <p>SOUL.md — Who is this agent? Name, personality, language, hard boundaries.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>Behavior</h3>
+      <p>AGENTS.md — How does it act? Skill routing, delegation rules, feedback loops.</p>
+    </div>
+    <div class="card">
+      <div class="icon">💾</div>
+      <h3>Memory</h3>
+      <p>memory/ — What does it remember? Daily notes, long-term context, learned rules.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔧</div>
+      <h3>Skills</h3>
+      <p>skills/ — What can it do? Reusable instruction files the agent follows on demand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== What's Different ===== -->
+<section>
+  <h2><span class="label">What's Different</span>Honest comparison</h2>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>This Kit</th>
+        <th>wshobson/agents</th>
+        <th>Decipherist</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Philosophy</td><td>Understand first</td><td>Plugin catalog</td><td>Project scaffold</td></tr>
+      <tr><td>Files</td><td>~15 markdown</td><td>300+</td><td>50+</td></tr>
+      <tr><td>Dependencies</td><td>None</td><td>None</td><td>None</td></tr>
+      <tr><td>Multi-Agent</td><td style="color:var(--green)">✅ Exchange</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Provider lock-in</td><td>None</td><td>Claude Code</td><td>Claude Code</td></tr>
+      <tr><td>Failure docs</td><td style="color:var(--green)">✅ Real stories</td><td>❌</td><td>❌</td></tr>
+    </tbody>
+  </table>
+  <div class="callout" style="margin-top:1.5rem;text-align:center">
+    <strong>Need 146 skills?</strong> → <a href="https://github.com/wshobson/agents">wshobson/agents</a><br>
+    <strong>Need MDD workflow?</strong> → <a href="https://thedecipherist.github.io/claude-code-mastery-project-starter-kit/">Decipherist</a><br>
+    <strong>Want to understand how it works?</strong> → You're here.
+  </div>
+</section>
+
+<!-- ===== Agent Exchange ===== -->
+<section>
+  <h2><span class="label">Unique Feature</span>Agent Exchange — multi-agent via Git</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>How it works</h3>
+      <p>Two agents share a Git repo. They communicate via markdown files — signals, questions, responses. Asynchronous, auditable, version-controlled.</p>
+    </div>
+    <div class="card">
+      <h3>No API needed</h3>
+      <p>Just <code>git push</code> and <code>git pull</code>. Works across machines, across providers, across time zones. The simplest multi-agent pattern that actually works.</p>
+    </div>
+  </div>
+  <div class="code-block">
+Agent A writes: signals/request.md → git push<br>
+Agent B pulls → reads → writes: responses/answer.md → git push<br>
+Agent A pulls → reads response → acts on it
+  </div>
+  <p style="text-align:center;margin-top:.75rem"><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md">See a real exchange session →</a></p>
+</section>
+
+<!-- ===== Three Paths ===== -->
+<section>
+  <h2><span class="label">Get Started</span>Three paths, one kit</h2>
+  <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="card" style="text-align:center">
+      <div class="icon">📖</div>
+      <h3>Study</h3>
+      <p>30 min. Read the files. The architecture is the lesson.</p>
+    </div>
+    <div class="card" style="text-align:center;border-color:var(--accent)">
+      <div class="icon">🚀</div>
+      <h3>Build</h3>
+      <p>30 min. Clone, personalize, connect to any LLM platform.</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="icon">🎓</div>
+      <h3>Learn</h3>
+      <p>2 hours. Follow the <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> with this as companion.</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem">
+    <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary">Clone the Kit →</a>
+  </div>
+</section>
+
+<!-- ===== What We Learned ===== -->
+<section>
+  <h2><span class="label">Real Failures</span>What we learned the hard way</h2>
+  <div class="card" style="margin-bottom:.75rem">
+    <h3>🔴 A batch edit broke 13 HTML files</h3>
+    <p>Nav buttons disappeared. Closing tags were silently removed. Lesson: Always verify HTML balance after batch operations.</p>
+  </div>
+  <div class="card" style="margin-bottom:.75rem">
+    <h3>🔴 An agent cited a paper with wrong authors</h3>
+    <p>Confident and wrong. The citation looked correct. It wasn't. Lesson: Always verify citations independently.</p>
+  </div>
+  <div class="card">
+    <h3>🔴 Invisible API costs from cron jobs</h3>
+    <p>3 weeks of automated tasks. Monthly bill: 3× the budget. Nobody noticed because cron jobs run silently. Lesson: Set spending limits BEFORE you automate.</p>
+  </div>
+</section>
+
+</div><!-- /.container -->
+
+<footer>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
+  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
+  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
+  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · Content: CC BY-SA 4.0 · Code: MIT · No tracking, no cookies.</span>
+</footer>
+
+</body>
+</html>
