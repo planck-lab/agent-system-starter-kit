@@ -20,101 +20,105 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="lang-switch" role="navigation" aria-label="Language">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('de')">DE</button>
+</div>
 
 <div class="container">
 
 <!-- ===== Hero ===== -->
 <div class="hero">
-  <h1>🏗️ Agent System Starter Kit</h1>
-  <p class="tagline">Understand before you build. A minimal, framework-agnostic architecture for personal AI agent systems.</p>
-  <p style="font-size:.85rem;color:var(--muted);margin-bottom:1.25rem">New to agent systems? Start with the <a href="https://planck-lab.github.io/agent-systems/">free Agent Literacy Course</a> — no code required.</p>
+  <h1><span class="en">🏗️ Agent System Starter Kit</span><span class="de">🏗️ Agent System Starter Kit</span></h1>
+  <p class="tagline"><span class="en">Understand before you build. A minimal, framework-agnostic architecture for personal AI agent systems.</span><span class="de">Verstehen, bevor du baust. Eine minimale, Framework-unabhängige Architektur für persönliche KI-Agent-Systeme.</span></p>
+  <p style="font-size:.85rem;color:var(--muted);margin-bottom:1.25rem"><span class="en">New to agent systems? Start with the <a href="https://planck-lab.github.io/agent-systems/">free Agent Literacy Course</a> — no code required.</span><span class="de">Neu bei Agent-Systemen? Starte mit dem <a href="https://planck-lab.github.io/agent-systems/">kostenlosen Agent Literacy Kurs</a> — kein Code erforderlich.</span></p>
   <div class="cta">
-    <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary">View on GitHub</a>
-    <a href="https://planck-lab.github.io/agent-systems/" class="btn btn-secondary">Take the Course</a>
+    <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary"><span class="en">View on GitHub</span><span class="de">Auf GitHub ansehen</span></a>
+    <a href="https://planck-lab.github.io/agent-systems/" class="btn btn-secondary"><span class="en">Take the Course</span><span class="de">Zum Kurs</span></a>
   </div>
 </div>
 
 <!-- ===== The Problem ===== -->
 <section>
-  <h2><span class="label">The Problem</span>Everyone builds agents. Few understand them.</h2>
-  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto">146 skills. 72 plugins. 26 slash commands. Most starter kits give you tools. This one gives you <strong style="color:var(--text)">understanding</strong> — the architecture of a real agent system that's been running in production since early 2026.</p>
-  <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:.75rem">Built by an engineer who runs this system daily — including the mistakes. See <a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/docs/FAILURES.md">FAILURES.md</a>.</p>
+  <h2><span class="label"><span class="en">The Problem</span><span class="de">Das Problem</span></span><span class="en">Everyone builds agents. Few understand them.</span><span class="de">Alle bauen Agents. Wenige verstehen sie.</span></h2>
+  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto"><span class="en">146 skills. 72 plugins. 26 slash commands. Most starter kits give you tools. This one gives you <strong style="color:var(--text)">understanding</strong> — the architecture of a real agent system that's been running in production since early 2026.</span><span class="de">146 Skills. 72 Plugins. 26 Slash-Befehle. Die meisten Starter-Kits geben dir Werkzeuge. Dieses hier gibt dir <strong style="color:var(--text)">Verständnis</strong> — die Architektur eines echten Agent-Systems, das seit Anfang 2026 produktiv läuft.</span></p>
+  <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:.75rem"><span class="en">Built by an engineer who runs this system daily — including the mistakes. See <a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/docs/FAILURES.md">FAILURES.md</a>.</span><span class="de">Entwickelt von einem Ingenieur, der dieses System täglich nutzt — einschließlich der Fehler. Siehe <a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/docs/FAILURES.md">FAILURES.md</a>.</span></p>
 </section>
 
 <!-- ===== Four Layers ===== -->
 <section>
-  <h2><span class="label">Architecture</span>Four layers + one collaboration pattern</h2>
+  <h2><span class="label"><span class="en">Architecture</span><span class="de">Architektur</span></span><span class="en">Four layers + one collaboration pattern</span><span class="de">Vier Schichten + ein Kollaborationsmuster</span></h2>
   <div class="grid grid-4">
     <div class="card">
       <div class="icon">🧠</div>
-      <h3>Identity</h3>
-      <p>SOUL.md — Who is this agent? Name, personality, language, hard boundaries.</p>
+      <h3><span class="en">Identity</span><span class="de">Identität</span></h3>
+      <p><span class="en">SOUL.md — Who is this agent? Name, personality, language, hard boundaries.</span><span class="de">SOUL.md — Wer ist dieser Agent? Name, Persönlichkeit, Sprache, klare Grenzen.</span></p>
     </div>
     <div class="card">
       <div class="icon">⚙️</div>
-      <h3>Behavior</h3>
-      <p>AGENTS.md — How does it act? Skill routing, delegation rules, feedback loops.</p>
+      <h3><span class="en">Behavior</span><span class="de">Verhalten</span></h3>
+      <p><span class="en">AGENTS.md — How does it act? Skill routing, delegation rules, feedback loops.</span><span class="de">AGENTS.md — Wie handelt er? Skill-Routing, Delegationsregeln, Feedbackschleifen.</span></p>
     </div>
     <div class="card">
       <div class="icon">💾</div>
-      <h3>Memory</h3>
-      <p>memory/ — What does it remember? Daily notes, long-term context, learned rules.</p>
+      <h3><span class="en">Memory</span><span class="de">Gedächtnis</span></h3>
+      <p><span class="en">memory/ — What does it remember? Daily notes, long-term context, learned rules.</span><span class="de">memory/ — Woran erinnert es sich? Tägliche Notizen, Langzeitkontext, gelernte Regeln.</span></p>
     </div>
     <div class="card">
       <div class="icon">🔧</div>
-      <h3>Skills</h3>
-      <p>skills/ — What can it do? Reusable instruction files the agent follows on demand.</p>
+      <h3><span class="en">Skills</span><span class="de">Skills</span></h3>
+      <p><span class="en">skills/ — What can it do? Reusable instruction files the agent follows on demand.</span><span class="de">skills/ — Was kann es tun? Wiederverwendbare Anweisungsdateien, denen der Agent bei Bedarf folgt.</span></p>
     </div>
   </div>
 </section>
 
 <!-- ===== What's Different ===== -->
 <section>
-  <h2><span class="label">What's Different</span>Honest comparison</h2>
+  <h2><span class="label"><span class="en">What's Different</span><span class="de">Was anders ist</span></span><span class="en">Honest comparison</span><span class="de">Ein ehrlicher Vergleich</span></h2>
   <table class="compare-table">
     <thead>
       <tr>
         <th></th>
-        <th>This Kit</th>
+        <th><span class="en">This Kit</span><span class="de">Dieses Kit</span></th>
         <th>wshobson/agents</th>
         <th>Decipherist</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Philosophy</td><td>Understand first</td><td>Plugin catalog</td><td>Project scaffold</td></tr>
-      <tr><td>Files</td><td>~15 markdown</td><td>300+</td><td>50+</td></tr>
-      <tr><td>Dependencies</td><td>None</td><td>None</td><td>None</td></tr>
+      <tr><td><span class="en">Philosophy</span><span class="de">Philosophie</span></td><td><span class="en">Understand first</span><span class="de">Zuerst verstehen</span></td><td><span class="en">Plugin catalog</span><span class="de">Plugin-Katalog</span></td><td><span class="en">Project scaffold</span><span class="de">Projektgerüst</span></td></tr>
+      <tr><td><span class="en">Files</span><span class="de">Dateien</span></td><td><span class="en">~15 markdown</span><span class="de">~15 Markdown</span></td><td>300+</td><td>50+</td></tr>
+      <tr><td><span class="en">Dependencies</span><span class="de">Abhängigkeiten</span></td><td><span class="en">None</span><span class="de">Keine</span></td><td><span class="en">None</span><span class="de">Keine</span></td><td><span class="en">None</span><span class="de">Keine</span></td></tr>
       <tr><td>Multi-Agent</td><td style="color:var(--green)">✅ Exchange</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Provider lock-in</td><td>None</td><td>Claude Code</td><td>Claude Code</td></tr>
-      <tr><td>Skills included</td><td>3 examples</td><td>146+</td><td>10+</td></tr>
-      <tr><td>Failure docs</td><td style="color:var(--green)">✅ Real stories</td><td>❌</td><td>❌</td></tr>
+      <tr><td><span class="en">Provider lock-in</span><span class="de">Anbieter-Bindung</span></td><td><span class="en">None</span><span class="de">Keine</span></td><td>Claude Code</td><td>Claude Code</td></tr>
+      <tr><td><span class="en">Skills included</span><span class="de">Enthaltene Skills</span></td><td><span class="en">3 examples</span><span class="de">3 Beispiele</span></td><td>146+</td><td>10+</td></tr>
+      <tr><td><span class="en">Failure docs</span><span class="de">Fehler-Doku</span></td><td style="color:var(--green)">✅ <span class="en">Real stories</span><span class="de">Echte Geschichten</span></td><td>❌</td><td>❌</td></tr>
     </tbody>
   </table>
   <div class="callout" style="margin-top:1.5rem;text-align:center">
-    <strong>Need 146 skills?</strong> → <a href="https://github.com/wshobson/agents">wshobson/agents</a><br>
-    <strong>Need MDD workflow?</strong> → <a href="https://thedecipherist.github.io/claude-code-mastery-project-starter-kit/">Decipherist</a><br>
-    <strong>Want to understand how it works?</strong> → You're here.
+    <strong><span class="en">Need 146 skills?</span><span class="de">Brauchst du 146 Skills?</span></strong> → <a href="https://github.com/wshobson/agents">wshobson/agents</a><br>
+    <strong><span class="en">Need MDD workflow?</span><span class="de">Brauchst du einen MDD-Workflow?</span></strong> → <a href="https://thedecipherist.github.io/claude-code-mastery-project-starter-kit/">Decipherist</a><br>
+    <strong><span class="en">Want to understand how it works?</span><span class="de">Willst du verstehen, wie es funktioniert?</span></strong> → <span class="en">You're here.</span><span class="de">Dann bist du hier richtig.</span>
   </div>
 </section>
 
 <!-- ===== Agent Exchange ===== -->
 <section>
-  <h2><span class="label">Better Together</span>Agent Exchange — multi-agent via Git</h2>
+  <h2><span class="label"><span class="en">Better Together</span><span class="de">Besser zusammen</span></span><span class="en">Agent Exchange — multi-agent via Git</span><span class="de">Agent Exchange — Multi-Agent über Git</span></h2>
   <div class="card" style="margin-bottom:1rem">
-    <h3>Why two agents?</h3>
-    <p style="color:var(--muted);font-size:.88rem">One agent can't do everything well. A research agent needs time and context. A coding agent needs speed and precision. An always-on agent handles cron jobs while you sleep. Splitting responsibilities makes each agent better — and the Exchange pattern lets them collaborate without a framework.</p>
+    <h3><span class="en">Why two agents?</span><span class="de">Warum zwei Agents?</span></h3>
+    <p style="color:var(--muted);font-size:.88rem"><span class="en">One agent can't do everything well. A research agent needs time and context. A coding agent needs speed and precision. An always-on agent handles cron jobs while you sleep. Splitting responsibilities makes each agent better — and the Exchange pattern lets them collaborate without a framework.</span><span class="de">Ein Agent allein kann nicht alles gut machen. Ein Recherche-Agent braucht Zeit und Kontext. Ein Programmier-Agent braucht Geschwindigkeit und Präzision. Ein Always-on-Agent erledigt Cron-Jobs, während du schläfst. Die Aufteilung der Verantwortlichkeiten macht jeden Agent besser – und das Exchange-Muster lässt sie ohne ein Framework zusammenarbeiten.</span></p>
   </div>
   <div class="grid grid-2">
     <div class="card">
-      <h3>How it works</h3>
-      <p>Two agents share a Git repo. They communicate via markdown files — signals, questions, responses. Asynchronous, auditable, version-controlled.</p>
+      <h3><span class="en">How it works</span><span class="de">Wie es funktioniert</span></h3>
+      <p><span class="en">Two agents share a Git repo. They communicate via markdown files — signals, questions, responses. Asynchronous, auditable, version-controlled.</span><span class="de">Zwei Agents teilen sich ein Git-Repository. Sie kommunizieren über Markdown-Dateien – Signale, Fragen, Antworten. Asynchron, prüfbar, versioniert.</span></p>
     </div>
     <div class="card">
-      <h3>Real use cases</h3>
+      <h3><span class="en">Real use cases</span><span class="de">Echte Anwendungsfälle</span></h3>
       <p style="font-size:.85rem;color:var(--muted);line-height:1.8">
-        🔬 <strong>Research + Review:</strong> Agent A researches, Agent B reviews and challenges findings<br>
-        🌙 <strong>Day + Night:</strong> Cron agent works overnight, interactive agent picks up results in the morning<br>
-        🔍 <strong>Build + Audit:</strong> One agent writes code, another runs quality checks
+        🔬 <strong><span class="en">Research + Review:</span><span class="de">Recherche + Prüfung:</span></strong> <span class="en">Agent A researches, Agent B reviews and challenges findings</span><span class="de">Agent A recherchiert, Agent B prüft und hinterfragt die Ergebnisse</span><br>
+        🌙 <strong><span class="en">Day + Night:</span><span class="de">Tag + Nacht:</span></strong> <span class="en">Cron agent works overnight, interactive agent picks up results in the morning</span><span class="de">Ein Cron-Agent arbeitet über Nacht, der interaktive Agent greift die Ergebnisse am Morgen auf</span><br>
+        🔍 <strong><span class="en">Build + Audit:</span><span class="de">Entwickeln + Prüfen:</span></strong> <span class="en">One agent writes code, another runs quality checks</span><span class="de">Ein Agent schreibt Code, ein anderer führt Qualitätsprüfungen durch</span>
       </p>
     </div>
   </div>
@@ -123,101 +127,105 @@ Agent A writes: signals/request.md → git push<br>
 Agent B pulls → reads → writes: responses/answer.md → git push<br>
 Agent A pulls → reads response → acts on it
   </div>
-  <p style="text-align:center;margin-top:.75rem"><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md">See a real exchange session →</a> · <a href="agent-exchange.html">Deep dive →</a></p>
+  <p style="text-align:center;margin-top:.75rem"><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md"><span class="en">See a real exchange session →</span><span class="de">Eine echte Exchange-Sitzung ansehen →</span></a> · <a href="agent-exchange.html"><span class="en">Deep dive →</span><span class="de">Mehr dazu →</span></a></p>
   <div class="callout" style="text-align:center;margin-top:1rem">
-    <strong>Part of a duo:</strong> This kit pairs with the <a href="https://github.com/janrummel/claude-orchestrator-starter">Orchestrator Kit</a> — the builder to this thinker. Connect them via the Exchange repo.
+    <strong><span class="en">Part of a duo:</span><span class="de">Teil eines Duos:</span></strong> <span class="en">This kit pairs with the <a href="https://github.com/janrummel/claude-orchestrator-starter">Orchestrator Kit</a> — the builder to this thinker. Connect them via the Exchange repo.</span><span class="de">Dieses Kit passt zum <a href="https://github.com/janrummel/claude-orchestrator-starter">Orchestrator Kit</a> – der Macher zu diesem Denker. Verbinde sie über das Exchange-Repository.</span>
   </div>
 </section>
 
 <!-- ===== Deep Dives ===== -->
 <section>
-  <h2><span class="label">Go Deeper</span>Concepts & Guides</h2>
-  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto 1.5rem">The architecture is the starting point. These pages cover the questions that come next.</p>
+  <h2><span class="label"><span class="en">Go Deeper</span><span class="de">Tauche tiefer ein</span></span><span class="en">Concepts & Guides</span><span class="de">Konzepte & Anleitungen</span></h2>
+  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto 1.5rem"><span class="en">The architecture is the starting point. These pages cover the questions that come next.</span><span class="de">Die Architektur ist der Ausgangspunkt. Diese Seiten behandeln die Fragen, die als Nächstes kommen.</span></p>
 
-  <h3 style="text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.75rem">📘 Concepts — Understand</h3>
+  <h3 style="text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.75rem"><span class="en">📘 Concepts — Understand</span><span class="de">📘 Konzepte — Verstehen</span></h3>
   <div class="grid grid-2" style="margin-bottom:1.5rem">
     <div class="card" style="text-align:center">
       <div class="icon">⚡</div>
-      <h3>Agent ≠ CLI</h3>
-      <p>Claude Code is a tool. An agent system is a teammate. Persistence, hooks, skills, and why it matters.</p>
-      <a href="agent-vs-cli.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
+      <h3><span class="en">Agent ≠ CLI</span><span class="de">Agent ≠ CLI</span></h3>
+      <p><span class="en">Claude Code is a tool. An agent system is a teammate. Persistence, hooks, skills, and why it matters.</span><span class="de">Claude Code ist ein Werkzeug. Ein Agent-System ist ein Teamkollege. Persistenz, Hooks, Skills und warum das wichtig ist.</span></p>
+      <a href="agent-vs-cli.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem"><span class="en">Read →</span><span class="de">Lesen →</span></a>
     </div>
     <div class="card" style="text-align:center">
       <div class="icon">🎯</div>
-      <h3>Delegation</h3>
-      <p>When to delegate, when not to. The 2×2 matrix, five patterns, the trust ladder.</p>
-      <a href="delegation.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
+      <h3><span class="en">Delegation</span><span class="de">Delegation</span></h3>
+      <p><span class="en">When to delegate, when not to. The 2×2 matrix, five patterns, the trust ladder.</span><span class="de">Wann man delegieren sollte und wann nicht. Die 2×2-Matrix, fünf Muster, die Vertrauensleiter.</span></p>
+      <a href="delegation.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem"><span class="en">Read →</span><span class="de">Lesen →</span></a>
     </div>
   </div>
 
-  <h3 style="text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.75rem">🔧 Guides — Build</h3>
+  <h3 style="text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.75rem"><span class="en">🔧 Guides — Build</span><span class="de">🔧 Anleitungen — Bauen</span></h3>
   <div class="grid grid-2">
     <div class="card" style="text-align:center">
       <div class="icon">🖥️</div>
-      <h3>Runtime</h3>
-      <p>Where agents run. Hardware, platforms, costs, local vs cloud models, sovereign AI.</p>
-      <a href="runtime.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
+      <h3><span class="en">Runtime</span><span class="de">Laufzeitumgebung</span></h3>
+      <p><span class="en">Where agents run. Hardware, platforms, costs, local vs cloud models, sovereign AI.</span><span class="de">Wo Agents laufen. Hardware, Plattformen, Kosten, lokale vs. Cloud-Modelle, souveräne KI.</span></p>
+      <a href="runtime.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem"><span class="en">Read →</span><span class="de">Lesen →</span></a>
     </div>
     <div class="card" style="text-align:center">
       <div class="icon">🤝</div>
-      <h3>Agent Exchange</h3>
-      <p>Multi-agent collaboration via Git. 4 use cases, limitations, 5-minute setup.</p>
-      <a href="agent-exchange.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem">Read →</a>
+      <h3><span class="en">Agent Exchange</span><span class="de">Agent Exchange</span></h3>
+      <p><span class="en">Multi-agent collaboration via Git. 4 use cases, limitations, 5-minute setup.</span><span class="de">Multi-Agent-Kollaboration über Git. 4 Anwendungsfälle, Einschränkungen, 5-Minuten-Einrichtung.</span></p>
+      <a href="agent-exchange.html" class="btn btn-secondary" style="margin-top:.75rem;display:inline-block;font-size:.8rem"><span class="en">Read →</span><span class="de">Lesen →</span></a>
     </div>
   </div>
 </section>
 
 <!-- ===== Three Paths ===== -->
 <section>
-  <h2><span class="label">Get Started</span>Three paths, one kit</h2>
+  <h2><span class="label"><span class="en">Get Started</span><span class="de">Loslegen</span></span><span class="en">Three paths, one kit</span><span class="de">Drei Wege, ein Kit</span></h2>
   <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
     <div class="card" style="text-align:center">
       <div class="icon">📖</div>
-      <h3>Study</h3>
-      <p>30 min. Read the files. The architecture is the lesson.</p>
+      <h3><span class="en">Study</span><span class="de">Studieren</span></h3>
+      <p><span class="en">30 min. Read the files. The architecture is the lesson.</span><span class="de">30 Min. Lies die Dateien. Die Architektur ist die Lektion.</span></p>
     </div>
     <div class="card" style="text-align:center;border-color:var(--accent)">
       <div class="icon">🚀</div>
-      <h3>Build</h3>
-      <p>30 min. Clone, personalize, connect to any LLM platform.</p>
+      <h3><span class="en">Build</span><span class="de">Bauen</span></h3>
+      <p><span class="en">30 min. Clone, personalize, connect to any LLM platform.</span><span class="de">30 Min. Klonen, personalisieren, mit jeder LLM-Plattform verbinden.</span></p>
     </div>
     <div class="card" style="text-align:center">
       <div class="icon">🎓</div>
-      <h3>Learn</h3>
-      <p>2 hours. Follow the <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> with this as companion.</p>
+      <h3><span class="en">Learn</span><span class="de">Lernen</span></h3>
+      <p><span class="en">2 hours. Follow the <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> with this as companion.</span><span class="de">2 Stunden. Folge dem <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Kurs</a> mit diesem Kit als Begleiter.</span></p>
     </div>
   </div>
   <div style="text-align:center;margin-top:1.5rem">
-    <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary">Clone the Kit →</a>
+    <a href="https://github.com/planck-lab/agent-system-starter-kit" class="btn btn-primary"><span class="en">Clone the Kit →</span><span class="de">Kit klonen →</span></a>
   </div>
 </section>
 
 <!-- ===== What We Learned ===== -->
 <section>
-  <h2><span class="label">Real Failures</span>What we learned the hard way</h2>
+  <h2><span class="label"><span class="en">Real Failures</span><span class="de">Echte Fehler</span></span><span class="en">What we learned the hard way</span><span class="de">Was wir auf die harte Tour gelernt haben</span></h2>
   <div class="card" style="margin-bottom:.75rem">
-    <h3>🔴 A batch edit broke 13 HTML files</h3>
-    <p>Nav buttons disappeared. Closing tags were silently removed. Lesson: Always verify HTML balance after batch operations.</p>
+    <h3><span class="en">🔴 A batch edit broke 13 HTML files</span><span class="de">🔴 Eine Stapelverarbeitung hat 13 HTML-Dateien zerstört</span></h3>
+    <p><span class="en">Nav buttons disappeared. Closing tags were silently removed. Lesson: Always verify HTML balance after batch operations.</span><span class="de">Navigations-Buttons verschwanden. Schließende Tags wurden lautlos entfernt. Lektion: Überprüfe nach Stapelverarbeitungen immer die HTML-Balance.</span></p>
   </div>
   <div class="card" style="margin-bottom:.75rem">
-    <h3>🔴 An agent cited a paper with wrong authors</h3>
-    <p>Confident and wrong. The citation looked correct. It wasn't. Lesson: Always verify citations independently.</p>
+    <h3><span class="en">🔴 An agent cited a paper with wrong authors</span><span class="de">🔴 Ein Agent zitierte ein Paper mit falschen Autoren</span></h3>
+    <p><span class="en">Confident and wrong. The citation looked correct. It wasn't. Lesson: Always verify citations independently.</span><span class="de">Selbstbewusst und falsch. Das Zitat sah korrekt aus. War es aber nicht. Lektion: Überprüfe Zitate immer unabhängig.</span></p>
   </div>
   <div class="card">
-    <h3>🔴 Invisible API costs from cron jobs</h3>
-    <p>3 weeks of automated tasks. Monthly bill: 3× the budget. Nobody noticed because cron jobs run silently. Lesson: Set spending limits BEFORE you automate.</p>
+    <h3><span class="en">🔴 Invisible API costs from cron jobs</span><span class="de">🔴 Unsichtbare API-Kosten durch Cron-Jobs</span></h3>
+    <p><span class="en">3 weeks of automated tasks. Monthly bill: 3× the budget. Nobody noticed because cron jobs run silently. Lesson: Set spending limits BEFORE you automate.</span><span class="de">3 Wochen automatisierte Aufgaben. Monatsrechnung: 3x das Budget. Niemand hat es bemerkt, weil Cron-Jobs im Hintergrund laufen. Lektion: Setze Ausgabenlimits, BEVOR du automatisierst.</span></p>
   </div>
 </section>
 
 </div><!-- /.container -->
 
 <footer>
-  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
-  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
-  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
-  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · Content: CC BY-SA 4.0 · Code: MIT · No tracking, no cookies.</span>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit"><span class="en">Source on GitHub</span><span class="de">Quelle auf GitHub</span></a> ·
+  <a href="https://planck-lab.github.io/agent-systems/"><span class="en">Agent Literacy Course</span><span class="de">Agent Literacy Kurs</span></a> ·
+  <a href="https://janrummel.github.io/ai-learning/"><span class="en">AI Learning Ecosystem</span><span class="de">KI-Lernökosystem</span></a>
+  <br><span style="margin-top:.5rem;display:inline-block"><span class="en">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · Content: CC BY-SA 4.0 · Code: MIT · No tracking, no cookies.</span><span class="de">Von <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · Inhalt: CC BY-SA 4.0 · Code: MIT · Kein Tracking, keine Cookies.</span></span>
 </footer>
 
+<script>
+function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')"]').classList.add('active');localStorage.setItem('agent-kit-lang',l)}
+var saved=localStorage.getItem('agent-kit-lang');if(saved){setLang(saved)}else if(navigator.language.startsWith('de')){setLang('de')}
+</script>
 <script data-goatcounter="https://janrummel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

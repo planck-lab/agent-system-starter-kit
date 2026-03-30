@@ -20,168 +20,172 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="lang-switch" role="navigation" aria-label="Language">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('de')">DE</button>
+</div>
 
 <nav class="doc-nav" aria-label="Main navigation">
-  <a href="index.html">← Back to Kit</a>
+  <a href="index.html"><span class="en">← Back to Kit</span><span class="de">← Zurück zum Kit</span></a>
   <span class="nav-links">
-    <span class="nav-group"><span class="nav-label">Concepts</span> <a href="agent-vs-cli.html">Agent ≠ CLI</a> <a href="delegation.html">Delegation</a></span>
-    <span class="nav-group"><span class="nav-label">Guides</span> <a href="runtime.html">Runtime</a> <a href="agent-exchange.html" class="active">Exchange</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Concepts</span><span class="de">Konzepte</span></span> <a href="agent-vs-cli.html">Agent ≠ CLI</a> <a href="delegation.html">Delegation</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Guides</span><span class="de">Anleitungen</span></span> <a href="runtime.html">Runtime</a> <a href="agent-exchange.html" class="active">Exchange</a></span>
   </span>
 </nav>
 
 <div class="container doc-container">
 
-<h1>🤝 Agent Exchange: Multi-Agent via Git</h1>
-<p class="doc-intro">A pattern for asynchronous collaboration between AI agents using Git as the communication layer. No framework, no message queue, no API — just markdown files in a shared repository.</p>
+<h1><span class="en">🤝 Agent Exchange: Multi-Agent via Git</span><span class="de">🤝 Agent Exchange: Multi-Agent über Git</span></h1>
+<p class="doc-intro"><span class="en">A pattern for asynchronous collaboration between AI agents using Git as the communication layer. No framework, no message queue, no API — just markdown files in a shared repository.</span><span class="de">Ein Muster für die asynchrone Zusammenarbeit zwischen KI-Agents, das Git als Kommunikationsschicht nutzt. Kein Framework, keine Message Queue, keine API – nur Markdown-Dateien in einem gemeinsamen Repository.</span></p>
 
 <!-- Why Multi-Agent -->
 <section>
-  <h2><span class="label">The Problem</span>Why Multi-Agent?</h2>
+  <h2><span class="label"><span class="en">The Problem</span><span class="de">Das Problem</span></span><span class="en">Why Multi-Agent?</span><span class="de">Warum Multi-Agent?</span></h2>
   <div class="grid grid-2">
     <div class="card">
       <div class="icon">🧠</div>
-      <h3>Cognitive Load</h3>
-      <p>A research task takes 10 minutes. During that time, the agent can't answer chat messages.</p>
+      <h3><span class="en">Cognitive Load</span><span class="de">Kognitive Last</span></h3>
+      <p><span class="en">A research task takes 10 minutes. During that time, the agent can't answer chat messages.</span><span class="de">Eine Rechercheaufgabe dauert 10 Minuten. Während dieser Zeit kann der Agent keine Chat-Nachrichten beantworten.</span></p>
     </div>
     <div class="card">
       <div class="icon">🎯</div>
-      <h3>Specialization</h3>
-      <p>A coding agent needs different instructions than a research agent. Combining both dilutes quality.</p>
+      <h3><span class="en">Specialization</span><span class="de">Spezialisierung</span></h3>
+      <p><span class="en">A coding agent needs different instructions than a research agent. Combining both dilutes quality.</span><span class="de">Ein Programmier-Agent benötigt andere Anweisungen als ein Recherche-Agent. Die Kombination beider verwässert die Qualität.</span></p>
     </div>
     <div class="card">
       <div class="icon">🌙</div>
-      <h3>Availability</h3>
-      <p>An always-on server agent handles cron jobs at 3 AM. A laptop agent is available when you're working.</p>
+      <h3><span class="en">Availability</span><span class="de">Verfügbarkeit</span></h3>
+      <p><span class="en">An always-on server agent handles cron jobs at 3 AM. A laptop agent is available when you're working.</span><span class="de">Ein always-on Server-Agent erledigt Cron-Jobs um 3 Uhr morgens. Ein Laptop-Agent ist verfügbar, wenn du arbeitest.</span></p>
     </div>
     <div class="card">
       <div class="icon">👁️</div>
-      <h3>Review Bias</h3>
-      <p>An agent reviewing its own output is like proofreading your own essay — it sees what it expects to see.</p>
+      <h3><span class="en">Review Bias</span><span class="de">Prüfungs-Bias</span></h3>
+      <p><span class="en">An agent reviewing its own output is like proofreading your own essay — it sees what it expects to see.</span><span class="de">Ein Agent, der seine eigene Ausgabe überprüft, ist wie das Korrekturlesen des eigenen Aufsatzes – er sieht, was er zu sehen erwartet.</span></p>
     </div>
   </div>
-  <p class="source-line">Sources: <a href="https://arxiv.org/abs/2306.03314">Talebirad &amp; Nadiri (2023)</a>, <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Google A2A Protocol</a></p>
+  <p class="source-line"><span class="en">Sources:</span><span class="de">Quellen:</span> <a href="https://arxiv.org/abs/2306.03314">Talebirad &amp; Nadiri (2023)</a>, <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Google A2A Protocol</a></p>
 </section>
 
 <!-- How It Works -->
 <section>
-  <h2><span class="label">The Pattern</span>How It Works</h2>
+  <h2><span class="label"><span class="en">The Pattern</span><span class="de">Das Muster</span></span><span class="en">How It Works</span><span class="de">Wie es funktioniert</span></h2>
 
   <div class="code-block">
 agent-exchange/<br>
-├── signals/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># "Look at this"</span><br>
+├── signals/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">"Look at this"</span><span class="de">"Schau dir das an"</span></span><br>
 │&nbsp;&nbsp; ├── agent-a/<br>
 │&nbsp;&nbsp; └── agent-b/<br>
-├── questions/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># "What do you think?"</span><br>
-├── responses/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># "Here's my take"</span><br>
-├── learnings/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># "I noticed something"</span><br>
-└── reviews/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># "I reviewed your work"</span>
+├── questions/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">"What do you think?"</span><span class="de">"Was denkst du?"</span></span><br>
+├── responses/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">"Here's my take"</span><span class="de">"Hier ist meine Meinung"</span></span><br>
+├── learnings/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">"I noticed something"</span><span class="de">"Mir ist etwas aufgefallen"</span></span><br>
+└── reviews/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">"I reviewed your work"</span><span class="de">"Ich habe deine Arbeit überprüft"</span></span>
   </div>
 
-  <p><strong>Rule:</strong> Each agent writes only in its own subfolder. Agents never modify each other's files.</p>
+  <p><strong><span class="en">Rule:</span><span class="de">Regel:</span></strong> <span class="en">Each agent writes only in its own subfolder. Agents never modify each other's files.</span><span class="de">Jeder Agent schreibt nur in seinen eigenen Unterordner. Agents ändern niemals die Dateien der anderen.</span></p>
 
   <div class="code-block">
-Agent A writes signal → <strong>git push</strong> →→→ Agent B pulls<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agent B reads, thinks, writes response<br>
-Agent A pulls ←←← <strong>git push</strong> ← Agent B
+<span class="en">Agent A writes signal</span><span class="de">Agent A schreibt Signal</span> → <strong>git push</strong> →→→ <span class="en">Agent B pulls</span><span class="de">Agent B holt ab</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="en">Agent B reads, thinks, writes response</span><span class="de">Agent B liest, denkt, schreibt Antwort</span><br>
+<span class="en">Agent A pulls</span><span class="de">Agent A holt ab</span> ←←← <strong>git push</strong> ← <span class="en">Agent B</span><span class="de">Agent B</span>
   </div>
 
-  <p><strong>Timing:</strong> Fully asynchronous. Agent A pushes at 10:00, Agent B responds at 14:00, Agent A reads at 15:00. No need to be online simultaneously.</p>
+  <p><strong><span class="en">Timing:</span><span class="de">Zeitplanung:</span></strong> <span class="en">Fully asynchronous. Agent A pushes at 10:00, Agent B responds at 14:00, Agent A reads at 15:00. No need to be online simultaneously.</span><span class="de">Vollständig asynchron. Agent A pusht um 10:00 Uhr, Agent B antwortet um 14:00 Uhr, Agent A liest um 15:00 Uhr. Es ist nicht nötig, gleichzeitig online zu sein.</span></p>
 
-  <h3>File Format</h3>
+  <h3><span class="en">File Format</span><span class="de">Dateiformat</span></h3>
   <div class="code-block">
 ---<br>
 status: open&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># open | in-progress | closed</span><br>
-by: agent-a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># who wrote this</span><br>
+by: agent-a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">who wrote this</span><span class="de">wer das geschrieben hat</span></span><br>
 date: 2026-03-25<br>
 ---<br>
 <br>
-# Title<br>
-Content in markdown.
+# <span class="en">Title</span><span class="de">Titel</span><br>
+<span class="en">Content in markdown.</span><span class="de">Inhalt in Markdown.</span>
   </div>
 </section>
 
 <!-- Use Cases -->
 <section>
-  <h2><span class="label">In Practice</span>Four Use Cases</h2>
+  <h2><span class="label"><span class="en">In Practice</span><span class="de">In der Praxis</span></span><span class="en">Four Use Cases</span><span class="de">Vier Anwendungsfälle</span></h2>
 
   <div class="card" style="margin-bottom:1rem;border-color:var(--accent)">
-    <h3>🔬 1. Research + Review</h3>
-    <p>Agent A researches, Agent B challenges. Agent B has no investment in Agent A's output — it can be genuinely critical. Unlike self-review, which sees what it expects to see.</p>
-    <p style="font-size:.82rem;margin-top:.5rem"><strong>Flow:</strong> Human asks → Agent A researches → writes signal → Agent B reviews → finds 2 unsourced claims, 1 outdated price → Agent A fixes.</p>
+    <h3><span class="en">🔬 1. Research + Review</span><span class="de">🔬 1. Recherche + Prüfung</span></h3>
+    <p><span class="en">Agent A researches, Agent B challenges. Agent B has no investment in Agent A's output — it can be genuinely critical. Unlike self-review, which sees what it expects to see.</span><span class="de">Agent A recherchiert, Agent B hinterfragt. Agent B hat keine persönliche Bindung an das Ergebnis von Agent A – er kann wirklich kritisch sein. Im Gegensatz zur Selbstüberprüfung, bei der man sieht, was man erwartet.</span></p>
+    <p style="font-size:.82rem;margin-top:.5rem"><strong><span class="en">Flow:</span><span class="de">Ablauf:</span></strong> <span class="en">Human asks → Agent A researches → writes signal → Agent B reviews → finds 2 unsourced claims, 1 outdated price → Agent A fixes.</span><span class="de">Mensch fragt → Agent A recherchiert → schreibt Signal → Agent B prüft → findet 2 unbelegte Behauptungen, 1 veralteten Preis → Agent A korrigiert.</span></p>
   </div>
 
   <div class="card" style="margin-bottom:1rem">
-    <h3>🌙 2. Day + Night Shifts</h3>
-    <p>Agent A (laptop) is interactive during the day. Agent B (server) runs automated tasks overnight. At 08:00, results are waiting.</p>
-    <p style="font-size:.82rem;margin-top:.5rem"><strong>Flow:</strong> 22:00 write task list → 02:00 cron runs research → 08:00 pull results.</p>
+    <h3><span class="en">🌙 2. Day + Night Shifts</span><span class="de">🌙 2. Tag- und Nachtschicht</span></h3>
+    <p><span class="en">Agent A (laptop) is interactive during the day. Agent B (server) runs automated tasks overnight. At 08:00, results are waiting.</span><span class="de">Agent A (Laptop) ist tagsüber interaktiv. Agent B (Server) führt über Nacht automatisierte Aufgaben aus. Um 08:00 Uhr liegen die Ergebnisse vor.</span></p>
+    <p style="font-size:.82rem;margin-top:.5rem"><strong><span class="en">Flow:</span><span class="de">Ablauf:</span></strong> <span class="en">22:00 write task list → 02:00 cron runs research → 08:00 pull results.</span><span class="de">22:00 Aufgabenliste schreiben → 02:00 Cron führt Recherche aus → 08:00 Ergebnisse abrufen.</span></p>
   </div>
 
   <div class="card" style="margin-bottom:1rem">
-    <h3>🔍 3. Build + Audit</h3>
-    <p>One agent writes code or content. The other runs quality checks. Separation of concerns — the audit agent has different instructions focused on finding problems.</p>
-    <p style="font-size:.82rem;margin-top:.5rem"><strong>Flow:</strong> Agent A builds → signals "ready" → Agent B runs checks → writes review with findings.</p>
+    <h3><span class="en">🔍 3. Build + Audit</span><span class="de">🔍 3. Entwickeln + Prüfen</span></h3>
+    <p><span class="en">One agent writes code or content. The other runs quality checks. Separation of concerns — the audit agent has different instructions focused on finding problems.</span><span class="de">Ein Agent schreibt Code oder Inhalte. Der andere führt Qualitätsprüfungen durch. Trennung der Belange – der Audit-Agent hat andere Anweisungen, die darauf ausgerichtet sind, Probleme zu finden.</span></p>
+    <p style="font-size:.82rem;margin-top:.5rem"><strong><span class="en">Flow:</span><span class="de">Ablauf:</span></strong> <span class="en">Agent A builds → signals "ready" → Agent B runs checks → writes review with findings.</span><span class="de">Agent A entwickelt → signalisiert "fertig" → Agent B führt Prüfungen durch → schreibt eine Überprüfung mit Ergebnissen.</span></p>
   </div>
 
   <div class="card">
-    <h3>📚 4. Learning Loop</h3>
-    <p>Agents teach each other by documenting observations. Accepted learnings become design principles for both agents. Distributed knowledge creation.</p>
-    <p style="font-size:.82rem;margin-top:.5rem"><strong>Flow:</strong> Agent A notices pattern → writes learning → Agent B reviews: accepted/returned/rejected.</p>
+    <h3><span class="en">📚 4. Learning Loop</span><span class="de">📚 4. Lernschleife</span></h3>
+    <p><span class="en">Agents teach each other by documenting observations. Accepted learnings become design principles for both agents. Distributed knowledge creation.</span><span class="de">Agents lehren sich gegenseitig, indem sie Beobachtungen dokumentieren. Akzeptierte Erkenntnisse werden zu Designprinzipien für beide Agents. Verteilte Wissensschaffung.</span></p>
+    <p style="font-size:.82rem;margin-top:.5rem"><strong><span class="en">Flow:</span><span class="de">Ablauf:</span></strong> <span class="en">Agent A notices pattern → writes learning → Agent B reviews: accepted/returned/rejected.</span><span class="de">Agent A bemerkt ein Muster → schreibt eine Erkenntnis → Agent B prüft: akzeptiert/zurückgewiesen/abgelehnt.</span></p>
   </div>
 </section>
 
 <!-- Limitations -->
 <section>
-  <h2><span class="label">Honest Assessment</span>Limitations</h2>
+  <h2><span class="label"><span class="en">Honest Assessment</span><span class="de">Ehrliche Einschätzung</span></span><span class="en">Limitations</span><span class="de">Einschränkungen</span></h2>
   <table class="compare-table">
     <thead>
-      <tr><th>Limitation</th><th>Detail</th></tr>
+      <tr><th><span class="en">Limitation</span><span class="de">Einschränkung</span></th><th>Detail</th></tr>
     </thead>
     <tbody>
-      <tr><td>Not real-time</td><td>Git push/pull has seconds-to-minutes latency</td></tr>
-      <tr><td>No streaming</td><td>Agents see finished outputs only, can't watch each other think</td></tr>
-      <tr><td>Scale ceiling</td><td>Works for 2-5 agents. At 10+, consider message brokers</td></tr>
-      <tr><td>No routing</td><td>Agents check for files via cron — no push notifications</td></tr>
-      <tr><td>Trust implicit</td><td>Any agent with repo access reads everything</td></tr>
+      <tr><td><span class="en">Not real-time</span><span class="de">Nicht in Echtzeit</span></td><td><span class="en">Git push/pull has seconds-to-minutes latency</span><span class="de">Git Push/Pull hat eine Latenz von Sekunden bis Minuten</span></td></tr>
+      <tr><td><span class="en">No streaming</span><span class="de">Kein Streaming</span></td><td><span class="en">Agents see finished outputs only, can't watch each other think</span><span class="de">Agents sehen nur fertige Ausgaben, können sich nicht gegenseitig beim Denken zusehen</span></td></tr>
+      <tr><td><span class="en">Scale ceiling</span><span class="de">Skalierungsgrenze</span></td><td><span class="en">Works for 2-5 agents. At 10+, consider message brokers</span><span class="de">Funktioniert für 2-5 Agents. Ab 10+ sollten Message Broker in Betracht gezogen werden</span></td></tr>
+      <tr><td><span class="en">No routing</span><span class="de">Kein Routing</span></td><td><span class="en">Agents check for files via cron — no push notifications</span><span class="de">Agents prüfen auf Dateien per Cron – keine Push-Benachrichtigungen</span></td></tr>
+      <tr><td><span class="en">Trust implicit</span><span class="de">Vertrauen implizit</span></td><td><span class="en">Any agent with repo access reads everything</span><span class="de">Jeder Agent mit Repository-Zugriff liest alles</span></td></tr>
     </tbody>
   </table>
 
   <div class="callout" style="margin-top:1rem">
-    <strong>When NOT to use Exchange:</strong> Sub-second responses needed → A2A. 10+ agents → message broker. Untrusted agents → not designed for this. Binary data → Git handles markdown, not large files.
+    <strong><span class="en">When NOT to use Exchange:</span><span class="de">Wann man Exchange NICHT verwenden sollte:</span></strong> <span class="en">Sub-second responses needed → A2A. 10+ agents → message broker. Untrusted agents → not designed for this. Binary data → Git handles markdown, not large files.</span><span class="de">Antworten im Sub-Sekunden-Bereich benötigt → A2A. 10+ Agents → Message Broker. Nicht vertrauenswürdige Agents → dafür nicht ausgelegt. Binärdaten → Git verarbeitet Markdown, keine großen Dateien.</span>
   </div>
 </section>
 
 <!-- Comparison -->
 <section>
-  <h2><span class="label">Alternatives</span>How Exchange Compares</h2>
+  <h2><span class="label"><span class="en">Alternatives</span><span class="de">Alternativen</span></span><span class="en">How Exchange Compares</span><span class="de">Wie sich Exchange vergleicht</span></h2>
   <table class="compare-table">
     <thead>
       <tr><th></th><th>Exchange (Git)</th><th>A2A Protocol</th><th>Message Queue</th><th>Shared DB</th></tr>
     </thead>
     <tbody>
-      <tr><td>Setup</td><td style="color:var(--green)"><code>git init</code></td><td>SDK + server</td><td>Broker + consumers</td><td>DB + schema</td></tr>
-      <tr><td>Latency</td><td>Sec–min</td><td style="color:var(--green)">Milliseconds</td><td style="color:var(--green)">Milliseconds</td><td style="color:var(--green)">Milliseconds</td></tr>
-      <tr><td>Audit trail</td><td style="color:var(--green)">Full (git log)</td><td>Needs logging</td><td>Needs logging</td><td>Needs logging</td></tr>
-      <tr><td>Offline</td><td style="color:var(--green)">✅ Works</td><td>❌</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Complexity</td><td style="color:var(--green)">Minimal</td><td>Medium</td><td>Medium-High</td><td>Medium</td></tr>
-      <tr><td>Best for</td><td>2-5 agents, async</td><td>Real-time</td><td>High-throughput</td><td>Structured data</td></tr>
+      <tr><td><span class="en">Setup</span><span class="de">Einrichtung</span></td><td style="color:var(--green)"><code>git init</code></td><td>SDK + Server</td><td>Broker + Consumers</td><td>DB + Schema</td></tr>
+      <tr><td><span class="en">Latency</span><span class="de">Latenz</span></td><td><span class="en">Sec–min</span><span class="de">Sek–Min</span></td><td style="color:var(--green)"><span class="en">Milliseconds</span><span class="de">Millisekunden</span></td><td style="color:var(--green)"><span class="en">Milliseconds</span><span class="de">Millisekunden</span></td><td style="color:var(--green)"><span class="en">Milliseconds</span><span class="de">Millisekunden</span></td></tr>
+      <tr><td><span class="en">Audit trail</span><span class="de">Prüfpfad</span></td><td style="color:var(--green)"><span class="en">Full (git log)</span><span class="de">Vollständig (git log)</span></td><td><span class="en">Needs logging</span><span class="de">Benötigt Protokollierung</span></td><td><span class="en">Needs logging</span><span class="de">Benötigt Protokollierung</span></td><td><span class="en">Needs logging</span><span class="de">Benötigt Protokollierung</span></td></tr>
+      <tr><td><span class="en">Offline</span><span class="de">Offline</span></td><td style="color:var(--green)">✅ <span class="en">Works</span><span class="de">Funktioniert</span></td><td>❌</td><td>❌</td><td>❌</td></tr>
+      <tr><td><span class="en">Complexity</span><span class="de">Komplexität</span></td><td style="color:var(--green)"><span class="en">Minimal</span><span class="de">Minimal</span></td><td><span class="en">Medium</span><span class="de">Mittel</span></td><td><span class="en">Medium-High</span><span class="de">Mittel-Hoch</span></td><td><span class="en">Medium</span><span class="de">Mittel</span></td></tr>
+      <tr><td><span class="en">Best for</span><span class="de">Am besten für</span></td><td><span class="en">2-5 agents, async</span><span class="de">2-5 Agents, asynchron</span></td><td><span class="en">Real-time</span><span class="de">Echtzeit</span></td><td><span class="en">High-throughput</span><span class="de">Hoher Durchsatz</span></td><td><span class="en">Structured data</span><span class="de">Strukturierte Daten</span></td></tr>
     </tbody>
   </table>
-  <p class="source-line">Sources: <a href="https://github.com/a2aproject/A2A">Google A2A Spec</a>, <a href="https://modelcontextprotocol.io/specification/2025-11-25">Anthropic MCP</a></p>
+  <p class="source-line"><span class="en">Sources:</span><span class="de">Quellen:</span> <a href="https://github.com/a2aproject/A2A">Google A2A Spec</a>, <a href="https://modelcontextprotocol.io/specification/2025-11-25">Anthropic MCP</a></p>
 </section>
 
 <!-- Getting Started -->
 <section>
-  <h2><span class="label">5 Minutes</span>Getting Started</h2>
+  <h2><span class="label"><span class="en">5 Minutes</span><span class="de">5 Minuten</span></span><span class="en">Getting Started</span><span class="de">Erste Schritte</span></h2>
 
   <div class="code-block">
-<span style="color:var(--muted)"># Create exchange repo</span><br>
+<span style="color:var(--muted)"># <span class="en">Create exchange repo</span><span class="de">Exchange-Repo erstellen</span></span><br>
 mkdir agent-exchange &amp;&amp; cd agent-exchange<br>
 git init<br>
 mkdir -p signals/agent-a signals/agent-b<br>
 mkdir -p questions/agent-a questions/agent-b<br>
 mkdir -p responses/agent-a responses/agent-b<br>
 <br>
-<span style="color:var(--muted)"># Create your first signal</span><br>
+<span style="color:var(--muted)"># <span class="en">Create your first signal</span><span class="de">Erstes Signal erstellen</span></span><br>
 cat &gt; signals/agent-a/first-signal.md &lt;&lt; 'EOF'<br>
 ---<br>
 status: open<br>
@@ -193,28 +197,32 @@ Agent B, please acknowledge.<br>
 EOF<br>
 <br>
 git add . &amp;&amp; git commit -m "first signal"<br>
-<span style="color:var(--muted)"># Push to shared remote (GitHub, private recommended)</span>
+<span style="color:var(--muted)"># <span class="en">Push to shared remote (GitHub, private recommended)</span><span class="de">Auf geteiltes Remote pushen (GitHub, privat empfohlen)</span></span>
   </div>
 
-  <p>The <code>exchange/</code> folder in this kit is already structured. Connect two instances: clone on both machines, set up a cron for <code>git pull</code>, and each agent writes to its own subfolders.</p>
-  <p><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md">See a real exchange session →</a></p>
+  <p><span class="en">The <code>exchange/</code> folder in this kit is already structured. Connect two instances: clone on both machines, set up a cron for <code>git pull</code>, and each agent writes to its own subfolders.</span><span class="de">Der Ordner <code>exchange/</code> in diesem Kit ist bereits strukturiert. Verbinde zwei Instanzen: klone auf beiden Maschinen, richte einen Cron für <code>git pull</code> ein, und jeder Agent schreibt in seine eigenen Unterordner.</span></p>
+  <p><a href="https://github.com/planck-lab/agent-system-starter-kit/blob/main/examples/exchange-session.md"><span class="en">See a real exchange session →</span><span class="de">Eine echte Exchange-Sitzung ansehen →</span></a></p>
 </section>
 
 <!-- Nav -->
 <div class="doc-bottom-nav">
-  <a href="runtime.html" class="btn btn-secondary">← Runtime</a>
-  <a href="delegation.html" class="btn btn-secondary">Next: Delegation →</a>
+  <a href="runtime.html" class="btn btn-secondary"><span class="en">← Runtime</span><span class="de">← Laufzeitumgebung</span></a>
+  <a href="delegation.html" class="btn btn-secondary"><span class="en">Next: Delegation →</span><span class="de">Weiter: Delegation →</span></a>
 </div>
 
 </div><!-- /.container -->
 
 <footer>
-  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
-  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
-  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
-  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit"><span class="en">Source on GitHub</span><span class="de">Quelle auf GitHub</span></a> ·
+  <a href="https://planck-lab.github.io/agent-systems/"><span class="en">Agent Literacy Course</span><span class="de">Agent Literacy Kurs</span></a> ·
+  <a href="https://janrummel.github.io/ai-learning/"><span class="en">AI Learning Ecosystem</span><span class="de">KI-Lernökosystem</span></a>
+  <br><span style="margin-top:.5rem;display:inline-block"><span class="en">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span><span class="de">Von <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · Kein Tracking.</span></span>
 </footer>
 
+<script>
+function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')"]').classList.add('active');localStorage.setItem('agent-kit-lang',l)}
+var saved=localStorage.getItem('agent-kit-lang');if(saved){setLang(saved)}else if(navigator.language.startsWith('de')){setLang('de')}
+</script>
 <script data-goatcounter="https://janrummel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

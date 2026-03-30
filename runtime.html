@@ -20,119 +20,123 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="lang-switch" role="navigation" aria-label="Language">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('de')">DE</button>
+</div>
 
 <nav class="doc-nav" aria-label="Main navigation">
-  <a href="index.html">← Back to Kit</a>
+  <a href="index.html"><span class="en">← Back to Kit</span><span class="de">← Zurück zum Kit</span></a>
   <span class="nav-links">
-    <span class="nav-group"><span class="nav-label">Concepts</span> <a href="agent-vs-cli.html">Agent ≠ CLI</a> <a href="delegation.html">Delegation</a></span>
-    <span class="nav-group"><span class="nav-label">Guides</span> <a href="runtime.html" class="active">Runtime</a> <a href="agent-exchange.html">Exchange</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Concepts</span><span class="de">Konzepte</span></span> <a href="agent-vs-cli.html">Agent ≠ CLI</a> <a href="delegation.html">Delegation</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Guides</span><span class="de">Anleitungen</span></span> <a href="runtime.html" class="active">Runtime</a> <a href="agent-exchange.html">Exchange</a></span>
   </span>
 </nav>
 
 <div class="container doc-container">
 
-<h1>🖥️ Runtime: Where and How Agents Live</h1>
-<p class="doc-intro">You've seen the architecture (SOUL.md, AGENTS.md, memory/, skills/). Now the question is: <strong>where does all this actually run?</strong></p>
+<h1><span class="en">🖥️ Runtime: Where and How Agents Live</span><span class="de">🖥️ Laufzeitumgebung: Wo und wie Agents leben</span></h1>
+<p class="doc-intro"><span class="en">You've seen the architecture (SOUL.md, AGENTS.md, memory/, skills/). Now the question is: <strong>where does all this actually run?</strong></span><span class="de">Du hast die Architektur gesehen (SOUL.md, AGENTS.md, memory/, skills/). Jetzt ist die Frage: <strong>Wo läuft das alles eigentlich?</strong></span></p>
 
 <!-- 1. Where Agents Live -->
 <section>
-  <h2><span class="label">Section 1</span>Where Agents Live</h2>
-  <p>An agent needs a place to run. Your options:</p>
+  <h2><span class="label"><span class="en">Section 1</span><span class="de">Abschnitt 1</span></span><span class="en">Where Agents Live</span><span class="de">Wo Agents leben</span></h2>
+  <p><span class="en">An agent needs a place to run. Your options:</span><span class="de">Ein Agent braucht einen Ort, an dem er laufen kann. Deine Optionen:</span></p>
   <table class="compare-table">
     <thead>
-      <tr><th>Option</th><th>Cost/month</th><th>Uptime</th><th>Best for</th></tr>
+      <tr><th><span class="en">Option</span><span class="de">Option</span></th><th><span class="en">Cost/month</span><span class="de">Kosten/Monat</span></th><th><span class="en">Uptime</span><span class="de">Verfügbarkeit</span></th><th><span class="en">Best for</span><span class="de">Am besten für</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Your laptop</td><td>$0</td><td>Only when open</td><td>Experimenting</td></tr>
-      <tr><td>Home server <span class="muted">(Mac mini, NUC)</span></td><td>$5-15</td><td>24/7</td><td>Personal agent, full control</td></tr>
-      <tr><td>VPS <span class="muted">(<a href="https://www.hetzner.com/cloud/">Hetzner</a>, <a href="https://www.digitalocean.com/pricing">DO</a>, <a href="https://www.hostinger.com/vps-hosting">Hostinger</a>)</span></td><td>$5-25</td><td>24/7, managed</td><td>Always-on, no hardware</td></tr>
-      <tr><td>Raspberry Pi</td><td>$3-5</td><td>24/7</td><td>Ultra-low cost</td></tr>
-      <tr><td>Cloud VM <span class="muted">(AWS, GCP, Azure)</span></td><td>$15-100+</td><td>24/7, scalable</td><td>Teams, enterprise</td></tr>
+      <tr><td><span class="en">Your laptop</span><span class="de">Dein Laptop</span></td><td>$0</td><td><span class="en">Only when open</span><span class="de">Nur wenn geöffnet</span></td><td><span class="en">Experimenting</span><span class="de">Experimentieren</span></td></tr>
+      <tr><td><span class="en">Home server</span><span class="de">Heimserver</span> <span class="muted">(Mac mini, NUC)</span></td><td>$5-15</td><td>24/7</td><td><span class="en">Personal agent, full control</span><span class="de">Persönlicher Agent, volle Kontrolle</span></td></tr>
+      <tr><td>VPS <span class="muted">(<a href="https://www.hetzner.com/cloud/">Hetzner</a>, <a href="https://www.digitalocean.com/pricing">DO</a>, <a href="https://www.hostinger.com/vps-hosting">Hostinger</a>)</span></td><td>$5-25</td><td><span class="en">24/7, managed</span><span class="de">24/7, verwaltet</span></td><td><span class="en">Always-on, no hardware</span><span class="de">Immer an, keine Hardware</span></td></tr>
+      <tr><td>Raspberry Pi</td><td>$3-5</td><td>24/7</td><td><span class="en">Ultra-low cost</span><span class="de">Sehr kostengünstig</span></td></tr>
+      <tr><td><span class="en">Cloud VM</span><span class="de">Cloud-VM</span> <span class="muted">(AWS, GCP, Azure)</span></td><td>$15-100+</td><td><span class="en">24/7, scalable</span><span class="de">24/7, skalierbar</span></td><td><span class="en">Teams, enterprise</span><span class="de">Teams, Unternehmen</span></td></tr>
     </tbody>
   </table>
 
   <div class="callout">
-    <strong>The case for a dedicated server:</strong> A laptop works for experimenting. But a real agent system — one with cron jobs, heartbeat checks, and messaging integrations — needs something that runs when your laptop is closed. A <a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4</a> (from $499) on your desk is the simplest 24/7 setup.
+    <strong><span class="en">The case for a dedicated server:</span><span class="de">Das Argument für einen dedizierten Server:</span></strong> <span class="en">A laptop works for experimenting. But a real agent system — one with cron jobs, heartbeat checks, and messaging integrations — needs something that runs when your laptop is closed. A <a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4</a> (from $499) on your desk is the simplest 24/7 setup.</span><span class="de">Ein Laptop funktioniert zum Experimentieren. Aber ein echtes Agent-System – eines mit Cron-Jobs, Heartbeat-Prüfungen und Messaging-Integrationen – braucht etwas, das läuft, wenn dein Laptop geschlossen ist. Ein <a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4</a> (ab 499 $) auf deinem Schreibtisch ist die einfachste 24/7-Einrichtung.</span>
   </div>
 
-  <p><strong>Kubernetes and serverless are poor fits.</strong> Agents are long-running and stateful, not ephemeral. A Kubernetes pod that gets rescheduled loses the agent's in-memory context. Serverless functions have timeout limits that conflict with agent tasks that take minutes.</p>
+  <p><strong><span class="en">Kubernetes and serverless are poor fits.</span><span class="de">Kubernetes und Serverless passen schlecht.</span></strong> <span class="en">Agents are long-running and stateful, not ephemeral. A Kubernetes pod that gets rescheduled loses the agent's in-memory context. Serverless functions have timeout limits that conflict with agent tasks that take minutes.</span><span class="de">Agents sind langlebig und zustandsbehaftet, nicht kurzlebig. Ein Kubernetes-Pod, der neu geplant wird, verliert den In-Memory-Kontext des Agents. Serverless-Funktionen haben Zeitlimits, die mit Agent-Aufgaben, die Minuten dauern, in Konflikt stehen.</span></p>
 </section>
 
 <!-- 2. What Keeps Them Running -->
 <section>
-  <h2><span class="label">Section 2</span>What Keeps Them Running</h2>
-  <p>An agent isn't just a model — it's a system:</p>
+  <h2><span class="label"><span class="en">Section 2</span><span class="de">Abschnitt 2</span></span><span class="en">What Keeps Them Running</span><span class="de">Was sie am Laufen hält</span></h2>
+  <p><span class="en">An agent isn't just a model — it's a system:</span><span class="de">Ein Agent ist nicht nur ein Modell – es ist ein System:</span></p>
   <div class="grid grid-3">
     <div class="card">
       <div class="icon">🚪</div>
       <h3>Gateway</h3>
-      <p>Routes messages (Telegram, Signal, Discord) to the right session. Manages approvals and enforces policies.</p>
+      <p><span class="en">Routes messages (Telegram, Signal, Discord) to the right session. Manages approvals and enforces policies.</span><span class="de">Leitet Nachrichten (Telegram, Signal, Discord) an die richtige Sitzung weiter. Verwaltet Genehmigungen und setzt Richtlinien durch.</span></p>
     </div>
     <div class="card">
       <div class="icon">⏰</div>
-      <h3>Cron & Scheduling</h3>
-      <p>Daily digest (07:00), heartbeat (every 2h), weekly review (Mon 09:00). macOS: LaunchAgents. Linux: crontab/systemd.</p>
+      <h3><span class="en">Cron & Scheduling</span><span class="de">Cron & Zeitplanung</span></h3>
+      <p><span class="en">Daily digest (07:00), heartbeat (every 2h), weekly review (Mon 09:00). macOS: LaunchAgents. Linux: crontab/systemd.</span><span class="de">Tägliche Zusammenfassung (07:00), Heartbeat (alle 2 Std.), wöchentlicher Rückblick (Mo 09:00). macOS: LaunchAgents. Linux: crontab/systemd.</span></p>
     </div>
     <div class="card">
       <div class="icon">📊</div>
-      <h3>Monitoring</h3>
-      <p>Watchdog (is it alive?), cost tracking (API spend), error logs (what failed?). Unmonitored agents are liabilities.</p>
+      <h3><span class="en">Monitoring</span><span class="de">Überwachung</span></h3>
+      <p><span class="en">Watchdog (is it alive?), cost tracking (API spend), error logs (what failed?). Unmonitored agents are liabilities.</span><span class="de">Watchdog (lebt es noch?), Kostenverfolgung (API-Ausgaben), Fehlerprotokolle (was ist fehlgeschlagen?). Unüberwachte Agents sind ein Risiko.</span></p>
     </div>
   </div>
 </section>
 
 <!-- 3. Platform Landscape -->
 <section>
-  <h2><span class="label">Section 3</span>Platform Landscape</h2>
-  <p>Software to orchestrate your agent — as of March 2026:</p>
+  <h2><span class="label"><span class="en">Section 3</span><span class="de">Abschnitt 3</span></span><span class="en">Platform Landscape</span><span class="de">Plattform-Landschaft</span></h2>
+  <p><span class="en">Software to orchestrate your agent — as of March 2026:</span><span class="de">Software zur Orchestrierung deines Agents – Stand März 2026:</span></p>
   <table class="compare-table">
     <thead>
-      <tr><th>Platform</th><th>Type</th><th>Best for</th><th>Complexity</th></tr>
+      <tr><th><span class="en">Platform</span><span class="de">Plattform</span></th><th><span class="en">Type</span><span class="de">Typ</span></th><th><span class="en">Best for</span><span class="de">Am besten für</span></th><th><span class="en">Complexity</span><span class="de">Komplexität</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Claude Code</td><td>CLI</td><td>Developers, local</td><td style="color:var(--green)">Low</td></tr>
-      <tr><td>OpenClaw</td><td>Gateway</td><td>Always-on personal agents</td><td style="color:var(--orange)">Medium</td></tr>
-      <tr><td>LangGraph</td><td>Framework</td><td>Complex workflows, enterprise</td><td style="color:var(--purple)">High</td></tr>
-      <tr><td>CrewAI</td><td>Framework</td><td>Multi-agent teams</td><td style="color:var(--orange)">Medium</td></tr>
-      <tr><td>AutoGen</td><td>Framework</td><td>Research, conversational</td><td style="color:var(--orange)">Medium</td></tr>
-      <tr><td>Semantic Kernel</td><td>SDK</td><td>Enterprise .NET</td><td style="color:var(--purple)">High</td></tr>
-      <tr><td>No framework</td><td>DIY</td><td>Simple setups, full control</td><td>Varies</td></tr>
+      <tr><td>Claude Code</td><td>CLI</td><td><span class="en">Developers, local</span><span class="de">Entwickler, lokal</span></td><td style="color:var(--green)"><span class="en">Low</span><span class="de">Niedrig</span></td></tr>
+      <tr><td>OpenClaw</td><td>Gateway</td><td><span class="en">Always-on personal agents</span><span class="de">Immer aktive persönliche Agents</span></td><td style="color:var(--orange)"><span class="en">Medium</span><span class="de">Mittel</span></td></tr>
+      <tr><td>LangGraph</td><td>Framework</td><td><span class="en">Complex workflows, enterprise</span><span class="de">Komplexe Workflows, Unternehmen</span></td><td style="color:var(--purple)"><span class="en">High</span><span class="de">Hoch</span></td></tr>
+      <tr><td>CrewAI</td><td>Framework</td><td><span class="en">Multi-agent teams</span><span class="de">Multi-Agent-Teams</span></td><td style="color:var(--orange)"><span class="en">Medium</span><span class="de">Mittel</span></td></tr>
+      <tr><td>AutoGen</td><td>Framework</td><td><span class="en">Research, conversational</span><span class="de">Forschung, konversationell</span></td><td style="color:var(--orange)"><span class="en">Medium</span><span class="de">Mittel</span></td></tr>
+      <tr><td>Semantic Kernel</td><td>SDK</td><td>Enterprise .NET</td><td style="color:var(--purple)"><span class="en">High</span><span class="de">Hoch</span></td></tr>
+      <tr><td><span class="en">No framework</span><span class="de">Kein Framework</span></td><td>DIY</td><td><span class="en">Simple setups, full control</span><span class="de">Einfache Setups, volle Kontrolle</span></td><td><span class="en">Varies</span><span class="de">Variiert</span></td></tr>
     </tbody>
   </table>
 
   <div class="code-block">
-Just experimenting?         → Claude Code (or any LLM CLI)<br>
-Personal agent, always on?  → OpenClaw or gateway + cron<br>
-Team or product?            → LangGraph or CrewAI<br>
-Enterprise compliance?      → LangGraph or Semantic Kernel
+<span class="en">Just experimenting?</span><span class="de">Nur experimentieren?</span>         → Claude Code (<span class="en">or any LLM CLI</span><span class="de">oder jedes LLM CLI</span>)<br>
+<span class="en">Personal agent, always on?</span><span class="de">Persönlicher Agent, immer an?</span>  → OpenClaw or gateway + cron<br>
+<span class="en">Team or product?</span><span class="de">Team oder Produkt?</span>            → LangGraph or CrewAI<br>
+<span class="en">Enterprise compliance?</span><span class="de">Unternehmens-Compliance?</span>      → LangGraph or Semantic Kernel
   </div>
 
-  <p><strong>Key insight:</strong> You don't need a framework. This starter kit works with any platform — or none. The architecture is framework-agnostic by design.</p>
-  <p class="source-line">Sources: <a href="https://sparkco.ai/blog/ai-agent-frameworks-compared-langchain-autogen-crewai-and-openclaw-in-2026">SparkCo (2026)</a>, <a href="https://dev.to/linou518/the-2026-ai-agent-framework-decision-guide-langgraph-vs-crewai-vs-pydantic-ai-b2h">DEV.to Framework Guide (2026)</a></p>
+  <p><strong><span class="en">Key insight:</span><span class="de">Wichtige Erkenntnis:</span></strong> <span class="en">You don't need a framework. This starter kit works with any platform — or none. The architecture is framework-agnostic by design.</span><span class="de">Du brauchst kein Framework. Dieses Starter-Kit funktioniert mit jeder Plattform – oder keiner. Die Architektur ist absichtlich Framework-unabhängig.</span></p>
+  <p class="source-line"><span class="en">Sources:</span><span class="de">Quellen:</span> <a href="https://sparkco.ai/blog/ai-agent-frameworks-compared-langchain-autogen-crewai-and-openclaw-in-2026">SparkCo (2026)</a>, <a href="https://dev.to/linou518/the-2026-ai-agent-framework-decision-guide-langgraph-vs-crewai-vs-pydantic-ai-b2h">DEV.to Framework Guide (2026)</a></p>
 </section>
 
 <!-- 4. Cloud vs Local -->
 <section>
-  <h2><span class="label">Section 4</span>Cloud APIs vs. Local Models</h2>
-  <p>Not just cost — it's about <strong>sovereignty, privacy, and capability</strong>.</p>
+  <h2><span class="label"><span class="en">Section 4</span><span class="de">Abschnitt 4</span></span><span class="en">Cloud APIs vs. Local Models</span><span class="de">Cloud-APIs vs. Lokale Modelle</span></h2>
+  <p><span class="en">Not just cost — it's about <strong>sovereignty, privacy, and capability</strong>.</span><span class="de">Nicht nur Kosten – es geht um <strong>Souveränität, Datenschutz und Leistungsfähigkeit</strong>.</span></p>
   <table class="compare-table">
     <thead>
-      <tr><th></th><th>Cloud API</th><th>Local (Ollama)</th></tr>
+      <tr><th></th><th><span class="en">Cloud API</span><span class="de">Cloud-API</span></th><th><span class="en">Local (Ollama)</span><span class="de">Lokal (Ollama)</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Quality</td><td>Frontier (best)</td><td>70-85% of frontier (<a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">benchmark data</a>)</td></tr>
-      <tr><td>Cost/request</td><td>$0.01-0.80</td><td style="color:var(--green)">$0 (after hardware)</td></tr>
-      <tr><td>Privacy</td><td>Data leaves your network</td><td style="color:var(--green)">Data stays local</td></tr>
+      <tr><td><span class="en">Quality</span><span class="de">Qualität</span></td><td>Frontier (<span class="en">best</span><span class="de">am besten</span>)</td><td>70-85% <span class="en">of frontier</span><span class="de">der Spitzenmodelle</span> (<a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0"><span class="en">benchmark data</span><span class="de">Benchmark-Daten</span></a>)</td></tr>
+      <tr><td><span class="en">Cost/request</span><span class="de">Kosten/Anfrage</span></td><td>$0.01-0.80</td><td style="color:var(--green)">$0 (<span class="en">after hardware</span><span class="de">nach Hardware</span>)</td></tr>
+      <tr><td><span class="en">Privacy</span><span class="de">Datenschutz</span></td><td><span class="en">Data leaves your network</span><span class="de">Daten verlassen dein Netzwerk</span></td><td style="color:var(--green)"><span class="en">Data stays local</span><span class="de">Daten bleiben lokal</span></td></tr>
       <tr><td>Context</td><td>128K-1M tokens</td><td>8K-128K</td></tr>
-      <tr><td>Strength</td><td>Complex reasoning</td><td>Routine tasks, chat</td></tr>
+      <tr><td><span class="en">Strength</span><span class="de">Stärke</span></td><td><span class="en">Complex reasoning</span><span class="de">Komplexes Denken</span></td><td><span class="en">Routine tasks, chat</span><span class="de">Routineaufgaben, Chat</span></td></tr>
     </tbody>
   </table>
 
-  <h3>What local models can do (March 2026)</h3>
-  <p>Ollama reached <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">52 million monthly downloads</a> in Q1 2026:</p>
+  <h3><span class="en">What local models can do (March 2026)</span><span class="de">Was lokale Modelle können (März 2026)</span></h3>
+  <p><span class="en">Ollama reached <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">52 million monthly downloads</a> in Q1 2026:</span><span class="de">Ollama erreichte im 1. Quartal 2026 <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">52 Millionen monatliche Downloads</a>:</span></p>
   <table class="compare-table">
     <thead>
-      <tr><th>Model</th><th>Size</th><th>MMLU</th><th>Hardware</th><th>Speed</th></tr>
+      <tr><th><span class="en">Model</span><span class="de">Modell</span></th><th><span class="en">Size</span><span class="de">Größe</span></th><th>MMLU</th><th>Hardware</th><th><span class="en">Speed</span><span class="de">Geschwindigkeit</span></th></tr>
     </thead>
     <tbody>
       <tr><td>Qwen 2.5 32B</td><td>32B</td><td>83.2%</td><td>M4 Pro (36GB+)</td><td>~15 t/s</td></tr>
@@ -142,131 +146,135 @@ Enterprise compliance?      → LangGraph or Semantic Kernel
       <tr><td>Phi-4 14B</td><td>14B</td><td>79.3%</td><td>16GB RAM</td><td>~25 t/s</td></tr>
     </tbody>
   </table>
-  <p class="source-line">For comparison: GPT-4 ~86.4% (<a href="https://openai.com/index/gpt-4/">OpenAI</a>), Claude Opus ~86% (<a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic</a>).</p>
+  <p class="source-line"><span class="en">For comparison: GPT-4 ~86.4% (<a href="https://openai.com/index/gpt-4/">OpenAI</a>), Claude Opus ~86% (<a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic</a>).</span><span class="de">Zum Vergleich: GPT-4 ~86,4 % (<a href="https://openai.com/index/gpt-4/">OpenAI</a>), Claude Opus ~86 % (<a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic</a>).</span></p>
 
   <div class="callout">
-    <strong>🔒 Sovereign AI:</strong> Some use cases require that no data leaves your infrastructure — regulated industries, personal privacy, corporate policy. Local models solve this completely. The tradeoff: lower capability on complex reasoning.
+    <strong><span class="en">🔒 Sovereign AI:</span><span class="de">🔒 Souveräne KI:</span></strong> <span class="en">Some use cases require that no data leaves your infrastructure — regulated industries, personal privacy, corporate policy. Local models solve this completely. The tradeoff: lower capability on complex reasoning.</span><span class="de">Einige Anwendungsfälle erfordern, dass keine Daten Ihre Infrastruktur verlassen – regulierte Branchen, persönlicher Datenschutz, Unternehmensrichtlinien. Lokale Modelle lösen dieses Problem vollständig. Der Kompromiss: geringere Leistungsfähigkeit bei komplexem Denken.</span>
   </div>
 
-  <h3>The Hybrid Approach</h3>
-  <p>Most production systems use both: <strong>local</strong> for routine tasks (summarization, classification, embeddings) and <strong>cloud APIs</strong> for complex work (deep analysis, research, code generation). Route to the right model based on the task.</p>
-  <p class="source-line">Sources: <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">DEV.to Benchmarks (2026)</a>, <a href="https://blog.premai.io/self-hosted-llm-guide-setup-tools-cost-comparison-2026/">PremAI Guide (2026)</a></p>
+  <h3><span class="en">The Hybrid Approach</span><span class="de">Der hybride Ansatz</span></h3>
+  <p><span class="en">Most production systems use both: <strong>local</strong> for routine tasks (summarization, classification, embeddings) and <strong>cloud APIs</strong> for complex work (deep analysis, research, code generation). Route to the right model based on the task.</span><span class="de">Die meisten Produktionssysteme verwenden beides: <strong>lokale Modelle</strong> für Routineaufgaben (Zusammenfassung, Klassifizierung, Embeddings) und <strong>Cloud-APIs</strong> für komplexe Arbeiten (Tiefenanalyse, Recherche, Codegenerierung). Leite je nach Aufgabe an das richtige Modell weiter.</span></p>
+  <p class="source-line"><span class="en">Sources:</span><span class="de">Quellen:</span> <a href="https://dev.to/pooyagolchian/local-ai-in-2026-running-production-llms-on-your-own-hardware-with-ollama-54d0">DEV.to Benchmarks (2026)</a>, <a href="https://blog.premai.io/self-hosted-llm-guide-setup-tools-cost-comparison-2026/">PremAI Guide (2026)</a></p>
 </section>
 
 <!-- 5. Security -->
 <section>
-  <h2><span class="label">Section 5</span>Security & Isolation</h2>
-  <h3>Why your agent should NOT run on your main machine</h3>
-  <p>An agent has access to your file system, shell, network, and potentially email and calendar. If compromised (via prompt injection, malicious input, or a bug), it has the same access as the user it runs under.</p>
+  <h2><span class="label"><span class="en">Section 5</span><span class="de">Abschnitt 5</span></span><span class="en">Security & Isolation</span><span class="de">Sicherheit & Isolation</span></h2>
+  <h3><span class="en">Why your agent should NOT run on your main machine</span><span class="de">Warum dein Agent NICHT auf deiner Hauptmaschine laufen sollte</span></h3>
+  <p><span class="en">An agent has access to your file system, shell, network, and potentially email and calendar. If compromised (via prompt injection, malicious input, or a bug), it has the same access as the user it runs under.</span><span class="de">Ein Agent hat Zugriff auf dein Dateisystem, deine Shell, dein Netzwerk und potenziell auf E-Mails und Kalender. Wenn er kompromittiert wird (durch Prompt-Injection, bösartige Eingaben oder einen Fehler), hat er denselben Zugriff wie der Benutzer, unter dem er ausgeführt wird.</span></p>
 
   <div class="grid grid-2">
     <div class="card" style="border-color:var(--purple)">
-      <h3>🔴 Real risks</h3>
+      <h3><span class="en">🔴 Real risks</span><span class="de">🔴 Echte Risiken</span></h3>
       <p style="font-size:.85rem;line-height:1.8">
-        Agent reads <code>~/.ssh/</code> and leaks your keys<br>
-        Agent runs <code>rm -rf</code> on a directory<br>
-        Agent sends unauthorized emails<br>
-        Agent pushes secrets to a public repo
+        <span class="en">Agent reads <code>~/.ssh/</code> and leaks your keys</span><span class="de">Agent liest <code>~/.ssh/</code> und gibt deine Schlüssel preis</span><br>
+        <span class="en">Agent runs <code>rm -rf</code> on a directory</span><span class="de">Agent führt <code>rm -rf</code> in einem Verzeichnis aus</span><br>
+        <span class="en">Agent sends unauthorized emails</span><span class="de">Agent sendet unautorisierte E-Mails</span><br>
+        <span class="en">Agent pushes secrets to a public repo</span><span class="de">Agent pusht Geheimnisse in ein öffentliches Repo</span>
       </p>
     </div>
     <div class="card" style="border-color:var(--green)">
-      <h3>🟢 Mitigation layers</h3>
+      <h3><span class="en">🟢 Mitigation layers</span><span class="de">🟢 Abwehrmaßnahmen</span></h3>
       <p style="font-size:.85rem;line-height:1.8">
-        <strong>Dedicated user</strong> — separate OS account<br>
-        <strong>Restricted paths</strong> — block sensitive dirs<br>
-        <strong>Approval gates</strong> — human confirms destructive ops<br>
-        <strong>Containers</strong> — full filesystem isolation<br>
-        <strong>Network rules</strong> — limit outbound connections
+        <strong><span class="en">Dedicated user</span><span class="de">Dedizierter Benutzer</span></strong> — <span class="en">separate OS account</span><span class="de">separates OS-Konto</span><br>
+        <strong><span class="en">Restricted paths</span><span class="de">Eingeschränkte Pfade</span></strong> — <span class="en">block sensitive dirs</span><span class="de">sensible Verzeichnisse blockieren</span><br>
+        <strong><span class="en">Approval gates</span><span class="de">Genehmigungsschleusen</span></strong> — <span class="en">human confirms destructive ops</span><span class="de">Mensch bestätigt destruktive Operationen</span><br>
+        <strong><span class="en">Containers</span><span class="de">Container</span></strong> — <span class="en">full filesystem isolation</span><span class="de">vollständige Dateisystem-Isolation</span><br>
+        <strong><span class="en">Network rules</span><span class="de">Netzwerkregeln</span></strong> — <span class="en">limit outbound connections</span><span class="de">ausgehende Verbindungen begrenzen</span>
       </p>
     </div>
   </div>
 
-  <p style="margin-top:1rem"><strong>Start simple:</strong> Dedicated user + restricted paths (see <code>TOOLS.md</code>). Add containers when you're ready. The less your agent can access, the less it can break.</p>
+  <p style="margin-top:1rem"><strong><span class="en">Start simple:</span><span class="de">Fang einfach an:</span></strong> <span class="en">Dedicated user + restricted paths (see <code>TOOLS.md</code>). Add containers when you're ready. The less your agent can access, the less it can break.</span><span class="de">Dedizierter Benutzer + eingeschränkte Pfade (siehe <code>TOOLS.md</code>). Füge Container hinzu, wenn du bereit bist. Je weniger dein Agent zugreifen kann, desto weniger kann er kaputt machen.</span></p>
 </section>
 
 <!-- 6. Costs -->
 <section>
-  <h2><span class="label">Section 6</span>What It Costs</h2>
+  <h2><span class="label"><span class="en">Section 6</span><span class="de">Abschnitt 6</span></span><span class="en">What It Costs</span><span class="de">Was es kostet</span></h2>
 
-  <h3>Hardware (one-time)</h3>
+  <h3><span class="en">Hardware (one-time)</span><span class="de">Hardware (einmalig)</span></h3>
   <table class="compare-table">
     <thead>
-      <tr><th>Option</th><th>Cost</th><th>Amortized/mo (36mo)</th></tr>
+      <tr><th><span class="en">Option</span><span class="de">Option</span></th><th><span class="en">Cost</span><span class="de">Kosten</span></th><th><span class="en">Amortized/mo (36mo)</span><span class="de">Amortisiert/Monat (36 Mon.)</span></th></tr>
     </thead>
     <tbody>
       <tr><td><a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> (8GB)</td><td>~$80</td><td>~$2</td></tr>
-      <tr><td>Used Intel NUC (16GB)</td><td>~$150-250 <span class="muted">(estimate, used market)</span></td><td>~$5-7</td></tr>
+      <tr><td><span class="en">Used Intel NUC (16GB)</span><span class="de">Gebrauchter Intel NUC (16GB)</span></td><td>~$150-250 <span class="muted">(<span class="en">estimate, used market</span><span class="de">Schätzung, Gebrauchtmarkt</span>)</span></td><td>~$5-7</td></tr>
       <tr><td><a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4</a> (16GB)</td><td>~$499</td><td>~$14</td></tr>
       <tr><td><a href="https://www.apple.com/shop/buy-mac/mac-mini">Mac mini M4 Pro</a> (48GB)</td><td>~$1,599</td><td>~$44</td></tr>
-      <tr><td>VPS (no hardware)</td><td>$0</td><td>$5-25/mo</td></tr>
+      <tr><td>VPS (<span class="en">no hardware</span><span class="de">keine Hardware</span>)</td><td>$0</td><td>$5-25/mo</td></tr>
     </tbody>
   </table>
 
-  <h3>Running costs (monthly)</h3>
+  <h3><span class="en">Running costs (monthly)</span><span class="de">Laufende Kosten (monatlich)</span></h3>
   <table class="compare-table">
     <thead>
-      <tr><th>Category</th><th>Range</th><th>Notes</th></tr>
+      <tr><th><span class="en">Category</span><span class="de">Kategorie</span></th><th><span class="en">Range</span><span class="de">Spanne</span></th><th><span class="en">Notes</span><span class="de">Anmerkungen</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Electricity</td><td>$3-15</td><td>Mac mini ~15W idle, ~60W load (<a href="https://support.apple.com/en-us/111902">Apple</a>)</td></tr>
+      <tr><td><span class="en">Electricity</span><span class="de">Strom</span></td><td>$3-15</td><td>Mac mini ~15W <span class="en">idle</span><span class="de">Leerlauf</span>, ~60W <span class="en">load</span><span class="de">Last</span> (<a href="https://support.apple.com/en-us/111902">Apple</a>)</td></tr>
       <tr><td>VPS</td><td>$5-25</td><td>Hetzner, DigitalOcean, Hostinger</td></tr>
-      <tr><td>Cloud API (light)</td><td>$5-20</td><td>~100-500 req/day, mixed models</td></tr>
-      <tr><td>Cloud API (heavy)</td><td>$30-100+</td><td>1000+ req/day, Opus-heavy</td></tr>
-      <tr><td>Automated cron</td><td>$15-60</td><td>Digests, reviews, heartbeats</td></tr>
+      <tr><td><span class="en">Cloud API (light)</span><span class="de">Cloud-API (leicht)</span></td><td>$5-20</td><td>~100-500 <span class="en">req/day, mixed models</span><span class="de">Anfr./Tag, gem. Modelle</span></td></tr>
+      <tr><td><span class="en">Cloud API (heavy)</span><span class="de">Cloud-API (stark)</span></td><td>$30-100+</td><td>1000+ <span class="en">req/day, Opus-heavy</span><span class="de">Anfr./Tag, viel Opus</span></td></tr>
+      <tr><td><span class="en">Automated cron</span><span class="de">Automatisierter Cron</span></td><td>$15-60</td><td><span class="en">Digests, reviews, heartbeats</span><span class="de">Zusammenfassungen, Reviews, Heartbeats</span></td></tr>
     </tbody>
   </table>
 
   <div class="callout">
-    <strong>⚠️ The invisible costs:</strong> Cron jobs run silently. A daily digest + weekly review + heartbeats can cost $15-45/month. Opus is 5-15× more expensive than Haiku. Context window usage scales cost linearly. <strong>Set spending alerts before you automate.</strong>
+    <strong><span class="en">⚠️ The invisible costs:</span><span class="de">⚠️ Die unsichtbaren Kosten:</span></strong> <span class="en">Cron jobs run silently. A daily digest + weekly review + heartbeats can cost $15-45/month. Opus is 5-15× more expensive than Haiku. Context window usage scales cost linearly. <strong>Set spending alerts before you automate.</strong></span><span class="de">Cron-Jobs laufen im Hintergrund. Eine tägliche Zusammenfassung + ein wöchentlicher Rückblick + Heartbeats können 15–45 $/Monat kosten. Opus ist 5–15-mal teurer als Haiku. Die Nutzung des Kontextfensters skaliert die Kosten linear. <strong>Richte Ausgabenwarnungen ein, bevor du automatisierst.</strong></span>
   </div>
 
-  <p class="source-line">Sources: <a href="https://alchemictechnology.com/blog/posts/vps-cost-breakdown-self-hosted-ai.html">Alchemic Technology (2026)</a>, <a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic Pricing</a>, <a href="https://openai.com/pricing">OpenAI Pricing</a>. As of March 2026.</p>
+  <p class="source-line"><span class="en">Sources:</span><span class="de">Quellen:</span> <a href="https://alchemictechnology.com/blog/posts/vps-cost-breakdown-self-hosted-ai.html">Alchemic Technology (2026)</a>, <a href="https://docs.anthropic.com/en/docs/about-claude/models">Anthropic Pricing</a>, <a href="https://openai.com/pricing">OpenAI Pricing</a>. <span class="en">As of March 2026.</span><span class="de">Stand März 2026.</span></p>
 </section>
 
 <!-- 7. Making the Case -->
 <section>
-  <h2><span class="label">Section 7</span>Making the Case</h2>
+  <h2><span class="label"><span class="en">Section 7</span><span class="de">Abschnitt 7</span></span><span class="en">Making the Case</span><span class="de">Die Argumentation</span></h2>
 
   <div class="card" style="border-color:var(--accent);margin-bottom:1rem">
-    <h3>The 30-second pitch</h3>
-    <p><em>"An AI agent that runs 24/7 costs $20-50/month (server + API). It handles research, monitoring, content drafting, and routine tasks while we sleep. The ROI is one employee-hour saved per day — at a fraction of the cost."</em></p>
+    <h3><span class="en">The 30-second pitch</span><span class="de">Der 30-Sekunden-Pitch</span></h3>
+    <p><em><span class="en">"An AI agent that runs 24/7 costs $20-50/month (server + API). It handles research, monitoring, content drafting, and routine tasks while we sleep. The ROI is one employee-hour saved per day — at a fraction of the cost."</span><span class="de">„Ein KI-Agent, der rund um die Uhr läuft, kostet 20–50 $/Monat (Server + API). Er erledigt Recherche, Überwachung, das Entwerfen von Inhalten und Routineaufgaben, während wir schlafen. Der ROI ist eine eingesparte Mitarbeiterstunde pro Tag – zu einem Bruchteil der Kosten.“</span></em></p>
   </div>
 
   <div class="card" style="margin-bottom:1rem">
-    <h3>The risk argument</h3>
-    <p><em>"Running agents on employee laptops means they stop when the laptop closes, have access to personal files, and can't be audited. A dedicated server with proper isolation is safer, more reliable, and auditable."</em></p>
+    <h3><span class="en">The risk argument</span><span class="de">Das Risiko-Argument</span></h3>
+    <p><em><span class="en">"Running agents on employee laptops means they stop when the laptop closes, have access to personal files, and can't be audited. A dedicated server with proper isolation is safer, more reliable, and auditable."</span><span class="de">„Wenn Agents auf Mitarbeiter-Laptops laufen, stoppen sie, wenn der Laptop geschlossen wird, haben Zugriff auf persönliche Dateien und können nicht geprüft werden. Ein dedizierter Server mit richtiger Isolation ist sicherer, zuverlässiger und prüfbar.“</span></em></p>
   </div>
 
   <table class="compare-table">
     <thead>
-      <tr><th></th><th>Employee</th><th>Agent (server)</th><th>Agent (laptop)</th></tr>
+      <tr><th></th><th><span class="en">Employee</span><span class="de">Mitarbeiter</span></th><th><span class="en">Agent (server)</span><span class="de">Agent (Server)</span></th><th><span class="en">Agent (laptop)</span><span class="de">Agent (Laptop)</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Availability</td><td>8h/day</td><td style="color:var(--green)">24/7</td><td>When open</td></tr>
-      <tr><td>Cost/month</td><td>$5,000+</td><td style="color:var(--green)">$20-50</td><td>$0 (unreliable)</td></tr>
-      <tr><td>Audit trail</td><td>Email, Slack</td><td style="color:var(--green)">Git, logs</td><td>None</td></tr>
-      <tr><td>Security</td><td>Trained</td><td style="color:var(--green)">Sandboxed</td><td>User-level access</td></tr>
+      <tr><td><span class="en">Availability</span><span class="de">Verfügbarkeit</span></td><td>8h/<span class="en">day</span><span class="de">Tag</span></td><td style="color:var(--green)">24/7</td><td><span class="en">When open</span><span class="de">Wenn geöffnet</span></td></tr>
+      <tr><td><span class="en">Cost/month</span><span class="de">Kosten/Monat</span></td><td>$5,000+</td><td style="color:var(--green)">$20-50</td><td>$0 (<span class="en">unreliable</span><span class="de">unzuverlässig</span>)</td></tr>
+      <tr><td><span class="en">Audit trail</span><span class="de">Prüfpfad</span></td><td>Email, Slack</td><td style="color:var(--green)">Git, <span class="en">logs</span><span class="de">Protokolle</span></td><td><span class="en">None</span><span class="de">Keine</span></td></tr>
+      <tr><td><span class="en">Security</span><span class="de">Sicherheit</span></td><td><span class="en">Trained</span><span class="de">Geschult</span></td><td style="color:var(--green)"><span class="en">Sandboxed</span><span class="de">Abgeschottet</span></td><td><span class="en">User-level access</span><span class="de">Zugriff auf Benutzerebene</span></td></tr>
     </tbody>
   </table>
 
-  <p style="margin-top:1rem;text-align:center;color:var(--muted)">This is not about replacing people. It's about giving people a reliable async teammate.</p>
+  <p style="margin-top:1rem;text-align:center;color:var(--muted)"><span class="en">This is not about replacing people. It's about giving people a reliable async teammate.</span><span class="de">Hier geht es nicht darum, Menschen zu ersetzen. Es geht darum, Menschen einen zuverlässigen asynchronen Teamkollegen zu geben.</span></p>
 </section>
 
 <!-- Nav -->
 <div class="doc-bottom-nav">
-  <a href="agent-exchange.html" class="btn btn-secondary">Next: Agent Exchange →</a>
-  <a href="index.html" class="btn btn-secondary">← Back to Kit</a>
+  <a href="agent-exchange.html" class="btn btn-secondary"><span class="en">Next: Agent Exchange →</span><span class="de">Weiter: Agent Exchange →</span></a>
+  <a href="index.html" class="btn btn-secondary"><span class="en">← Back to Kit</span><span class="de">← Zurück zum Kit</span></a>
 </div>
 
 </div><!-- /.container -->
 
 <footer>
-  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
-  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
-  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
-  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit"><span class="en">Source on GitHub</span><span class="de">Quelle auf GitHub</span></a> ·
+  <a href="https://planck-lab.github.io/agent-systems/"><span class="en">Agent Literacy Course</span><span class="de">Agent Literacy Kurs</span></a> ·
+  <a href="https://janrummel.github.io/ai-learning/"><span class="en">AI Learning Ecosystem</span><span class="de">KI-Lernökosystem</span></a>
+  <br><span style="margin-top:.5rem;display:inline-block"><span class="en">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span><span class="de">Von <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · Kein Tracking.</span></span>
 </footer>
 
+<script>
+function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')"]').classList.add('active');localStorage.setItem('agent-kit-lang',l)}
+var saved=localStorage.getItem('agent-kit-lang');if(saved){setLang(saved)}else if(navigator.language.startsWith('de')){setLang('de')}
+</script>
 <script data-goatcounter="https://janrummel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

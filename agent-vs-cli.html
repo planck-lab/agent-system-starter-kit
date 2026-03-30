@@ -20,184 +20,194 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="lang-switch" role="navigation" aria-label="Language">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('de')">DE</button>
+</div>
 
 <nav class="doc-nav" aria-label="Main navigation">
-  <a href="index.html">← Back to Kit</a>
+  <a href="index.html"><span class="en">← Back to Kit</span><span class="de">← Zurück zum Kit</span></a>
   <span class="nav-links">
-    <span class="nav-group"><span class="nav-label">Concepts</span> <a href="agent-vs-cli.html" class="active">Agent ≠ CLI</a> <a href="delegation.html">Delegation</a></span>
-    <span class="nav-group"><span class="nav-label">Guides</span> <a href="runtime.html">Runtime</a> <a href="agent-exchange.html">Exchange</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Concepts</span><span class="de">Konzepte</span></span> <a href="agent-vs-cli.html" class="active">Agent ≠ CLI</a> <a href="delegation.html">Delegation</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Guides</span><span class="de">Anleitungen</span></span> <a href="runtime.html">Runtime</a> <a href="agent-exchange.html">Exchange</a></span>
   </span>
 </nav>
 
 <div class="container doc-container">
 
-<h1>⚡ Agent ≠ CLI</h1>
-<p class="doc-intro">You know Claude Code. You type a command, it responds, you move on. An agent system is fundamentally different — it's not a tool you use, it's a teammate that works alongside you. Here's why that distinction matters.</p>
+<h1><span class="en">⚡ Agent ≠ CLI</span><span class="de">⚡ Agent ≠ CLI</span></h1>
+<p class="doc-intro"><span class="en">You know Claude Code. You type a command, it responds, you move on. An agent system is fundamentally different — it's not a tool you use, it's a teammate that works alongside you. Here's why that distinction matters.</span><span class="de">Du kennst Claude Code. Du gibst einen Befehl ein, er antwortet, du machst weiter. Ein Agent-System ist grundlegend anders – es ist kein Werkzeug, das du benutzt, sondern ein Teamkollege, der an deiner Seite arbeitet. Hier ist, warum dieser Unterschied wichtig ist.</span></p>
 
 <!-- The Core Difference -->
 <section>
-  <h2><span class="label">The Core Difference</span>Tool vs. Teammate</h2>
+  <h2><span class="label"><span class="en">The Core Difference</span><span class="de">Der Kernunterschied</span></span><span class="en">Tool vs. Teammate</span><span class="de">Werkzeug vs. Teamkollege</span></h2>
   <table class="compare-table">
     <thead>
-      <tr><th></th><th>CLI Tool <span class="muted">(Claude Code, Cursor, Copilot)</span></th><th>Agent System</th></tr>
+      <tr><th></th><th><span class="en">CLI Tool</span><span class="de">CLI-Werkzeug</span> <span class="muted">(Claude Code, Cursor, Copilot)</span></th><th><span class="en">Agent System</span><span class="de">Agent-System</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Lifecycle</td><td>Single session — starts, runs, ends</td><td style="color:var(--green)">Persistent — runs 24/7</td></tr>
-      <tr><td>Memory</td><td>Within session only</td><td style="color:var(--green)">Across sessions (MEMORY.md, memory/)</td></tr>
-      <tr><td>Trigger</td><td>You type a command</td><td style="color:var(--green)">Events, cron, hooks, messages</td></tr>
-      <tr><td>Identity</td><td>Generic assistant</td><td style="color:var(--green)">Custom persona (SOUL.md)</td></tr>
-      <tr><td>Skills</td><td>Built-in, always loaded</td><td style="color:var(--green)">Modular, loaded on demand</td></tr>
-      <tr><td>Automation</td><td>None — manual only</td><td style="color:var(--green)">Hooks, cron jobs, heartbeats</td></tr>
-      <tr><td>Monitoring</td><td>Not needed — you see errors</td><td style="color:var(--orange)">Required — errors can go unnoticed for days</td></tr>
-      <tr><td>Multi-agent</td><td>Not possible</td><td style="color:var(--green)">Exchange pattern, sub-agents</td></tr>
+      <tr><td><span class="en">Lifecycle</span><span class="de">Lebenszyklus</span></td><td><span class="en">Single session — starts, runs, ends</span><span class="de">Einzelne Sitzung – startet, läuft, endet</span></td><td style="color:var(--green)"><span class="en">Persistent — runs 24/7</span><span class="de">Dauerhaft – läuft 24/7</span></td></tr>
+      <tr><td><span class="en">Memory</span><span class="de">Gedächtnis</span></td><td><span class="en">Within session only</span><span class="de">Nur innerhalb der Sitzung</span></td><td style="color:var(--green)"><span class="en">Across sessions (MEMORY.md, memory/)</span><span class="de">Sitzungsübergreifend (MEMORY.md, memory/)</span></td></tr>
+      <tr><td><span class="en">Trigger</span><span class="de">Auslöser</span></td><td><span class="en">You type a command</span><span class="de">Du gibst einen Befehl ein</span></td><td style="color:var(--green)"><span class="en">Events, cron, hooks, messages</span><span class="de">Ereignisse, Cron, Hooks, Nachrichten</span></td></tr>
+      <tr><td><span class="en">Identity</span><span class="de">Identität</span></td><td><span class="en">Generic assistant</span><span class="de">Allgemeiner Assistent</span></td><td style="color:var(--green)"><span class="en">Custom persona (SOUL.md)</span><span class="de">Eigene Persona (SOUL.md)</span></td></tr>
+      <tr><td><span class="en">Skills</span><span class="de">Skills</span></td><td><span class="en">Built-in, always loaded</span><span class="de">Eingebaut, immer geladen</span></td><td style="color:var(--green)"><span class="en">Modular, loaded on demand</span><span class="de">Modular, bei Bedarf geladen</span></td></tr>
+      <tr><td><span class="en">Automation</span><span class="de">Automatisierung</span></td><td><span class="en">None — manual only</span><span class="de">Keine – nur manuell</span></td><td style="color:var(--green)"><span class="en">Hooks, cron jobs, heartbeats</span><span class="de">Hooks, Cron-Jobs, Heartbeats</span></td></tr>
+      <tr><td><span class="en">Monitoring</span><span class="de">Überwachung</span></td><td><span class="en">Not needed — you see errors</span><span class="de">Nicht nötig – du siehst Fehler</span></td><td style="color:var(--orange)"><span class="en">Required — errors can go unnoticed for days</span><span class="de">Erforderlich – Fehler können tagelang unbemerkt bleiben</span></td></tr>
+      <tr><td>Multi-agent</td><td><span class="en">Not possible</span><span class="de">Nicht möglich</span></td><td style="color:var(--green)"><span class="en">Exchange pattern, sub-agents</span><span class="de">Exchange-Muster, Sub-Agents</span></td></tr>
     </tbody>
   </table>
 
   <div class="callout" style="text-align:center">
-    <strong>The analogy:</strong> A CLI tool is a calculator. An agent system is a colleague who has a calculator, a calendar, a memory, and keeps working when you go home.
+    <strong><span class="en">The analogy:</span><span class="de">Die Analogie:</span></strong> <span class="en">A CLI tool is a calculator. An agent system is a colleague who has a calculator, a calendar, a memory, and keeps working when you go home.</span><span class="de">Ein CLI-Werkzeug ist ein Taschenrechner. Ein Agent-System ist ein Kollege, der einen Taschenrechner, einen Kalender und ein Gedächtnis hat und weiterarbeitet, wenn du nach Hause gehst.</span>
   </div>
 </section>
 
 <!-- Persistence & Memory -->
 <section>
-  <h2><span class="label">What Makes an Agent</span>Persistence & Memory</h2>
+  <h2><span class="label"><span class="en">What Makes an Agent</span><span class="de">Was einen Agent ausmacht</span></span><span class="en">Persistence & Memory</span><span class="de">Persistenz & Gedächtnis</span></h2>
 
   <div class="grid grid-2">
     <div class="card">
       <div class="icon">🧠</div>
-      <h3>CLI: Amnesia</h3>
-      <p>Every session starts from zero. You explained your project yesterday? Gone. You corrected a mistake? It'll make it again tomorrow. Context lives only in the current conversation.</p>
+      <h3><span class="en">CLI: Amnesia</span><span class="de">CLI: Amnesie</span></h3>
+      <p><span class="en">Every session starts from zero. You explained your project yesterday? Gone. You corrected a mistake? It'll make it again tomorrow. Context lives only in the current conversation.</span><span class="de">Jede Sitzung beginnt bei Null. Du hast gestern dein Projekt erklärt? Vergessen. Du hast einen Fehler korrigiert? Morgen wird er ihn wieder machen. Der Kontext existiert nur im aktuellen Gespräch.</span></p>
     </div>
     <div class="card" style="border-color:var(--green)">
       <div class="icon">💾</div>
-      <h3>Agent: Continuity</h3>
-      <p>An agent remembers. <code>MEMORY.md</code> stores long-term context (preferences, decisions, project state). <code>memory/YYYY-MM-DD.md</code> logs daily events. Each session starts by reading what happened before.</p>
+      <h3><span class="en">Agent: Continuity</span><span class="de">Agent: Kontinuität</span></h3>
+      <p><span class="en">An agent remembers. <code>MEMORY.md</code> stores long-term context (preferences, decisions, project state). <code>memory/YYYY-MM-DD.md</code> logs daily events. Each session starts by reading what happened before.</span><span class="de">Ein Agent erinnert sich. <code>MEMORY.md</code> speichert langfristigen Kontext (Präferenzen, Entscheidungen, Projektstatus). <code>memory/YYYY-MM-DD.md</code> protokolliert tägliche Ereignisse. Jede Sitzung beginnt mit dem Lesen dessen, was zuvor geschah.</span></p>
     </div>
   </div>
 
   <div class="code-block">
-<span style="color:var(--muted)"># Agent startup sequence (every session)</span><br>
-1. Read SOUL.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># Who am I?</span><br>
-2. Read USER.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># Who am I helping?</span><br>
-3. Read memory/today.md&nbsp;<span style="color:var(--muted)"># What happened recently?</span><br>
-4. Read MEMORY.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># What do I know long-term?</span><br>
-5. Respond to the user
+<span style="color:var(--muted)"># <span class="en">Agent startup sequence (every session)</span><span class="de">Agent-Startsequenz (jede Sitzung)</span></span><br>
+1. Read SOUL.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">Who am I?</span><span class="de">Wer bin ich?</span></span><br>
+2. Read USER.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">Who am I helping?</span><span class="de">Wem helfe ich?</span></span><br>
+3. Read memory/today.md&nbsp;<span style="color:var(--muted)"># <span class="en">What happened recently?</span><span class="de">Was ist kürzlich passiert?</span></span><br>
+4. Read MEMORY.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--muted)"># <span class="en">What do I know long-term?</span><span class="de">Was weiß ich langfristig?</span></span><br>
+5. <span class="en">Respond to the user</span><span class="de">Dem Benutzer antworten</span>
   </div>
-  <p class="source-line">Source: <a href="https://docs.openclaw.ai/reference/templates/AGENTS">OpenClaw AGENTS.md Template</a></p>
+  <p class="source-line"><span class="en">Source:</span><span class="de">Quelle:</span> <a href="https://docs.openclaw.ai/reference/templates/AGENTS">OpenClaw AGENTS.md Template</a></p>
 </section>
 
 <!-- Hooks -->
 <section>
-  <h2><span class="label">Automation</span>Hooks: Events That Trigger Actions</h2>
+  <h2><span class="label"><span class="en">Automation</span><span class="de">Automatisierung</span></span><span class="en">Hooks: Events That Trigger Actions</span><span class="de">Hooks: Ereignisse, die Aktionen auslösen</span></h2>
 
-  <p>A CLI waits for your input. An agent reacts to <strong>events</strong>:</p>
+  <p><span class="en">A CLI waits for your input. An agent reacts to <strong>events</strong>:</span><span class="de">Ein CLI wartet auf deine Eingabe. Ein Agent reagiert auf <strong>Ereignisse</strong>:</span></p>
 
   <div class="grid grid-2">
     <div class="card">
       <div class="icon">🔔</div>
-      <h3>What are Hooks?</h3>
-      <p>Code that runs automatically when something happens. Not manually triggered — the system triggers it. Like a doorbell: someone arrives, the bell rings, you don't have to watch the door.</p>
+      <h3><span class="en">What are Hooks?</span><span class="de">Was sind Hooks?</span></h3>
+      <p><span class="en">Code that runs automatically when something happens. Not manually triggered — the system triggers it. Like a doorbell: someone arrives, the bell rings, you don't have to watch the door.</span><span class="de">Code, der automatisch ausgeführt wird, wenn etwas passiert. Nicht manuell ausgelöst – das System löst ihn aus. Wie eine Türklingel: Jemand kommt an, die Klingel läutet, du musst nicht die Tür beobachten.</span></p>
     </div>
     <div class="card">
       <div class="icon">⚙️</div>
-      <h3>Common Agent Hooks</h3>
+      <h3><span class="en">Common Agent Hooks</span><span class="de">Übliche Agent-Hooks</span></h3>
       <p style="font-size:.85rem;line-height:1.9">
-        <strong>Pre-Push</strong> — Quality gate before code goes to GitHub<br>
-        <strong>Heartbeat</strong> — Health check every 2 hours<br>
-        <strong>Post-Commit</strong> — Run tests after changes<br>
-        <strong>Message Received</strong> — Telegram/Signal triggers a session<br>
-        <strong>Cron</strong> — Daily digest at 07:00, weekly review on Mondays
+        <strong>Pre-Push</strong> — <span class="en">Quality gate before code goes to GitHub</span><span class="de">Qualitätstor, bevor Code auf GitHub geht</span><br>
+        <strong>Heartbeat</strong> — <span class="en">Health check every 2 hours</span><span class="de">Gesundheitsprüfung alle 2 Stunden</span><br>
+        <strong>Post-Commit</strong> — <span class="en">Run tests after changes</span><span class="de">Tests nach Änderungen ausführen</span><br>
+        <strong><span class="en">Message Received</span><span class="de">Nachricht empfangen</span></strong> — <span class="en">Telegram/Signal triggers a session</span><span class="de">Telegram/Signal löst eine Sitzung aus</span><br>
+        <strong>Cron</strong> — <span class="en">Daily digest at 07:00, weekly review on Mondays</span><span class="de">Tägliche Zusammenfassung um 07:00, wöchentlicher Rückblick montags</span>
       </p>
     </div>
   </div>
 
   <div class="callout">
-    <strong>Why this matters:</strong> A CLI tool does nothing when you're asleep. An agent with hooks runs your morning digest, checks system health at 3 AM, and has results waiting when you wake up.
+    <strong><span class="en">Why this matters:</span><span class="de">Warum das wichtig ist:</span></strong> <span class="en">A CLI tool does nothing when you're asleep. An agent with hooks runs your morning digest, checks system health at 3 AM, and has results waiting when you wake up.</span><span class="de">Ein CLI-Werkzeug tut nichts, wenn du schläfst. Ein Agent mit Hooks erstellt deine morgendliche Zusammenfassung, überprüft die Systemgesundheit um 3 Uhr nachts und hat Ergebnisse parat, wenn du aufwachst.</span>
   </div>
 </section>
 
 <!-- Skills -->
 <section>
-  <h2><span class="label">Modularity</span>Skills: Knowledge On Demand</h2>
+  <h2><span class="label"><span class="en">Modularity</span><span class="de">Modularität</span></span><span class="en">Skills: Knowledge On Demand</span><span class="de">Skills: Wissen bei Bedarf</span></h2>
 
-  <p>A CLI loads everything into context at once. An agent loads skills <strong>only when needed</strong>:</p>
+  <p><span class="en">A CLI loads everything into context at once. An agent loads skills <strong>only when needed</strong>:</span><span class="de">Ein CLI lädt alles auf einmal in den Kontext. Ein Agent lädt Skills <strong>nur bei Bedarf</strong>:</span></p>
 
   <div class="code-block">
-<span style="color:var(--muted)"># CLI approach: everything in one prompt</span><br>
-"You are a coding assistant that can also do research,<br>
-&nbsp;write content, manage files, check security, review PRs,<br>
-&nbsp;run tests, deploy, and make coffee."<br>
-<span style="color:var(--muted)"># → Bloated context, mediocre at everything</span><br>
+<span style="color:var(--muted)"># <span class="en">CLI approach: everything in one prompt</span><span class="de">CLI-Ansatz: alles in einem Prompt</span></span><br>
+<span class="en">"You are a coding assistant that can also do research,
+&nbsp;write content, manage files, check security, review PRs,
+&nbsp;run tests, deploy, and make coffee."</span><span class="de">"Du bist ein Programmierassistent, der auch recherchieren,
+&nbsp;Inhalte schreiben, Dateien verwalten, Sicherheit prüfen, PRs überprüfen,
+&nbsp;Tests ausführen, bereitstellen und Kaffee kochen kann."</span><br>
+<span style="color:var(--muted)"># → <span class="en">Bloated context, mediocre at everything</span><span class="de">Aufgeblähter Kontext, in allem mittelmäßig</span></span><br>
 <br>
-<span style="color:var(--muted)"># Agent approach: skills loaded on demand</span><br>
-User: "Research the current state of MCP"<br>
-Agent: <em>loads skills/deep-research/SKILL.md</em><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>follows the research methodology</em><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>unloads skill when done</em><br>
-<span style="color:var(--green)"># → Focused context, excellent at the current task</span>
+<span style="color:var(--muted)"># <span class="en">Agent approach: skills loaded on demand</span><span class="de">Agent-Ansatz: Skills bei Bedarf geladen</span></span><br>
+User: "<span class="en">Research the current state of MCP</span><span class="de">Recherchiere den aktuellen Stand von MCP</span>"<br>
+Agent: <em><span class="en">loads skills/deep-research/SKILL.md</span><span class="de">lädt skills/deep-research/SKILL.md</span></em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="en">follows the research methodology</span><span class="de">folgt der Recherchemethodik</span></em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="en">unloads skill when done</span><span class="de">entlädt Skill, wenn fertig</span></em><br>
+<span style="color:var(--green)"># → <span class="en">Focused context, excellent at the current task</span><span class="de">Fokussierter Kontext, exzellent bei der aktuellen Aufgabe</span></span>
   </div>
 
   <div class="grid grid-3">
     <div class="card" style="text-align:center">
-      <h3>Skill File</h3>
-      <p>A markdown instruction file. Defines the task, steps, output format, and constraints.</p>
+      <h3><span class="en">Skill File</span><span class="de">Skill-Datei</span></h3>
+      <p><span class="en">A markdown instruction file. Defines the task, steps, output format, and constraints.</span><span class="de">Eine Markdown-Anweisungsdatei. Definiert die Aufgabe, Schritte, Ausgabeformat und Einschränkungen.</span></p>
     </div>
     <div class="card" style="text-align:center">
-      <h3>Skill Routing</h3>
-      <p>AGENTS.md maps intents to skills. "Research X" → loads <code>deep-research/</code> automatically.</p>
+      <h3><span class="en">Skill Routing</span><span class="de">Skill-Routing</span></h3>
+      <p><span class="en">AGENTS.md maps intents to skills. "Research X" → loads <code>deep-research/</code> automatically.</span><span class="de">AGENTS.md ordnet Absichten Skills zu. "Recherchiere X" → lädt automatisch <code>deep-research/</code>.</span></p>
     </div>
     <div class="card" style="text-align:center">
-      <h3>Token Efficiency</h3>
-      <p>Only the active skill uses context. Dozens to hundreds of skills possible, 1-2 loaded at a time.</p>
+      <h3><span class="en">Token Efficiency</span><span class="de">Token-Effizienz</span></h3>
+      <p><span class="en">Only the active skill uses context. Dozens to hundreds of skills possible, 1-2 loaded at a time.</span><span class="de">Nur der aktive Skill nutzt den Kontext. Dutzende bis Hunderte von Skills möglich, 1-2 gleichzeitig geladen.</span></p>
     </div>
   </div>
 </section>
 
 <!-- Why It Matters -->
 <section>
-  <h2><span class="label">So What?</span>Why This Matters</h2>
+  <h2><span class="label">So What?</span><span class="en">Why This Matters</span><span class="de">Warum das wichtig ist</span></h2>
 
   <div class="card" style="border-color:var(--accent);margin-bottom:1rem">
-    <h3>If you only know CLI tools, you're missing the bigger picture.</h3>
-    <p>What CLI tools don't cover: persistence across sessions, event-driven automation, modular skills, multi-agent collaboration, monitoring, and the trust framework that governs it all.</p>
+    <h3><span class="en">If you only know CLI tools, you're missing the bigger picture.</span><span class="de">Wenn du nur CLI-Werkzeuge kennst, verpasst du das große Ganze.</span></h3>
+    <p><span class="en">What CLI tools don't cover: persistence across sessions, event-driven automation, modular skills, multi-agent collaboration, monitoring, and the trust framework that governs it all.</span><span class="de">Was CLI-Werkzeuge nicht abdecken: sitzungsübergreifende Persistenz, ereignisgesteuerte Automatisierung, modulare Skills, Multi-Agent-Kollaboration, Überwachung und das Vertrauensframework, das alles regelt.</span></p>
   </div>
 
-  <p>This isn't about one being "better" — they serve different purposes:</p>
+  <p><span class="en">This isn't about one being "better" — they serve different purposes:</span><span class="de">Es geht nicht darum, dass eines "besser" ist – sie dienen unterschiedlichen Zwecken:</span></p>
 
   <table class="compare-table">
     <thead>
-      <tr><th>Use Case</th><th>CLI Tool</th><th>Agent System</th></tr>
+      <tr><th><span class="en">Use Case</span><span class="de">Anwendungsfall</span></th><th><span class="en">CLI Tool</span><span class="de">CLI-Werkzeug</span></th><th><span class="en">Agent System</span><span class="de">Agent-System</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>Quick code fix</td><td style="color:var(--green)">✅ Better</td><td>Overkill</td></tr>
-      <tr><td>One-off research</td><td style="color:var(--green)">✅ Faster</td><td>Works too</td></tr>
-      <tr><td>Daily automated digest</td><td>Can't do this</td><td style="color:var(--green)">✅ Built for this</td></tr>
-      <tr><td>Multi-day project tracking</td><td>Loses context</td><td style="color:var(--green)">✅ Remembers</td></tr>
-      <tr><td>Cross-review between systems</td><td>Not possible</td><td style="color:var(--green)">✅ Exchange pattern</td></tr>
-      <tr><td>24/7 monitoring</td><td>Needs you online</td><td style="color:var(--green)">✅ Heartbeat hooks</td></tr>
+      <tr><td><span class="en">Quick code fix</span><span class="de">Schnelle Code-Korrektur</span></td><td style="color:var(--green)">✅ <span class="en">Better</span><span class="de">Besser</span></td><td><span class="en">Overkill</span><span class="de">Überdimensioniert</span></td></tr>
+      <tr><td><span class="en">One-off research</span><span class="de">Einmalige Recherche</span></td><td style="color:var(--green)">✅ <span class="en">Faster</span><span class="de">Schneller</span></td><td><span class="en">Works too</span><span class="de">Funktioniert auch</span></td></tr>
+      <tr><td><span class="en">Daily automated digest</span><span class="de">Tägliche autom. Zusammenfassung</span></td><td><span class="en">Can't do this</span><span class="de">Kann das nicht</span></td><td style="color:var(--green)">✅ <span class="en">Built for this</span><span class="de">Dafür gemacht</span></td></tr>
+      <tr><td><span class="en">Multi-day project tracking</span><span class="de">Mehrtägige Projektverfolgung</span></td><td><span class="en">Loses context</span><span class="de">Verliert Kontext</span></td><td style="color:var(--green)">✅ <span class="en">Remembers</span><span class="de">Erinnert sich</span></td></tr>
+      <tr><td><span class="en">Cross-review between systems</span><span class="de">Systemübergreifende Prüfung</span></td><td><span class="en">Not possible</span><span class="de">Nicht möglich</span></td><td style="color:var(--green)">✅ Exchange pattern</td></tr>
+      <tr><td>24/7 <span class="en">monitoring</span><span class="de">Überwachung</span></td><td><span class="en">Needs you online</span><span class="de">Benötigt deine Online-Präsenz</span></td><td style="color:var(--green)">✅ Heartbeat hooks</td></tr>
     </tbody>
   </table>
 
   <div class="callout" style="text-align:center;margin-top:1.5rem">
-    <strong>The progression:</strong> Most people start with a CLI tool, realize they want persistence and automation, and evolve toward an agent system. This kit helps you understand that system <em>before</em> you build it.
+    <strong><span class="en">The progression:</span><span class="de">Die Entwicklung:</span></strong> <span class="en">Most people start with a CLI tool, realize they want persistence and automation, and evolve toward an agent system. This kit helps you understand that system <em>before</em> you build it.</span><span class="de">Die meisten Leute beginnen mit einem CLI-Werkzeug, stellen fest, dass sie Persistenz und Automatisierung wollen, und entwickeln sich zu einem Agent-System. Dieses Kit hilft dir, dieses System zu verstehen, <em>bevor</em> du es baust.</span>
   </div>
 </section>
 
 <!-- Nav -->
 <div class="doc-bottom-nav">
-  <a href="index.html" class="btn btn-secondary">← Back to Kit</a>
-  <a href="delegation.html" class="btn btn-secondary">Next: Delegation →</a>
+  <a href="index.html" class="btn btn-secondary"><span class="en">← Back to Kit</span><span class="de">← Zurück zum Kit</span></a>
+  <a href="delegation.html" class="btn btn-secondary"><span class="en">Next: Delegation →</span><span class="de">Weiter: Delegation →</span></a>
 </div>
 
 </div><!-- /.container -->
 
 <footer>
-  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
-  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
-  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
-  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit"><span class="en">Source on GitHub</span><span class="de">Quelle auf GitHub</span></a> ·
+  <a href="https://planck-lab.github.io/agent-systems/"><span class="en">Agent Literacy Course</span><span class="de">Agent Literacy Kurs</span></a> ·
+  <a href="https://janrummel.github.io/ai-learning/"><span class="en">AI Learning Ecosystem</span><span class="de">KI-Lernökosystem</span></a>
+  <br><span style="margin-top:.5rem;display:inline-block"><span class="en">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span><span class="de">Von <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · Kein Tracking.</span></span>
 </footer>
 
+<script>
+function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')"]').classList.add('active');localStorage.setItem('agent-kit-lang',l)}
+var saved=localStorage.getItem('agent-kit-lang');if(saved){setLang(saved)}else if(navigator.language.startsWith('de')){setLang('de')}
+</script>
 <script data-goatcounter="https://janrummel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

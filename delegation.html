@@ -20,50 +20,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="lang-switch" role="navigation" aria-label="Language">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('de')">DE</button>
+</div>
 
 <nav class="doc-nav" aria-label="Main navigation">
-  <a href="index.html">← Back to Kit</a>
+  <a href="index.html"><span class="en">← Back to Kit</span><span class="de">← Zurück zum Kit</span></a>
   <span class="nav-links">
-    <span class="nav-group"><span class="nav-label">Concepts</span> <a href="agent-vs-cli.html">Agent ≠ CLI</a> <a href="delegation.html" class="active">Delegation</a></span>
-    <span class="nav-group"><span class="nav-label">Guides</span> <a href="runtime.html">Runtime</a> <a href="agent-exchange.html">Exchange</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Concepts</span><span class="de">Konzepte</span></span> <a href="agent-vs-cli.html">Agent ≠ CLI</a> <a href="delegation.html" class="active">Delegation</a></span>
+    <span class="nav-group"><span class="nav-label"><span class="en">Guides</span><span class="de">Anleitungen</span></span> <a href="runtime.html">Runtime</a> <a href="agent-exchange.html">Exchange</a></span>
   </span>
 </nav>
 
 <div class="container doc-container">
 
-<h1>🎯 The Delegation Decision</h1>
-<p class="doc-intro">Before delegating any task to an agent, run it through this framework. The goal: delegate the right things, keep control of the rest.</p>
+<h1><span class="en">🎯 The Delegation Decision</span><span class="de">🎯 Die Delegations-Entscheidung</span></h1>
+<p class="doc-intro"><span class="en">Before delegating any task to an agent, run it through this framework. The goal: delegate the right things, keep control of the rest.</span><span class="de">Bevor du eine Aufgabe an einen Agent delegierst, prüfe sie mit diesem Framework. Das Ziel: die richtigen Dinge delegieren und die Kontrolle über den Rest behalten.</span></p>
 
 <!-- The Matrix -->
 <section>
-  <h2><span class="label">Core Framework</span>The 2×2 Matrix</h2>
+  <h2><span class="label"><span class="en">Core Framework</span><span class="de">Kern-Framework</span></span><span class="en">The 2×2 Matrix</span><span class="de">Die 2×2-Matrix</span></h2>
   <table class="compare-table" style="text-align:center">
     <thead>
-      <tr><th></th><th>Agent CAN do it</th><th>Agent CANNOT do it</th></tr>
+      <tr><th></th><th><span class="en">Agent CAN do it</span><span class="de">Agent KANN es tun</span></th><th><span class="en">Agent CANNOT do it</span><span class="de">Agent KANN es NICHT tun</span></th></tr>
     </thead>
     <tbody>
-      <tr><td style="font-weight:700">Low risk</td><td style="color:var(--green)">✅ Delegate</td><td>Human does it</td></tr>
-      <tr><td style="font-weight:700">High risk</td><td style="color:var(--orange)">⚠️ Delegate + review</td><td style="color:var(--purple)">❌ Don't delegate</td></tr>
+      <tr><td style="font-weight:700"><span class="en">Low risk</span><span class="de">Geringes Risiko</span></td><td style="color:var(--green)">✅ <span class="en">Delegate</span><span class="de">Delegieren</span></td><td><span class="en">Human does it</span><span class="de">Mensch erledigt es</span></td></tr>
+      <tr><td style="font-weight:700"><span class="en">High risk</span><span class="de">Hohes Risiko</span></td><td style="color:var(--orange)">⚠️ <span class="en">Delegate + review</span><span class="de">Delegieren + prüfen</span></td><td style="color:var(--purple)">❌ <span class="en">Don't delegate</span><span class="de">Nicht delegieren</span></td></tr>
     </tbody>
   </table>
 
   <div class="grid grid-2" style="margin-top:1.5rem">
     <div class="card">
-      <h3>Can the agent do it?</h3>
+      <h3><span class="en">Can the agent do it?</span><span class="de">Kann der Agent es tun?</span></h3>
       <p style="font-size:.85rem;line-height:1.8">
-        Is the task well-defined?<br>
-        Can the output be verified?<br>
-        Does it need post-cutoff knowledge?<br>
-        Does it require YOUR specific context?
+        <span class="en">Is the task well-defined?</span><span class="de">Ist die Aufgabe klar definiert?</span><br>
+        <span class="en">Can the output be verified?</span><span class="de">Kann das Ergebnis überprüft werden?</span><br>
+        <span class="en">Does it need post-cutoff knowledge?</span><span class="de">Benötigt es Wissen nach dem Stichtag?</span><br>
+        <span class="en">Does it require YOUR specific context?</span><span class="de">Benötigt es DEINEN spezifischen Kontext?</span>
       </p>
     </div>
     <div class="card">
-      <h3>How risky is it?</h3>
+      <h3><span class="en">How risky is it?</span><span class="de">Wie riskant ist es?</span></h3>
       <p style="font-size:.85rem;line-height:1.8">
-        <span style="color:var(--green)">Low:</span> Summarize, format, search<br>
-        <span style="color:var(--orange)">Medium:</span> Write code, create content<br>
-        <span style="color:var(--purple)">High:</span> Delete files, send emails<br>
-        <span style="color:var(--text)">Critical:</span> Irreversible, personal data, public
+        <span style="color:var(--green)"><span class="en">Low:</span><span class="de">Gering:</span></span> <span class="en">Summarize, format, search</span><span class="de">Zusammenfassen, formatieren, suchen</span><br>
+        <span style="color:var(--orange)"><span class="en">Medium:</span><span class="de">Mittel:</span></span> <span class="en">Write code, create content</span><span class="de">Code schreiben, Inhalte erstellen</span><br>
+        <span style="color:var(--purple)"><span class="en">High:</span><span class="de">Hoch:</span></span> <span class="en">Delete files, send emails</span><span class="de">Dateien löschen, E-Mails senden</span><br>
+        <span style="color:var(--text)"><span class="en">Critical:</span><span class="de">Kritisch:</span></span> <span class="en">Irreversible, personal data, public</span><span class="de">Irreversibel, persönliche Daten, öffentlich</span>
       </p>
     </div>
   </div>
@@ -71,92 +75,96 @@
 
 <!-- Delegation Patterns -->
 <section>
-  <h2><span class="label">Patterns</span>Five Ways to Delegate</h2>
+  <h2><span class="label"><span class="en">Patterns</span><span class="de">Muster</span></span><span class="en">Five Ways to Delegate</span><span class="de">Fünf Wege zu delegieren</span></h2>
 
   <div class="card" style="margin-bottom:.75rem;border-color:var(--green)">
-    <h3>1. Fire and Forget ✅</h3>
-    <p>Low risk, agent is competent. Example: "Summarize this article." Human involvement: none.</p>
+    <h3><span class="en">1. Fire and Forget ✅</span><span class="de">1. Abfeuern und Vergessen ✅</span></h3>
+    <p><span class="en">Low risk, agent is competent. Example: "Summarize this article." Human involvement: none.</span><span class="de">Geringes Risiko, Agent ist kompetent. Beispiel: „Fasse diesen Artikel zusammen.“ Menschliche Beteiligung: keine.</span></p>
   </div>
 
   <div class="card" style="margin-bottom:.75rem;border-color:var(--orange)">
-    <h3>2. Draft and Review ⚠️</h3>
-    <p>Medium risk or uncertain quality. Example: "Write a blog post about X." Human reviews before publishing.</p>
+    <h3><span class="en">2. Draft and Review ⚠️</span><span class="de">2. Entwerfen und Prüfen ⚠️</span></h3>
+    <p><span class="en">Medium risk or uncertain quality. Example: "Write a blog post about X." Human reviews before publishing.</span><span class="de">Mittleres Risiko oder unsichere Qualität. Beispiel: „Schreibe einen Blogbeitrag über X.“ Mensch prüft vor der Veröffentlichung.</span></p>
   </div>
 
   <div class="card" style="margin-bottom:.75rem">
-    <h3>3. Plan and Approve</h3>
-    <p>High risk, but agent can plan. Example: "Reorganize the file structure." Agent proposes → human approves → agent executes.</p>
+    <h3><span class="en">3. Plan and Approve</span><span class="de">3. Planen und Genehmigen</span></h3>
+    <p><span class="en">High risk, but agent can plan. Example: "Reorganize the file structure." Agent proposes → human approves → agent executes.</span><span class="de">Hohes Risiko, aber Agent kann planen. Beispiel: „Organisiere die Dateistruktur neu.“ Agent schlägt vor → Mensch genehmigt → Agent führt aus.</span></p>
   </div>
 
   <div class="card" style="margin-bottom:.75rem">
-    <h3>4. Supervised Execution</h3>
-    <p>High risk, step by step. Example: "Deploy the new version." Human approves each step individually.</p>
+    <h3><span class="en">4. Supervised Execution</span><span class="de">4. Überwachte Ausführung</span></h3>
+    <p><span class="en">High risk, step by step. Example: "Deploy the new version." Human approves each step individually.</span><span class="de">Hohes Risiko, Schritt für Schritt. Beispiel: „Stelle die neue Version bereit.“ Mensch genehmigt jeden Schritt einzeln.</span></p>
   </div>
 
   <div class="card" style="border-color:var(--purple)">
-    <h3>5. Human Only ❌</h3>
-    <p>Critical risk or requires human judgment. Example: "Should we hire this person?" Agent can gather info, but human decides.</p>
+    <h3><span class="en">5. Human Only ❌</span><span class="de">5. Nur Mensch ❌</span></h3>
+    <p><span class="en">Critical risk or requires human judgment. Example: "Should we hire this person?" Agent can gather info, but human decides.</span><span class="de">Kritisches Risiko oder erfordert menschliches Urteilsvermögen. Beispiel: „Sollen wir diese Person einstellen?“ Agent kann Informationen sammeln, aber der Mensch entscheidet.</span></p>
   </div>
 </section>
 
 <!-- Common Mistakes -->
 <section>
-  <h2><span class="label">Pitfalls</span>Common Mistakes</h2>
+  <h2><span class="label"><span class="en">Pitfalls</span><span class="de">Fallstricke</span></span><span class="en">Common Mistakes</span><span class="de">Häufige Fehler</span></h2>
 
   <div class="grid grid-3">
     <div class="card">
-      <h3>🔴 Over-delegation</h3>
-      <p>"Let the agent handle everything." Invisible errors accumulate.</p>
-      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong>Fix:</strong> Start with Draft+Review for everything. Promote to Fire+Forget after proving reliability.</p>
+      <h3><span class="en">🔴 Over-delegation</span><span class="de">🔴 Über-Delegation</span></h3>
+      <p><span class="en">"Let the agent handle everything." Invisible errors accumulate.</span><span class="de">„Lass den Agent alles erledigen.“ Unsichtbare Fehler häufen sich an.</span></p>
+      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong><span class="en">Fix:</span><span class="de">Lösung:</span></strong> <span class="en">Start with Draft+Review for everything. Promote to Fire+Forget after proving reliability.</span><span class="de">Beginne bei allem mit Entwerfen+Prüfen. Steigere zu Abfeuern+Vergessen, nachdem die Zuverlässigkeit bewiesen ist.</span></p>
     </div>
     <div class="card">
-      <h3>🔴 Under-delegation</h3>
-      <p>"I'll do it myself, the agent makes mistakes." You're paying for an agent you don't use.</p>
-      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong>Fix:</strong> Start with low-risk tasks. Build trust gradually.</p>
+      <h3><span class="en">🔴 Under-delegation</span><span class="de">🔴 Unter-Delegation</span></h3>
+      <p><span class="en">"I'll do it myself, the agent makes mistakes." You're paying for an agent you don't use.</span><span class="de">„Ich mache es selbst, der Agent macht Fehler.“ Du bezahlst für einen Agent, den du nicht nutzt.</span></p>
+      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong><span class="en">Fix:</span><span class="de">Lösung:</span></strong> <span class="en">Start with low-risk tasks. Build trust gradually.</span><span class="de">Beginne mit risikoarmen Aufgaben. Baue schrittweise Vertrauen auf.</span></p>
     </div>
     <div class="card">
-      <h3>🔴 No Verification</h3>
-      <p>"The agent said it's done, so it's done." The biggest source of failures.</p>
-      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong>Fix:</strong> Every high-risk task needs a verification step. Not "did it run?" but "is the result correct?"</p>
+      <h3><span class="en">🔴 No Verification</span><span class="de">🔴 Keine Überprüfung</span></h3>
+      <p><span class="en">"The agent said it's done, so it's done." The biggest source of failures.</span><span class="de">„Der Agent sagte, es sei erledigt, also ist es erledigt.“ Die größte Fehlerquelle.</span></p>
+      <p style="color:var(--green);font-size:.82rem;margin-top:.5rem"><strong><span class="en">Fix:</span><span class="de">Lösung:</span></strong> <span class="en">Every high-risk task needs a verification step. Not "did it run?" but "is the result correct?"</span><span class="de">Jede risikoreiche Aufgabe benötigt einen Überprüfungsschritt. Nicht „ist es gelaufen?“, sondern „ist das Ergebnis korrekt?“</span></p>
     </div>
   </div>
 </section>
 
 <!-- Trust Ladder -->
 <section>
-  <h2><span class="label">Progressive Trust</span>The Trust Ladder</h2>
+  <h2><span class="label"><span class="en">Progressive Trust</span><span class="de">Progressives Vertrauen</span></span><span class="en">The Trust Ladder</span><span class="de">Die Vertrauensleiter</span></h2>
 
   <div class="card">
     <p style="font-family:'SF Mono',monospace;font-size:.85rem;line-height:2.2">
-      <span style="color:var(--green)">Week 1&nbsp;&nbsp;</span> 🟢 Everything needs approval <span class="muted">(driving instructor)</span><br>
-      <span style="color:var(--green)">Week 2&nbsp;&nbsp;</span> 🟢 Routine tasks auto-approved <span class="muted">(familiar roads)</span><br>
-      <span style="color:var(--orange)">Week 4&nbsp;&nbsp;</span> 🟡 Research runs autonomously <span class="muted">(highway driving)</span><br>
-      <span style="color:var(--orange)">Week 8&nbsp;&nbsp;</span> 🟠 Complex workflows delegated <span class="muted">(city driving)</span><br>
-      <span style="color:var(--orange)">Month 3</span> 🟠 Sub-agents run scheduled tasks <span class="muted">(solo driving)</span><br>
-      <span style="color:var(--purple)">Month 6</span> 🔴 System monitors itself <span class="muted">(dashcam)</span>
+      <span style="color:var(--green)"><span class="en">Week 1&nbsp;&nbsp;</span><span class="de">Woche 1&nbsp;&nbsp;</span></span> 🟢 <span class="en">Everything needs approval</span><span class="de">Alles braucht Genehmigung</span> <span class="muted">(<span class="en">driving instructor</span><span class="de">Fahrlehrer</span>)</span><br>
+      <span style="color:var(--green)"><span class="en">Week 2&nbsp;&nbsp;</span><span class="de">Woche 2&nbsp;&nbsp;</span></span> 🟢 <span class="en">Routine tasks auto-approved</span><span class="de">Routineaufgaben autom. genehmigt</span> <span class="muted">(<span class="en">familiar roads</span><span class="de">bekannte Straßen</span>)</span><br>
+      <span style="color:var(--orange)"><span class="en">Week 4&nbsp;&nbsp;</span><span class="de">Woche 4&nbsp;&nbsp;</span></span> 🟡 <span class="en">Research runs autonomously</span><span class="de">Recherche läuft autonom</span> <span class="muted">(<span class="en">highway driving</span><span class="de">Autobahnfahrt</span>)</span><br>
+      <span style="color:var(--orange)"><span class="en">Week 8&nbsp;&nbsp;</span><span class="de">Woche 8&nbsp;&nbsp;</span></span> 🟠 <span class="en">Complex workflows delegated</span><span class="de">Komplexe Workflows delegiert</span> <span class="muted">(<span class="en">city driving</span><span class="de">Stadtverkehr</span>)</span><br>
+      <span style="color:var(--orange)"><span class="en">Month 3</span><span class="de">Monat 3</span></span> 🟠 <span class="en">Sub-agents run scheduled tasks</span><span class="de">Sub-Agents führen geplante Aufgaben aus</span> <span class="muted">(<span class="en">solo driving</span><span class="de">alleine fahren</span>)</span><br>
+      <span style="color:var(--purple)"><span class="en">Month 6</span><span class="de">Monat 6</span></span> 🔴 <span class="en">System monitors itself</span><span class="de">System überwacht sich selbst</span> <span class="muted">(dashcam)</span>
     </p>
   </div>
 
   <div class="callout" style="text-align:center;margin-top:1rem">
-    <strong>Don't skip levels.</strong> Each level builds on trust earned at the previous level. Jumping from Week 1 to Month 3 is how agents break things.
+    <strong><span class="en">Don't skip levels.</span><span class="de">Überspringe keine Stufen.</span></strong> <span class="en">Each level builds on trust earned at the previous level. Jumping from Week 1 to Month 3 is how agents break things.</span><span class="de">Jede Stufe baut auf dem Vertrauen auf, das auf der vorherigen Stufe erworben wurde. Von Woche 1 zu Monat 3 zu springen, ist, wie Agents Dinge kaputt machen.</span>
   </div>
 </section>
 
 <!-- Nav -->
 <div class="doc-bottom-nav">
-  <a href="agent-exchange.html" class="btn btn-secondary">← Exchange</a>
-  <a href="index.html" class="btn btn-secondary">Back to Kit →</a>
+  <a href="agent-exchange.html" class="btn btn-secondary"><span class="en">← Exchange</span><span class="de">← Exchange</span></a>
+  <a href="index.html" class="btn btn-secondary"><span class="en">Back to Kit →</span><span class="de">Zurück zum Kit →</span></a>
 </div>
 
 </div><!-- /.container -->
 
 <footer>
-  <a href="https://github.com/planck-lab/agent-system-starter-kit">Source on GitHub</a> ·
-  <a href="https://planck-lab.github.io/agent-systems/">Agent Literacy Course</a> ·
-  <a href="https://janrummel.github.io/ai-learning/">AI Learning Ecosystem</a>
-  <br><span style="margin-top:.5rem;display:inline-block">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span>
+  <a href="https://github.com/planck-lab/agent-system-starter-kit"><span class="en">Source on GitHub</span><span class="de">Quelle auf GitHub</span></a> ·
+  <a href="https://planck-lab.github.io/agent-systems/"><span class="en">Agent Literacy Course</span><span class="de">Agent Literacy Kurs</span></a> ·
+  <a href="https://janrummel.github.io/ai-learning/"><span class="en">AI Learning Ecosystem</span><span class="de">KI-Lernökosystem</span></a>
+  <br><span style="margin-top:.5rem;display:inline-block"><span class="en">By <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · No tracking.</span><span class="de">Von <a href="https://linkedin.com/in/janrummel">Jan Rummel</a> · CC BY-SA 4.0 · Kein Tracking.</span></span>
 </footer>
 
+<script>
+function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')"]').classList.add('active');localStorage.setItem('agent-kit-lang',l)}
+var saved=localStorage.getItem('agent-kit-lang');if(saved){setLang(saved)}else if(navigator.language.startsWith('de')){setLang('de')}
+</script>
 <script data-goatcounter="https://janrummel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
