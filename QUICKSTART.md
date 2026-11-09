@@ -78,7 +78,7 @@ No API key, no platform, no setup. Just read the files — the architecture is t
 
 **Reading order:** SOUL.md → AGENTS.md → docs/ARCHITECTURE.md → docs/FAILURES.md → exchange/ + [examples/exchange-session.md](examples/exchange-session.md)
 
-If you've taken the [Agent Literacy Course](https://planck-lab.github.io/agent-systems/), you'll recognize the concepts:
+If you've taken the [Agent Literacy Course](https://janrummel.github.io/agent-literacy/), you'll recognize the concepts:
 - **Module 1** (Agent Loop) → See it in `AGENTS.md` (skill routing, intent detection)
 - **Module 2** (Trust & Delegation) → See it in `docs/DELEGATION.md` (the 5 levels)
 - **Module 3** (Architecture) → See it in `docs/ARCHITECTURE.md` (4-layer model)

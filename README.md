@@ -10,7 +10,7 @@
 
 > **Status: frozen (as of March 2026).** No new features; reported errors are still fixed.
 
-📚 **New to agent systems?** Start with the [Agent Literacy Course](https://planck-lab.github.io/agent-literacy/) — no code required.
+📚 **New to agent systems?** Start with the [Agent Literacy Course](https://janrummel.github.io/agent-literacy/) — no code required.
 
 ### ⚡ [Quickstart Guide →](QUICKSTART.md)
 
@@ -35,7 +35,7 @@ Want both agents to collaborate?
 |------|------|----------|
 | **📖 Study** | 30 min | Read the architecture docs, understand the patterns |
 | **🚀 Build** | 30 min | Clone, personalize, connect to Claude Code / OpenClaw / any LLM |
-| **🎓 Learn** | 2 hours | Follow the [Agent Literacy Course](https://planck-lab.github.io/agent-literacy/) with this as companion |
+| **🎓 Learn** | 2 hours | Follow the [Agent Literacy Course](https://janrummel.github.io/agent-literacy/) with this as companion |
 
 ---
 
@@ -223,7 +223,7 @@ See [`docs/FAILURES.md`](docs/FAILURES.md) for detailed stories. Highlights:
 - **Building your first agent system** — Clone, personalize, run ([Quickstart](QUICKSTART.md))
 - **Studying agent architecture** — See how a real system is structured
 - **Evaluating whether to build your own** — Understand the complexity before committing
-- **Teaching/learning** — Use as companion to the [Agent Literacy course](https://planck-lab.github.io/agent-systems/)
+- **Teaching/learning** — Use as companion to the [Agent Literacy course](https://janrummel.github.io/agent-literacy/)
 
 ## How This Compares
 
@@ -267,13 +267,11 @@ This kit is one half of a duo:
 
 **Recommended learning journey:**
 
-1. **📚 [Agent Literacy](https://planck-lab.github.io/agent-literacy/)** — Start here if you're new to agent systems. No code required, pure concept work. Understand what agents are, how they think, and when (not) to use them.
+1. **📚 [Agent Literacy](https://janrummel.github.io/agent-literacy/)** — Start here if you're new to agent systems. No code required, pure concept work. Understand what agents are, how they think, and when (not) to use them.
 
 2. **🏗️ This Kit** — Once you understand the theory, use this starter kit to see how concepts translate into a real system. Study the architecture, clone it, personalize it.
 
 3. **🌐 [AI Learning Hub](https://janrummel.github.io/ai-learning/)** — Explore the broader ecosystem: GitHub workflows, Obsidian knowledge management, AI reasoning patterns.
-
-4. **🔬 [Agent Systems (Archive)](https://planck-lab.github.io/agent-systems/)** — Technical deep dive into production patterns, multi-agent orchestration, and system design. Advanced material.
 
 **Philosophy:** Understand before you build → Build with structure → Refine with experience.
 
