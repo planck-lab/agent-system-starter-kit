@@ -8,6 +8,8 @@
 
 > Based on a real agent system that's been running in production since early 2026. Anonymized, documented, and ready to use.
 
+> **Status: frozen (as of March 2026).** No new features; reported errors are still fixed.
+
 📚 **New to agent systems?** Start with the [Agent Literacy Course](https://planck-lab.github.io/agent-literacy/) — no code required.
 
 ### ⚡ [Quickstart Guide →](QUICKSTART.md)
@@ -275,9 +277,15 @@ This kit is one half of a duo:
 
 **Philosophy:** Understand before you build → Build with structure → Refine with experience.
 
+## Publishing
+
+https://planck-lab.github.io/agent-system-starter-kit/ is served by GitHub Pages straight from branch `main`, folder `/`. No build step: the files are static HTML, CSS and JavaScript.
+
 ## License
 
 Content: [CC BY-SA 4.0](LICENSE) · Code: [MIT](LICENSE-CODE)
+
+What counts as code: the code blocks inside the Markdown files and the HTML, CSS and JavaScript of the website. Everything else (texts, architecture descriptions, diagrams) is CC BY-SA 4.0.
 
 ---
 
